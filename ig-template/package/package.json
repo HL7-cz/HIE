@@ -1,0 +1,11 @@
+{
+  "name": "hl7.fhir.cz.empty.template",
+  "version": "0.0.1",
+  "type": "fhir.template",
+  "license": "CC0-1.0",
+  "description": "HL7 Czech FHIR Template",
+  "base": "fhir.base.template",
+  "dependencies": {
+    "fhir.base.template": "current"
+  }
+}

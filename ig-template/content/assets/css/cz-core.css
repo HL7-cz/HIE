@@ -1,0 +1,16 @@
+:root {
+    --ig-status-text-color: #183C62; /* 1. IG Title and status text color */
+    --ig-header-color: #f2fbff; /* 21. Header color (sides) */
+    --ig-header-container-color: #ffffff; /* 22. Header container color (center) *
+    /* --navbar-bg-color: #26407e; 2. Header container color */
+    --navbar-bg-color: #0E4194; /* 2. Header container color */
+    /* --footer-bg-color: #777799;  3. Footer background color*/
+    --footer-bg-color: #CEDFFA; /* 3. Footer background color*/
+    /* 4 --footer-container-bg-color: #2d457e; . Footer container color */
+    --footer-container-bg-color:#015085; /* 4. Footer container color */
+    --btn-hover-color: #a7c7e8;  /* 6. Menu button hover color */
+    --btn-active-color: #a7c7e8; /* 7. Menu button active color */
+    --btn-text-color: #f5f5f0; /* 8. Menu button text color */
+}
+#segment-footer > .container {background-color: #183C62;}
+.navbar-inverse {background-color: #183C62;}
