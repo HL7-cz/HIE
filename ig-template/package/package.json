@@ -1,5 +1,5 @@
 {
-  "name": "hl7.fhir.cz.empty.template",
+  "name": "hl7.fhir.cz.hie.template",
   "version": "0.0.1",
   "type": "fhir.template",
   "license": "CC0-1.0",
