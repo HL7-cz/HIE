@@ -66,8 +66,8 @@ pages:
 #   title: General Guidance
 # identifiers.md:
 #   title: Identifiers
-# artifacts.xml:
-#   title: Summary artifacts
+  artifacts.xml:
+    title: Artifacts
 # profiles-and-extensions.md:
 #   title: Profiles and extensions
 # downloads.md:
@@ -145,8 +145,7 @@ menu:
 #  Guidance:
 #    General guidance: general-guidance.html
 #    Identifiers: identifiers.html
-#  Artifacts: 
-#    Czech artifacts: artifacts.html
+  Artifacts: artifacts.html
 #    Profiles and extensions: profiles-and-extensions.html
 #  About:
 #    Downloads: downloads.html
@@ -218,7 +217,7 @@ menu:
 # is specified by id or name, SUSHI will replace it with the correct
 # URL when generating the IG JSON.
 #
-# groups:
+#groups:
 #   GroupA:
 #     name: Group A
 #     description: The Alpha Group
