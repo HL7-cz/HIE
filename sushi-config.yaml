@@ -68,14 +68,14 @@ dependencies:
 pages:
   index.md:
     title: Home
-# general-guidance.md:
-#   title: General Guidance
-# identifiers.md:
-#   title: Identifiers
+  mhd.md:
+    title: Mobile Access to Health Documents (MHD)
+  iti-65.md:
+    title: Provide document bundle [ITI-65]
+  profiles.md:
+    title: Profiles
   artifacts.xml:
     title: Artifacts
-# profiles-and-extensions.md:
-#   title: Profiles and extensions
 # downloads.md:
 #   title: Download
 #
@@ -148,9 +148,12 @@ parameters:  #see https://confluence.hl7.org/display/FHIR/Implementation+Guide+P
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-#  Guidance:
-#    General guidance: general-guidance.html
-#    Identifiers: identifiers.html
+  Volume 1:
+    Mobile Access to Health Documents (MHD): mhd.html
+  Volume 2:
+    Provide document bundle [ITI-65]: iti-65.html
+  Appendix:
+    Profiles: profiles.html
   Artifacts: artifacts.html
 #    Profiles and extensions: profiles-and-extensions.html
 #  About:
