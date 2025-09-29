@@ -23,9 +23,9 @@ Description: "CZ MHD Profile on DocumentReference"
 * category from CZ_DocumentEntryClassCodeVs (required)
 * subject 1.. 
 * subject.identifier 1..1
-//* subject.identifier only EPRSPIDIdentifier TODO nahradit KRZP id pacienta
+* subject.identifier only  CZ_RID_Identifier
 * subject ^comment = "Not a contained resource. The identifier points to an existing patient in the XDS Affinity Domain."
-* author only Reference
+* author only Reference (CZ_PractitionerRoleCore)
 * author 
 * author ^comment = "Contained resource."
 * author ^type.aggregation = #contained
