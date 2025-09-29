@@ -19,7 +19,7 @@ Description: "CZ MHD SubmissionSet Comprehensive"
 * code 
 * subject 1.. 
 * subject.identifier 1..1
-//* subject.identifier only EPRSPIDIdentifier TODO nahradit KRZP identifikátorem
+* subject.identifier only  CZ_RID_Identifier
 * subject ^comment = "Not a contained resource. The identifier points to an existing patient in the XDS Affinity Domain."
 * date 
 * source 
