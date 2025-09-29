@@ -18,9 +18,9 @@ Description: "CZ MHD Profile on DocumentReference"
 * docStatus ..0
 * docStatus ^comment = "These HL7 FHIR elements are not used in XDS, therefore would not be present. Document Consumers should be robust to these elements holding values."
 * type 1.. 
-* type ^binding.strength = #required
+* type from CZ_DocumentEntryTypeCodeVs (required)
 * category 1..1 
-* category ^binding.strength = #required
+* category from CZ_DocumentEntryClassCodeVs (required)
 * subject 1.. 
 * subject.identifier 1..1
 //* subject.identifier only EPRSPIDIdentifier TODO nahradit KRZP id pacienta
@@ -32,18 +32,20 @@ Description: "CZ MHD Profile on DocumentReference"
 * authenticator only Reference
 * authenticator ^type.aggregation = #contained
 * custodian ..0
+* language 1..
+* language from $eHDSILanguage (required)
 * relatesTo 
 * relatesTo ^comment = "See ITI TF-2c: 3.65.4.1.2.3"
 * description 
 * securityLabel 1.. 
 * securityLabel ^comment = "Note: This is NOT the DocumentReference.meta, as that holds the meta tags for the DocumentReference itself."
-* securityLabel ^binding.strength = #required
+* securityLabel from $hl7confidentialityClass (required)
 * content ..1
 * content.attachment 
 * content.attachment.contentType 1.. 
 //* content.attachment.contentType from $DocumentEntry.mimeType (required)
 * content.attachment.language 1.. 
-//* content.attachment.language from $DocumentEntry.languageCode (required)
+* content.attachment.language from $eHDSILanguage (required)
 * content.attachment.data ..0
 * content.attachment.data ^comment = "These HL7 FHIR elements are not used in XDS, therefore would not be present. Document Consumers should be robust to these elements holding values."
 * content.attachment.url 1..1 

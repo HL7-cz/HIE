@@ -1,3 +1,8 @@
+Alias: $eHDSILanguage = http://terminology.ehdsi.eu/ValueSet/eHDSILanguage
+Alias: $hl7confidentialityClass = http://terminology.hl7.org/ValueSet/v3-ConfidentialityClassification
+Alias: $hl7DocumentStatus = https://hl7.org/fhir/R4/valueset-document-reference-status.html
+Alias: $sct =  http://snomed.info/sct
+
 Alias: $IHE.MHD.UniqueIdIdentifier = https://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.UniqueIdIdentifier
 Alias: $IHE.MHD.FindDocumentReferencesComprehensiveResponseMessage = https://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.FindDocumentReferencesComprehensiveResponseMessage
 Alias: $IHE.MHD.Comprehensive.ProvideBundle = https://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.Comprehensive.ProvideBundle
