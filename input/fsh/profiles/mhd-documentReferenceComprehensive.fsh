@@ -75,7 +75,7 @@ be the the one to use in ITI-68 transactions to retrieve the document content."
 * context.practiceSetting ^binding.extension.valueString = "DocumentC80PracticeSetting"
 * context.practiceSetting ^binding.description = "Additional details about where the content was created (e.g. clinical specialty)."
 * context.sourcePatientInfo 1.. 
-* context.sourcePatientInfo only Reference(Patient) //CZ_PatientCore hazi chybu
+* context.sourcePatientInfo only Reference(CZ_PatientCore)
 * context.sourcePatientInfo ^comment = "Contained Patient resource with Patient.identifier.use element set to ‘usual’.\r\n\r\nIndicates that the data within the XDS document entry be represented as a contained resource. See Section 4.5.4.4.7"
 * context.sourcePatientInfo ^type.aggregation = #contained
 * context.related ^slicing.discriminator.type = #value

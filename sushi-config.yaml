@@ -37,6 +37,7 @@ publisher:
 dependencies:
   hl7.fhir.uv.ips: 1.1.0
   hl7.fhir.cz.core: current
+  hl7.fhir.eu.base: 0.1.0-ballot
   ihe.iti.mhd: 
     version: 4.2.2
     id: ihemhdfhir
