@@ -69,6 +69,8 @@ dependencies:
 pages:
   index.md:
     title: Home
+  index-cs.md:
+    title: Domovská stránka
   mhd.md:
     title: Mobile Access to Health Documents (MHD)
   iti-65.md:
@@ -148,7 +150,9 @@ parameters:  #see https://confluence.hl7.org/display/FHIR/Implementation+Guide+P
 # │ property below.                                                                                │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
-  Home: index.html
+  Home:
+    Home (en): index.html
+    Home (cs): index-cs.html
   Volume 1:
     Mobile Access to Health Documents (MHD): mhd.html
   Volume 2:
