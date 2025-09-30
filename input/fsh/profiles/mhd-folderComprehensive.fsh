@@ -1,8 +1,7 @@
-// equivalent to MHD Minimal Folder
 Profile:        Folder
 Parent:         MhdList
 Id:             cz-mhd-folder-comprehensive
-Title:          "MHD Folder Minimal"
+Title:          "MHD Folder Comprehensive"
 Description:    "A profile on the List resource for MHD use as a Folder with Comprehensive Metadata"
 * extension[designationType] 1..*
 * identifier ^slicing.discriminator.type = #value

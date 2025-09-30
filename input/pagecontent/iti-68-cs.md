@@ -1,12 +1,12 @@
-Tato část odpovídá transakci [ITI-68] technického rámce IHE. Transakce [ITI-68] je používána aktéry Document Consumer (Spotřebitel dokumentů) a Document Responder („Odesílatel dokumentů“).
+Tato část odpovídá transakci [ITI-68] technického rámce IHE. Transakce [ITI-68] je používána aktéry Document Consumer (Spotřebitel dokumentů) a Document Responder (Odesílatel dokumentů).
 
-### 2:3.68.1 Rozsah
+### Rozsah
 
-Transakce Retrieve Document [ITI-68] (Načíst dokument) je používána aktérem Document Consumer (Spotřebitel dokumentů) k načtení dokumentu od aktéra Document Responder („Odesílatel dokumentů“).
+Transakce Retrieve Document [ITI-68] (Načíst dokument) je používána aktérem Document Consumer (Spotřebitel dokumentů) k načtení dokumentu od aktéra Document Responder (Odesílatel dokumentů).
 
-### 2:3.68.2 Role aktérů
+### Role aktérů
 
-**Tabulka 2:3.68.2-1: Role aktérů**
+**Tabulka 1: Role aktérů**
 
 |Aktér | Role |
 |-------------------+--------------------------|
@@ -14,11 +14,11 @@ Transakce Retrieve Document [ITI-68] (Načíst dokument) je používána aktére
 | [Odesílatel dokumentů] | Poskytne dokument spotřebiteli dokumentů |
 {: .grid}
 
-### 2:3.68.3 Odkazované normy
+### Odkazované normy
 
 **FHIR-R4** [HL7 FHIR Release 4.0](http://www.hl7.org/FHIR/R4)
 
-### 2:3.68.4 Zprávy
+### Zprávy
 
 <div>
 {%include ITI-68-seq.svg%}
@@ -26,17 +26,17 @@ Transakce Retrieve Document [ITI-68] (Načíst dokument) je používána aktére
 
 <br clear="all">
 
-**Obrázek 2:3.68.4-1: Interakce při načítání dokumentu**
+**Obrázek 1: Interakce při načítání dokumentu**
 
-#### 2:3.68.4.1 Zpráva s požadavkem na načtení dokumentu
+#### Zpráva s požadavkem na načtení dokumentu
 
 Tato zpráva je požadavek HTTP GET na načtení dokumentu. 
 
-##### 2:3.68.4.1.1 Spouštěcí události
+##### Spouštěcí události
 
 Spotřebitel dokumentu chce získat dokument. 
 
-##### 2:3.68.4.1.2 Sémantika zprávy
+##### Sémantika zprávy
 
 Spotřebitel dokumentu odešle serveru požadavek HTTP GET. Požadavek spotřebitele dokumentu může spočívat v načtení obsahu dokumentu, na který odkazuje DocumentReference.content.attachment.url. 
 
@@ -46,25 +46,25 @@ Jediným MIME typem, u kterého je zaručeno, že bude vrácen, je MIME typ uved
 
 Hlavička HTTP If-Unmodified-Since nesmí být zahrnuta v požadavku GET.
 
-##### 2:3.68.4.1.3 Očekávané akce
+##### Očekávané akce
 
 Document Responder poskytne dokument v požadovaném typu MIME nebo odpoví HTTP stavovým kódem označujícím chybový stav. Document Responder není povinen dokument transformovat.
 
-#### 2:3.68.4.2 Načtení zprávy s odpovědí na dokument
+#### Načtení zprávy s odpovědí na dokument
 
 Jedná se o odpověď odeslanou odesílatelem dokumentů. 
 
-##### 2:3.68.4.2.1 Spouštěcí události
+##### Spouštěcí události
 
 Zpráva HTTP Response je odeslána po dokončení požadavku Retrieve Document Request. 
 
-##### 2:3.68.4.2.2 Sémantika zprávy
+##### Sémantika zprávy
 
 Tato zpráva musí být HTTP odpovědí, jak je specifikováno v RFC2616. Po vrácení požadovaného dokumentu musí dokumentový respondent odpovědět HTTP stavovým kódem 200. Tělo HTTP zprávy musí být obsahem požadovaného dokumentu.
 
-Tabulka 2:3.68.4.2.2-1 obsahuje chybové situace a HTTP odpověď.
+Tabulka 2 obsahuje chybové situace a HTTP odpověď.
 
-**Tabulka 2:3.68.4.2.2-1: Chybové kódy HTTP odpovědí a doporučený text**
+**Tabulka 2: Chybové kódy HTTP odpovědí a doporučený text**
 
 |Situace    | HTTP odpověď |
 |-----------|---------------|
@@ -78,20 +78,29 @@ Odpovídající dokument může vrátit jiné kódy stavu HTTP. Pokyny pro řeš
 
 Odpovídající dokument by měl doplnit vrácený chybový kód o popis chybového stavu srozumitelný pro člověka.
 
-##### 2:3.68.4.2.3 Očekávané akce
+##### Očekávané akce
 
 Spotřebitel dokumentu zpracovává výsledky podle pravidel definovaných aplikací.
 
-#### 2:3.68.4.3 Zdroj CapabilityStatement
+#### CapabilityStatement
 
 Odpovídající dokumenty implementující tuto transakci musí poskytnout zdroj CapabilityStatement, jak je popsáno v [ITI TF-2x: Příloha Z.3](https://profiles.ihe.net/ITI/TF/Volume2/ch-Z.html#z.3-capabilitystatement-resource), který označuje, že transakce byla implementována. 
 - Požadavky CapabilityStatement pro [Spotřebitele dokumentů](CapabilityStatement-CZ-MHD-DocumentConsumer.html)
 - Požadavky CapabilityStatement pro [Odpovídajícího na dokumenty](CapabilityStatement-CZ-MHD-DocumentResponder.html)
 
-### 2:3.68.5 Bezpečnostní aspekty
+### Bezpečnostní aspekty
 
 Tato transakce by neměla vracet informace, ke kterým nemá spotřebitel dokumentů oprávnění. 
 
-#### 2:3.68.5.1 Bezpečnostní audit
+#### Bezpečnostní audit
 
 Kritéria bezpečnostního auditu jsou podobná jako u transakce Retrieve Document Set-b [ITI-43].
+
+Specifikace bude dodána později (ATNA).
+
+##### Document Consumer Audit
+
+
+
+##### Document Responder Audit
+

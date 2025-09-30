@@ -2,7 +2,7 @@ Profile: CZMhdProvideDocumentBundleComprehensive
 Parent: $IHE.MHD.Comprehensive.ProvideBundle
 Id: cz-mhd-providedocumentbundle-comprehensive
 Title: "CZ MHD Provide Document Bundle Comprehensive"
-Description: "IHE MHD profile on Provide Document Bundle (ITI-65) transaction with Comprehensive Metadata for the Czech national interoperability standards.."
+Description: "IHE MHD profile on Provide Document Bundle (ITI-65) transaction with Comprehensive Metadata for the Czech national interoperability standards."
 * meta 1..
 * meta.profile 
 * meta.profile ^slicing.discriminator.type = #value

@@ -1,24 +1,24 @@
 This section corresponds to transaction [ITI-68] of the IHE Technical Framework. Transaction [ITI-68] is used by the Document Consumer and Document Responder Actors.
 
-### 2:3.68.1 Scope
+### Scope
 
 The Retrieve Document [ITI-68] transaction is used by the Document Consumer to retrieve a document from the Document Responder.
 
-### 2:3.68.2 Actors Roles
+### Actors Roles
 
-**Table 2:3.68.2-1: Actor Roles**
+**Table 1: Actor Roles**
 
 |Actor | Role |
 |-------------------+--------------------------|
-| [Document Consumer]    | Requests a document from the Document Responder |
-| [Document Responder] | Serves the document to the Document Consumer |
+| Document Consumer    | Requests a document from the Document Responder |
+| Document Responder | Serves the document to the Document Consumer |
 {: .grid}
 
-### 2:3.68.3 Referenced Standards
+### Referenced Standards
 
 **FHIR-R4** [HL7 FHIR Release 4.0](http://www.hl7.org/FHIR/R4)
 
-### 2:3.68.4 Messages
+### Messages
 
 <div>
 {%include ITI-68-seq.svg%}
@@ -26,17 +26,17 @@ The Retrieve Document [ITI-68] transaction is used by the Document Consumer to r
 
 <br clear="all">
 
-**Figure 2:3.68.4-1: Retrieve Document Interactions**
+**Figure 1: Retrieve Document Interactions**
 
-#### 2:3.68.4.1 Retrieve Document Request Message
+#### Retrieve Document Request Message
 
 This message is an HTTP GET request to retrieve the document. 
 
-##### 2:3.68.4.1.1 Trigger Events
+##### Trigger Events
 
 The Document Consumer wants to obtain a document. 
 
-##### 2:3.68.4.1.2 Message Semantics
+##### Message Semantics
 
 The Document Consumer sends a HTTP GET request to the server. The Document Consumer request may be to retrieve the document content referenced by a DocumentReference.content.attachment.url. 
 
@@ -46,25 +46,25 @@ The only MIME type assured to be returned is the MIME type indicated in the Docu
 
 The HTTP If-Unmodified-Since header shall not be included in the GET request.
 
-##### 2:3.68.4.1.3 Expected Actions
+##### Expected Actions
 
 The Document Responder shall provide the document in the requested MIME type or reply with an HTTP status code indicating the error condition. The Document Responder is not required to transform the document.
 
-#### 2:3.68.4.2 Retrieve Document Response Message
+#### Retrieve Document Response Message
 
 This is the return message sent by the Document Responder. 
 
-##### 2:3.68.4.2.1 Trigger Events
+##### Trigger Events
 
 The HTTP Response message is sent upon completion of the Retrieve Document Request. 
 
-##### 2:3.68.4.2.2 Message Semantics
+##### Message Semantics
 
 This message shall be an HTTP Response, as specified by RFC2616. When the requested document is returned, the Document Responder shall respond with HTTP Status Code 200. The HTTP message-body shall be the content of the requested document.
 
-Table 2:3.68.4.2.2-1 contains error situations and the HTTP Response.
+Table 1 contains error situations and the HTTP Response.
 
-**Table 2:3.68.4.2.2-1: HTTP Error Response Codes and Suggested Text**
+**Table 2: HTTP Error Response Codes and Suggested Text**
 
 |Situation	| HTTP Response |
 |-----------|---------------|
@@ -78,20 +78,29 @@ The Document Responder may return other HTTP Status Codes. Guidance on handling 
 
 The Document Responder should complement the returned error code with a human readable description of the error condition.
 
-##### 2:3.68.4.2.3 Expected Actions
+##### Expected Actions
 
 The Document Consumer processes the results according to application-defined rules.
 
-#### 2:3.68.4.3 CapabilityStatement Resource
+#### CapabilityStatement Resource
 
 Document Responders implementing this transaction shall provide a CapabilityStatement Resource as described in [ITI TF-2x: Appendix Z.3](https://profiles.ihe.net/ITI/TF/Volume2/ch-Z.html#z.3-capabilitystatement-resource) indicating the transaction has been implemented. 
 - Requirements CapabilityStatement for [Document Consumer](CapabilityStatement-CZ-MHD-DocumentConsumer.html)
 - Requirements CapabilityStatement for [Document Responder](CapabilityStatement-CZ-MHD-DocumentResponder.html)
 
-### 2:3.68.5 Security Considerations
+### Security Considerations
 
 This transaction should not return information that the Document Consumer is not authorized to access. 
 
-#### 2:3.68.5.1 Security Audit Considerations
+#### Security Audit Considerations
 
 The security audit criteria are similar to those for the Retrieve Document Set-b [ITI-43] transaction.
+
+Specifications will be provided later (ATNA).
+
+##### Document Consumer Audit
+
+
+
+##### Document Responder Audit
+

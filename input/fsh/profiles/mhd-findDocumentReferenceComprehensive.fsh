@@ -2,7 +2,7 @@ Profile: CZFindDocumentReferencesComprehensiveResponse
 Parent: Bundle
 Id: cz-mhd-finddocumentreference-comprehensive-bundle
 Title: "CZ MHD Find Document References Comprehensive Response message"
-Description: "A profile on the Find Document References Comprehensive Response message for ITI-68"
+Description: "A profile on the Find Document References Comprehensive Response message (ITI-67)"
 * type = #searchset (exactly)
 * total 1..
 * entry ^slicing.discriminator.type = #profile

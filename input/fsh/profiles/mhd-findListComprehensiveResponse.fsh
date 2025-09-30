@@ -1,8 +1,8 @@
 Profile:        CZFindListsComprehensiveResponse
 Parent:         Bundle
-Id:             cz-mhd-finddocumentlists-bundle
+Id:             cz-mhd-finddocumentlists-comprehensive-bundle
 Title:          "MHD Find Document Lists Comprehensive Response Message"
-Description:    "A profile on the Find Document Lists Comprehensive Response message for ITI-66"
+Description:    "A profile on the Find Document Lists Comprehensive Response message (ITI-66)"
 * type = #searchset (exactly)
 * total 1..
 * entry ^slicing.discriminator[0].type = #profile

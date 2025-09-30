@@ -1,0 +1,1 @@
+Bude v budoucnu dodáno.
