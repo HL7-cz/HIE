@@ -73,7 +73,23 @@ pages:
     title: Domovská stránka
   mhd.md:
     title: Mobile Access to Health Documents (MHD)
+  mhd-cs.md:
+    title: Mobile Access to Health Documents (MHD)
+  iti-66.md:
+    title: Find Document Lists [ITI-66]
+  iti-66-cs.md:
+    title: Find Document Lists [ITI-66]
+  iti-67.md:
+    title: Find Document References [ITI-67]
+  iti-67-cs.md:
+    title: Find Document References [ITI-67]
+  iti-68.md:
+    title: Retrieve Document [ITI-68]
+  iti-68-cs.md:
+    title: Retrieve Document [ITI-68]
   iti-65.md:
+    title: Provide document bundle [ITI-65]
+  iti-65-cs.md:
     title: Provide document bundle [ITI-65]
   profiles.md:
     title: Profiles
@@ -155,8 +171,16 @@ menu:
     Home (cs): index-cs.html
   Volume 1:
     Mobile Access to Health Documents (MHD): mhd.html
+    Mobile Access to Health Documents (MHD, CS): mhd-cs.html
   Volume 2:
     Provide document bundle [ITI-65]: iti-65.html
+    Provide document bundle [ITI-65](CS): iti-65-cs.html
+    Find Document Lists [ITI-66]: ITI-66.html
+    Find Document Lists [ITI-66](CS): ITI-66-cs.html
+    Find Document References [ITI-67]: ITI-67.html
+    Find Document References [ITI-67](CS): ITI-67-cs.html
+    Retrieve Document [ITI-68]: ITI-68.html
+    Retrieve Document [ITI-68](CS): ITI-68-cs.html
   Appendix:
     Profiles: profiles.html
   Artifacts: artifacts.html

@@ -1,6 +1,6 @@
 Profile: CZFindDocumentReferencesComprehensiveResponse
 Parent: Bundle
-Id: cz-mhd-documentreference-comprehensive-bundle
+Id: cz-mhd-finddocumentreference-comprehensive-bundle
 Title: "CZ MHD Find Document References Comprehensive Response message"
 Description: "A profile on the Find Document References Comprehensive Response message for ITI-68"
 * type = #searchset (exactly)

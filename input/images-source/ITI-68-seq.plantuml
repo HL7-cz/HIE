@@ -1,0 +1,12 @@
+@startuml
+title Retrieve Document [ITI-68]
+hide footbox
+participant "Document Consumer" as DocumentConsumer
+participant "Document Responder" as DocumentResponder
+activate "DocumentConsumer"
+activate "DocumentResponder"
+"DocumentConsumer" -> "DocumentResponder" : 1. Retrieve Document [ITI-68]
+return
+deactivate "DocumentConsumer"
+deactivate "DocumentResponder"
+@enduml
