@@ -174,13 +174,13 @@ menu:
     Mobile Access to Health Documents (MHD, CS): mhd-cs.html
   Volume 2:
     Provide document bundle [ITI-65]: iti-65.html
-    Provide document bundle [ITI-65](CS): iti-65-cs.html
-    Find Document Lists [ITI-66]: ITI-66.html
-    Find Document Lists [ITI-66](CS): ITI-66-cs.html
-    Find Document References [ITI-67]: ITI-67.html
-    Find Document References [ITI-67](CS): ITI-67-cs.html
-    Retrieve Document [ITI-68]: ITI-68.html
-    Retrieve Document [ITI-68](CS): ITI-68-cs.html
+    Provide document bundle [ITI-65] (CS): iti-65-cs.html
+    Find Document Lists [ITI-66]: iti-66.html
+    Find Document Lists [ITI-66] (CS): iti-66-cs.html
+    Find Document References [ITI-67]: iti-67.html
+    Find Document References [ITI-67] (CS): iti-67-cs.html
+    Retrieve Document [ITI-68]: iti-68.html
+    Retrieve Document [ITI-68] (CS): iti-68-cs.html
   Appendix:
     Profiles: profiles.html
   Artifacts: artifacts.html
