@@ -1,0 +1,1 @@
+This implementation guide was created as part of the project: Supporting the development of digital transformation in healthcare - "Interoperability I & Standardization Environment".

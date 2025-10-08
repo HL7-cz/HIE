@@ -82,6 +82,7 @@ Responder'."
 
 Instance:   CzAuditEventIti67ConsumerExample
 InstanceOf: CzAuditEventIti67Consumer
+Description: "Example of AuditEvent profile CzAuditEventIti67Consumer"
 Usage:      #example
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
@@ -127,6 +128,7 @@ Usage:      #example
 
 Instance:   CzAuditEventIti67ResponderExample
 InstanceOf: CzAuditEventIti67Responder
+Description: "Example of AuditEvent profile CzAuditEventIti67Responder"
 Usage:      #example
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0

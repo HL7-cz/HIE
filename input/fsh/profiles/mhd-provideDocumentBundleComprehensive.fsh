@@ -12,22 +12,24 @@ Description: "IHE MHD profile on Provide Document Bundle (ITI-65) transaction wi
 * meta.profile[comprehensiveMetadata] = "https://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.Comprehensive.ProvideBundle"
 * entry 3..
 * entry[SubmissionSet] ^sliceName = "SubmissionSet"
-* entry[SubmissionSet].resource 1.. 
+* entry[SubmissionSet].resource 1.. MS
 * entry[SubmissionSet].resource ^type.profile = $cz-mhd-submissionset-comprehensive
-* entry[SubmissionSet].request 1.. 
+* entry[SubmissionSet].request 1.. MS
 * entry[SubmissionSet].request.method = #POST
-* entry[SubmissionSet].request.method 
+* entry[SubmissionSet].request.method MS
 * entry[DocumentRefs] ^sliceName = "DocumentRefs"
-* entry[DocumentRefs].resource 1.. 
+* entry[DocumentRefs] ^mustSupport = true
+* entry[DocumentRefs].resource 1.. MS
 * entry[DocumentRefs].resource ^type.profile = Canonical(CZMhdDocumentReferenceComprehensive)
-* entry[DocumentRefs].request 
+* entry[DocumentRefs].request MS
 * entry[DocumentRefs].request.method = #POST
-* entry[DocumentRefs].request.method 
+* entry[DocumentRefs].request.method MS
 * entry[Documents] ^sliceName = "Documents"
-* entry[Documents].resource 1.. 
+* entry[Documents] ^mustSupport = true
+* entry[Documents].resource 1.. MS
 * entry[Documents].resource only Binary
-* entry[Documents].request 1.. 
+* entry[Documents].request 1.. MS
 * entry[Documents].request.method = #POST
-* entry[Documents].request.method 
+* entry[Documents].request.method MS
 * entry[Folders] 0..0 
 * entry[Patient] 0..0

@@ -95,6 +95,22 @@ pages:
     title: Profiles
   artifacts.xml:
     title: Artifacts
+  authors.md:
+    title: Authors
+  authors-cs.md:
+    title: Autoři
+  copyright.md:
+    title: Copyright
+  copyright-cs.md:
+    title: Autorská práva
+  dependencies.md:
+    title: Dependencies
+  dependencies-cs.md:
+    title: Závislosti
+  downloads.md:
+    title: Downloads
+  downloads-cs.md:
+    title: Ke stažení
 # downloads.md:
 #   title: Download
 #
@@ -185,6 +201,15 @@ menu:
   Appendix:
     Profiles: profiles.html
   Artifacts: artifacts.html
+  About:
+    Authors (en): authors.html
+    Authors (cs): authors-cs.html
+    Downloads (en): downloads.html
+    Downloads (cs): downloads-cs.html
+    Dependencies (en): dependencies.html
+    Dependencies (cs): dependencies-cs.html
+    Copyright (en): copyright.html
+    Copyright (cs): copyright-cs.html
 #    Profiles and extensions: profiles-and-extensions.html
 #  About:
 #    Downloads: downloads.html

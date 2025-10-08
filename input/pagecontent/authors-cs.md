@@ -1,0 +1,1 @@
+Tato implementační příručka byla vytvořena v rámci projektu: Podpora rozvoje digitální transformace ve zdravotnictví - „Interoperabilita I & Standardizační prostředí“.

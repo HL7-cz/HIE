@@ -91,6 +91,7 @@ Recipient'."
 
 Instance:   CzAuditEventIti65SourceExample
 InstanceOf: CzAuditEventIti65Source
+Description: "Example of AuditEvent profile CzAuditEventIti65Source"
 Usage:      #example
 * insert CzAuditEventIti65ExampleRules
 * source 
@@ -101,6 +102,7 @@ Usage:      #example
 
 Instance:   CzAuditEventIti65RecipientExample
 InstanceOf: CzAuditEventIti65Recipient
+Description: "Example of AuditEvent profile CzAuditEventIti65Recipient"
 Usage:      #example
 * insert CzAuditEventIti65ExampleRules
 * source   
