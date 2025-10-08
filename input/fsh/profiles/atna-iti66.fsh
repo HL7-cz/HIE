@@ -1,7 +1,7 @@
-Profile:     CzAuditEventIti68Consumer
-Parent:      AuditRetrieveDocumentConsumer
-Title:       "CZ Audit Event for [ITI-68] Document Consumer"
-Description: "This profile is used to define the CZ Audit Event for the [ITI-68] transaction and the actor 'Document
+Profile:     CzAuditEventIti66Consumer
+Parent:      AuditFindDocumentListsConsumer
+Title:       "CZ Audit Event for [ITI-66] Document List Consumer"
+Description: "This profile is used to define the CZ Audit Event for the [ITI-66] transaction and the actor 'Document list
 Consumer'."
 * agent contains mainUser 1..1 and delegatedUser 0..1
 * agent[mainUser]
@@ -35,21 +35,15 @@ Consumer'."
   * what.identifier 1..1
     * value 1..1
     * system 1..1
-* agent[client] ^short = "The 'Document Consumer' actor (EPR application)"
-* agent[server] ^short = "The 'Document Responder' actor (EPR API)"
-* entity[data]
-  * ^short = "The document that was accessed"
-  * what.reference 1..1
-    * ^short = "The URL accessed by the Document Consumer"
-  * securityLabel from CZ_DocumentEntryConfidentialityCodeVs
-  * securityLabel ^short = "The confidentiality code of the document, if known"
+* agent[client] ^short = "The 'Document List Consumer' actor (EPR application)"
+* agent[server] ^short = "The 'Document List Responder' actor (EPR API)"
 
 
-Profile:     CzAuditEventIti68Responder
-Parent:      AuditRetrieveDocumentResponder
-Title:       "CZ Audit Event for [ITI-68] Document Responder"
-Description: "This profile is used to define the CZ Audit Event for the [ITI-68] transaction and the actor 'Document
-Responder'."
+Profile:     CzAuditEventIti66Responder
+Parent:      AuditFindDocumentListsResponder
+Title:       "CZ Audit Event for [ITI-66] Document List"
+Description: "This profile is used to define the CZ Audit Event for the [ITI-66] transaction and the actor 'Document
+List Responder'."
 * agent contains mainUser 1..1 and delegatedUser 0..1
 * agent[mainUser]
   * ^short = "The main user (patient, representative, healthcare professional, or administrator)"
@@ -82,47 +76,36 @@ Responder'."
   * what.identifier 1..1
     * value 1..1
     * system 1..1
-* agent[client] ^short = "The 'Document Consumer' actor (EPR application)"
-* agent[server] ^short = "The 'Document Responder' actor (EPR API)"
-* entity[data]
-  * ^short = "The document that was accessed"
-  * what.reference 1..1
-    * ^short = "The URL accessed by the Document Consumer"
-  * securityLabel from CZ_DocumentEntryConfidentialityCodeVs
-  * securityLabel ^short = "The confidentiality code of the document, if known"
+* agent[client] ^short = "The 'Document List Consumer' actor (EPR application)"
+* agent[server] ^short = "The 'Document List Responder' actor (EPR API)"
 
 
-
-Instance:   CzAuditEventIti68ConsumerExample
-InstanceOf: CzAuditEventIti68Consumer
-Description: "Example of AuditEvent profile CzAuditEventIti68Consumer"
+Instance:   CzAuditEventIti66ConsumerExample
+InstanceOf: CzAuditEventIti66Consumer
+Description: "Example of AuditEvent profile CzAuditEventIti66Consumer"
 Usage:      #example
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
-* agent[server]
-  * type = DCM#110153 "Source Role ID"
-  * who.display = "Affinitní doména A"
-  * requestor = false
-  * network
-    * address = "https://example.org/blah/blah.pdf"
-    * type = #5
 * agent[client]
-  * type = DCM#110152 "Destination Role ID"
-  * who.display = "Portal"
+  * type = DCM#110153 "Source Role ID"
+  * who.display = "Affinitní doména A" // TODO je to spravne?
   * requestor = false
   * network
     * address = "192.168.1.1"
     * type = #2
+* agent[server]
+  * type = DCM#110152 "Destination Role ID"
+  * who.display = "Nemocnice XYZ" // TODO je to spravne? Nemělo by být DÚ?
+  * requestor = false
+  * network.type = #5 // The address needs to be define in each example (transaction specific)
 * entity[traceparent]
-  * what
-    * identifier
-      * value = "00-0af7651916cd43dd8448eb211c80319c-b7ad6b7169203331-00"
+  * what.identifier.value = "00-0af7651916cd43dd8448eb211c80319c-b7ad6b7169203331-00"
   * type = $auditEntityType#4 "Other"
   * role = $objectRole#26 "Processing Element"
 * agent[mainUser]
   * role = CZ_DocumentEntryAuthorRoleCs#HCP
   * altId = "2000000090092"
-  * name = "Mracena Mrakomorová"
+  * name = "Mračena Mrakomorová"
   * requestor = true
   * purposeOfUse = CZ_HIEPurposeOfUseCs#NORM "Normální přístup"
 * entity[patient]
@@ -132,62 +115,59 @@ Usage:      #example
   * type = $auditEntityType#1 "Person"
   * role = $objectRole#1 "Patient"
 * type = $auditEventType#rest
-* subtype[anyRead] = $restfulInteraction#read "read"
-* subtype[iti68] = $eventTypeCode#ITI-68 "Retrieve Document"
-* entity[data]
-  * what.reference = "https://example.org/blah/blah.pdf"
+* subtype[anySearch] = $restfulInteraction#search "search"
+* subtype[iti66] = $eventTypeCode#ITI-66 "Find Document Lists"
+* agent[server].network.address = "https://example.com"
+* entity[query]
   * type = $auditEntityType#2 "System Object"
-  * role = $objectRole#3 "Report"
-* source
-  * site = "2.16.756.1.2.3"
-  * observer.display = "Portal" // TODO je to spravne?
-
-
-Instance:   CzAuditEventIti68ResponderExample
-InstanceOf: CzAuditEventIti68Responder
-Description: "Example of AuditEvent profile CzAuditEventIti68Responder"
-Usage:      #example
-* recorded = "2024-10-28T09:43:56Z"
-* outcome = #0
-* agent[server]
-  * type = DCM#110153 "Source Role ID"
-  * who.display = "Affinitní doména A"
-  * requestor = false
-  * network
-    * address = "https://example.org/blah/blah.pdf"
-    * type = #5
-* agent[client]
-  * type = DCM#110152 "Destination Role ID"
-  * who.display = "Portal"
-  * requestor = false
-  * network
-    * address = "192.168.1.1"
-    * type = #2
-* entity[traceparent]
-  * what
-    * identifier
-      * value = "00-0af7651916cd43dd8448eb211c80319c-b7ad6b7169203331-00"
-  * type = $auditEntityType#4 "Other"
-  * role = $objectRole#26 "Processing Element"
-* agent[mainUser]
-  * role = CZ_DocumentEntryAuthorRoleCs#HCP
-  * altId = "2000000090092"
-  * name = "Mracena Mrakomorová"
-  * requestor = true
-  * purposeOfUse = CZ_HIEPurposeOfUseCs#NORM "Normální přístup"
-* entity[patient]
-  * what.identifier
-    * value = "4567891235"
-    * system = "https://ncez.mzcr.cz/fhir/sid/rid"
-  * type = $auditEntityType#1 "Person"
-  * role = $objectRole#1 "Patient"
-* type = $auditEventType#rest
-* subtype[anyRead] = $restfulInteraction#read "read"
-* subtype[iti68] = $eventTypeCode#ITI-68 "Retrieve Document"
-* entity[data]
-  * what.reference = "https://example.org/blah/blah.pdf"
-  * type = $auditEntityType#2 "System Object"
-  * role = $objectRole#3 "Report"
+  * role = $objectRole#24 "Query"
+  * query = "aHR0cDovL2V4YW1wbGUuY29tL2ZoaXIvRG9jdW1lbnRSZWZlcmVuY2U/cGF0aWVudC5pZGVudGlmaWVyPXVybjpvaWQ6Mi4xNi43NTYuNS4zMC4xLjEyNy4zLjEwLjN8NzYxMzM3NjEwNDExMzUzNjUwJnN0YXR1cz1jdXJyZW50"
 * source
   * site = "2.16.756.4.5.6"
   * observer.display = "Affinitní doména A" // TODO je to spravne?
+
+Instance:   CzAuditEventIti66ResponderExample
+InstanceOf: CzAuditEventIti66Responder
+Description: "Example of AuditEvent profile CzAuditEventIti66Responder"
+Usage:      #example
+* recorded = "2024-10-28T09:43:56Z"
+* outcome = #0
+* agent[client]
+  * type = DCM#110153 "Source Role ID"
+  * who.display = "Affinitní doména A" // TODO je to spravne?
+  * requestor = false
+  * network
+    * address = "192.168.1.1"
+    * type = #2
+* agent[server]
+  * type = DCM#110152 "Destination Role ID"
+  * who.display = "Nemocnice XYZ" // TODO je to spravne? Nemělo by být DÚ?
+  * requestor = false
+  * network.type = #5 // The address needs to be define in each example (transaction specific)
+* entity[traceparent]
+  * what.identifier.value = "00-0af7651916cd43dd8448eb211c80319c-b7ad6b7169203331-00"
+  * type = $auditEntityType#4 "Other"
+  * role = $objectRole#26 "Processing Element"
+* agent[mainUser]
+  * role = CZ_DocumentEntryAuthorRoleCs#HCP
+  * altId = "2000000090092"
+  * name = "Mračena Mrakomorová"
+  * requestor = true
+  * purposeOfUse = CZ_HIEPurposeOfUseCs#NORM "Normální přístup"
+* entity[patient]
+  * what.identifier
+    * value = "4567891235"
+    * system = "https://ncez.mzcr.cz/fhir/sid/rid"
+  * type = $auditEntityType#1 "Person"
+  * role = $objectRole#1 "Patient"
+* type = $auditEventType#rest
+* subtype[anySearch] = $restfulInteraction#search "search"
+* subtype[iti66] = $eventTypeCode#ITI-66 "Find Document Lists"
+* agent[server].network.address = "https://example.com"
+* entity[query]
+  * type = $auditEntityType#2 "System Object"
+  * role = $objectRole#24 "Query"
+  * query = "aHR0cDovL2V4YW1wbGUuY29tL2ZoaXIvRG9jdW1lbnRSZWZlcmVuY2U/cGF0aWVudC5pZGVudGlmaWVyPXVybjpvaWQ6Mi4xNi43NTYuNS4zMC4xLjEyNy4zLjEwLjN8NzYxMzM3NjEwNDExMzUzNjUwJnN0YXR1cz1jdXJyZW50"
+* source
+  * site = "2.16.756.1.2.3"
+  * observer.display = "Nemocnice XYZ" // TODO je to spravne?
