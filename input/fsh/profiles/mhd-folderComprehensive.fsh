@@ -1,7 +1,7 @@
 Profile:        Folder
 Parent:         MhdList
 Id:             cz-mhd-folder-comprehensive
-Title:          "MHD Folder Comprehensive"
+Title:          "CZ MHD Folder Comprehensive"
 Description:    "A profile on the List resource for MHD use as a Folder with Comprehensive Metadata"
 * extension[designationType] 1..*
 * identifier ^slicing.discriminator.type = #value

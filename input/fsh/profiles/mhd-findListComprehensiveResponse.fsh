@@ -1,7 +1,7 @@
 Profile:        CZFindListsComprehensiveResponse
 Parent:         Bundle
 Id:             cz-mhd-finddocumentlists-comprehensive-bundle
-Title:          "MHD Find Document Lists Comprehensive Response Message"
+Title:          "CZ MHD Find Document Lists Comprehensive Response Message"
 Description:    "A profile on the Find Document Lists Comprehensive Response message (ITI-66)"
 * type = #searchset (exactly)
 * total 1..
