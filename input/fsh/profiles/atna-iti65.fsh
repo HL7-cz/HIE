@@ -44,10 +44,10 @@ Source'."
   * system = "urn:ietf:rfc:3986"
 
 
-Profile:     ChAuditEventIti65Recipient
+Profile:     CzAuditEventIti65Recipient
 Parent:      AuditProvideBundleRecipient
-Title:       "CH Audit Event for [ITI-65] Document Recipient"
-Description: "This profile is used to define the CH Audit Event for the [ITI-65] transaction and the actor 'Document
+Title:       "CZ Audit Event for [ITI-65] Document Recipient"
+Description: "This profile is used to define the CZ Audit Event for the [ITI-65] transaction and the actor 'Document
 Recipient'."
 * agent contains mainUser 1..1 and delegatedUser 0..1
 * agent[mainUser]
@@ -99,8 +99,8 @@ Usage:      #example
 * type = DCM#110106 "Export"
 
 
-Instance:   ChAuditEventIti65RecipientExample
-InstanceOf: ChAuditEventIti65Recipient
+Instance:   CzAuditEventIti65RecipientExample
+InstanceOf: CzAuditEventIti65Recipient
 Usage:      #example
 * insert CzAuditEventIti65ExampleRules
 * source   

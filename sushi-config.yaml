@@ -134,6 +134,7 @@ parameters:  #see https://confluence.hl7.org/display/FHIR/Implementation+Guide+P
 #  generate-turtle:
 #  html-template:
 #  active-tables: false
+  pin-canonicals: pin-multiples
   apply-contact: true
   apply-jurisdiction: true
   apply-publisher: true

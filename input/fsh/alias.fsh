@@ -7,6 +7,7 @@ Alias: $auditEventType = http://terminology.hl7.org/CodeSystem/audit-event-type
 Alias: $auditEntityType = http://terminology.hl7.org/CodeSystem/audit-entity-type
 Alias: $objectRole = http://terminology.hl7.org/CodeSystem/object-role
 Alias: $eventTypeCode = urn:ihe:event-type-code
+Alias: $restfulInteraction = http://hl7.org/fhir/restful-interaction
 
 Alias: $IHE.MHD.UniqueIdIdentifier = https://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.UniqueIdIdentifier
 Alias: $IHE.MHD.FindDocumentReferencesComprehensiveResponseMessage = https://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.FindDocumentReferencesComprehensiveResponseMessage

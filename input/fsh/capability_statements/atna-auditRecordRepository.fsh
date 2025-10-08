@@ -22,8 +22,8 @@ Usage: #definition
     * type = #AuditEvent
     * interaction[+].code = #create
     * versioning = #no-version
-    * supportedProfile[+] = "https://hl7.cz/fhir/hie/StructureDefinition/AuditEventIti65Recipient"
-    * supportedProfile[+] = "https://hl7.cz/fhir/hie/StructureDefinition/AuditEventIti65Source"
-    * supportedProfile[+] = "https://hl7.cz/fhir/hie/StructureDefinition/AuditEventIti67Consumer"
-    * supportedProfile[+] = "https://hl7.cz/fhir/hie/StructureDefinition/AuditEventIti67Responder"
-    * supportedProfile[+] = "https://hl7.cz/fhir/hie/StructureDefinition/AuditEventIti68Consumer"
+    * supportedProfile[+] = "https://hl7.cz/fhir/hie/StructureDefinition/CzAuditEventIti65Recipient"
+    * supportedProfile[+] = "https://hl7.cz/fhir/hie/StructureDefinition/CzAuditEventIti65Source"
+    * supportedProfile[+] = "https://hl7.cz/fhir/hie/StructureDefinition/CzAuditEventIti67Consumer"
+    * supportedProfile[+] = "https://hl7.cz/fhir/hie/StructureDefinition/CzAuditEventIti67Responder"
+    * supportedProfile[+] = "https://hl7.cz/fhir/hie/StructureDefinition/CzAuditEventIti68Consumer"
