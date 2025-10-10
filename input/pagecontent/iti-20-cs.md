@@ -4,10 +4,10 @@ Tato kapitola popisuje švýcarské národní rozšíření pro transakci „Sen
 
 ### Role aktorů
 
-**Aktor**: libovolný aktor či aplikace seskupená se Secure Node nebo Secure Application (Audit Creator).
-**Role**: vytvoří auditní záznam a odešle jej do Úložiště auditních záznamů (Audit Record Repository).
-**Aktor**: Audit Record Repository.
-**Role**: přijme auditní záznam od Audit Record Creator a uloží jej pro potřeby auditu.
+**Aktor**: libovolný aktor či aplikace seskupená se Secure Node nebo Secure Application (Audit Creator).  
+**Role**: vytvoří auditní záznam a odešle jej do Úložiště auditních záznamů (Audit Record Repository).  
+**Aktor**: Audit Record Repository.  
+**Role**: přijme auditní záznam od Audit Record Creator a uloží jej pro potřeby auditu.  
 
 ### Odkazované standardy
 
