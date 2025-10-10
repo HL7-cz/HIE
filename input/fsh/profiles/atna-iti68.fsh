@@ -35,8 +35,8 @@ Consumer'."
   * what.identifier 1..1
     * value 1..1
     * system 1..1
-* agent[client] ^short = "The 'Document Consumer' actor (EPR application)"
-* agent[server] ^short = "The 'Document Responder' actor (EPR API)"
+* agent[client] ^short = "The 'Document Consumer' actor (Client application)"
+* agent[server] ^short = "The 'Document Responder' actor (Server API)"
 * entity[data]
   * ^short = "The document that was accessed"
   * what.reference 1..1
@@ -82,8 +82,8 @@ Responder'."
   * what.identifier 1..1
     * value 1..1
     * system 1..1
-* agent[client] ^short = "The 'Document Consumer' actor (EPR application)"
-* agent[server] ^short = "The 'Document Responder' actor (EPR API)"
+* agent[client] ^short = "The 'Document Consumer' actor (Client application)"
+* agent[server] ^short = "The 'Document Responder' actor (Server API)"
 * entity[data]
   * ^short = "The document that was accessed"
   * what.reference 1..1

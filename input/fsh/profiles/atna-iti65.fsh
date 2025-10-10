@@ -36,8 +36,8 @@ Source'."
   * what.identifier 1..1
     * value 1..1
     * system 1..1
-* agent[documentSource] ^short = "The 'Document Source' actor (EPR application)"
-* agent[documentRecipient] ^short = "The 'Document Recipient' actor (EPR API)"
+* agent[documentSource] ^short = "The 'Document Source' actor (Source application)"
+* agent[documentRecipient] ^short = "The 'Document Recipient' actor (Recipient API)"
 * entity[submissionSet].what.identifier 1..1
   * value 1..1
   * system 1..1
@@ -81,8 +81,8 @@ Recipient'."
   * what.identifier 1..1
     * value 1..1
     * system 1..1
-* agent[documentSource] ^short = "The 'Document Source' actor (EPR application)"
-* agent[documentRecipient] ^short = "The 'Document Recipient' actor (EPR API)"
+* agent[documentSource] ^short = "The 'Document Source' actor (Source application)"
+* agent[documentRecipient] ^short = "The 'Document Recipient' actor (Recipient API)"
 * entity[submissionSet].what.identifier 1..1
   * value 1..1
   * system 1..1

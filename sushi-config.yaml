@@ -75,6 +75,18 @@ pages:
     title: Mobile Access to Health Documents (MHD)
   mhd-cs.md:
     title: Mobile Access to Health Documents (MHD)
+  atna.md:
+    title: RESTful ATNA (ATNA)
+  atna-cs.md:
+    title: RESTful ATNA (ATNA)
+  volume3.md:
+    title: CZ:ATC Audit Event Content Profiles (ATNA)
+  volume3-cs.md:
+    title: CZ:ATC Audit Event Content Profiles (ATNA)
+  iti-20.md:
+    title: Record Audit Event [ITI-20]
+  iti-20-cs.md:
+    title: Record Audit Event [ITI-20]
   iti-66.md:
     title: Find Document Lists [ITI-66]
   iti-66-cs.md:
@@ -91,6 +103,10 @@ pages:
     title: Provide document bundle [ITI-65]
   iti-65-cs.md:
     title: Provide document bundle [ITI-65]
+  iti-81.md:
+    title: Retrieve ATNA Audit Event [ITI-81]
+  iti-81-cs.md:
+    title: Retrieve ATNA Audit Event [ITI-81]
   profiles.md:
     title: Profiles
   artifacts.xml:
@@ -189,7 +205,11 @@ menu:
   Volume 1:
     Mobile Access to Health Documents (MHD): mhd.html
     Mobile Access to Health Documents (MHD, CS): mhd-cs.html
+    RESTful ATNA (ATNA): atna.html
+    RESTful ATNA (ATNA, CS): atna-cs.html
   Volume 2:
+    Record Audit Event [ITI-20]: iti-20.html
+    Record Audit Event [ITI-20] (CS): iti-20-cs.html
     Provide document bundle [ITI-65]: iti-65.html
     Provide document bundle [ITI-65] (CS): iti-65-cs.html
     Find Document Lists [ITI-66]: iti-66.html
@@ -198,6 +218,11 @@ menu:
     Find Document References [ITI-67] (CS): iti-67-cs.html
     Retrieve Document [ITI-68]: iti-68.html
     Retrieve Document [ITI-68] (CS): iti-68-cs.html
+    Retrieve ATNA Audit Event [ITI-81]: iti-81.html
+    Retrieve ATNA Audit Event [ITI-68] (CS): iti-81-cs.html
+  Volume 3:
+    CZ:ATC Audit Event Content Profiles (ATNA): volume3.html
+    CZ:ATC Audit Event Content Profiles (ATNA, CS): volume3-cs.html
   Appendix:
     Profiles: profiles.html
   Artifacts: artifacts.html

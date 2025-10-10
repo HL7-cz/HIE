@@ -16,6 +16,7 @@ Description:   "Codesystem for author role codes."
 * ^content = #complete
 * #PAT "Patient"
 * #HCP "Healthcare professional"
+* #ORG "Organization"
 // TODO Doplnit role
 
 ValueSet: CZ_DocumentEntryAuthorRoleVs

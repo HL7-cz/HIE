@@ -35,8 +35,8 @@ Consumer'."
   * what.identifier 1..1
     * value 1..1
     * system 1..1
-* agent[client] ^short = "The 'Document List Consumer' actor (EPR application)"
-* agent[server] ^short = "The 'Document List Responder' actor (EPR API)"
+* agent[client] ^short = "The 'Document List Consumer' actor (Client application)"
+* agent[server] ^short = "The 'Document List Responder' actor (Server API)"
 
 
 Profile:     CzAuditEventIti66Responder
@@ -76,8 +76,8 @@ List Responder'."
   * what.identifier 1..1
     * value 1..1
     * system 1..1
-* agent[client] ^short = "The 'Document List Consumer' actor (EPR application)"
-* agent[server] ^short = "The 'Document List Responder' actor (EPR API)"
+* agent[client] ^short = "The 'Document List Consumer' actor (Client application)"
+* agent[server] ^short = "The 'Document List Responder' actor (Server API)"
 
 
 Instance:   CzAuditEventIti66ConsumerExample
