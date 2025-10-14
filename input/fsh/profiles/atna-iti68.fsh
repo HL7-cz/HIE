@@ -1,5 +1,6 @@
-Profile:     CzAuditEventIti68Consumer
+Profile:     CZ_AuditEventIti68Consumer
 Parent:      AuditRetrieveDocumentConsumer
+Id: cz-auditEventIti68Consumer
 Title:       "CZ Audit Event for [ITI-68] Document Consumer"
 Description: "This profile is used to define the CZ Audit Event for the [ITI-68] transaction and the actor 'Document
 Consumer'."
@@ -45,8 +46,9 @@ Consumer'."
   * securityLabel ^short = "The confidentiality code of the document, if known"
 
 
-Profile:     CzAuditEventIti68Responder
+Profile:     CZ_AuditEventIti68Responder
 Parent:      AuditRetrieveDocumentResponder
+Id: cz-auditEventIti68Responder
 Title:       "CZ Audit Event for [ITI-68] Document Responder"
 Description: "This profile is used to define the CZ Audit Event for the [ITI-68] transaction and the actor 'Document
 Responder'."
@@ -93,9 +95,9 @@ Responder'."
 
 
 
-Instance:   CzAuditEventIti68ConsumerExample
-InstanceOf: CzAuditEventIti68Consumer
-Description: "Example of AuditEvent profile CzAuditEventIti68Consumer"
+Instance:   CZ-AuditEventIti68ConsumerExample
+InstanceOf: CZ_AuditEventIti68Consumer
+Description: "Example of AuditEvent profile CZ_AuditEventIti68Consumer"
 Usage:      #example
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
@@ -143,9 +145,9 @@ Usage:      #example
   * observer.display = "Portal" // TODO je to spravne?
 
 
-Instance:   CzAuditEventIti68ResponderExample
-InstanceOf: CzAuditEventIti68Responder
-Description: "Example of AuditEvent profile CzAuditEventIti68Responder"
+Instance:   CZ-AuditEventIti68ResponderExample
+InstanceOf: CZ_AuditEventIti68Responder
+Description: "Example of AuditEvent profile CZ_AuditEventIti68Responder"
 Usage:      #example
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0

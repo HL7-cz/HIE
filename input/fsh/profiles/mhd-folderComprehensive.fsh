@@ -1,4 +1,4 @@
-Profile:        Folder
+Profile:        CZ_Folder
 Parent:         MhdList
 Id:             cz-mhd-folder-comprehensive
 Title:          "CZ MHD Folder Comprehensive"

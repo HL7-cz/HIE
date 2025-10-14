@@ -139,14 +139,14 @@ pages:
 #
 parameters:  #see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
 #  special-url:
-#    - https://ncez.mzcr.cz/fhir/ValueSet/cz-administrative-gender-vs
-#    - https://ncez.mzcr.cz/fhir/ValueSet/cz-contact-person-relation-vs
-#    - https://ncez.mzcr.cz/fhir/CodeSystem/cz-drzar
+#    - https://ncez.mzcr.cz/fhir/ValueSet/cz--administrative-gender-vs
+#    - https://ncez.mzcr.cz/fhir/ValueSet/cz--contact-person-relation-vs
+#    - https://ncez.mzcr.cz/fhir/CodeSystem/cz--drzar
 #    - https://ncez.mzcr.cz/fhir/CodeSystem/nrzp-povolani
-#    - https://ncez.mzcr.cz/fhir/ValueSet/cz-drzar-vs
+#    - https://ncez.mzcr.cz/fhir/ValueSet/cz--drzar-vs
 #    - https://ncez.mzcr.cz/fhir/ValueSet/nrzp-povolani-vs
 #    - https://ncez.mzcr.cz/fhir/ValueSet/PassportNS-vs
-#    - https://ncez.mzcr.cz/fhir/CodeSystem/cz-tab-ta
+#    - https://ncez.mzcr.cz/fhir/CodeSystem/cz--tab-ta
 #    - https://ncez.mzcr.cz/fhir/ValueSet/typ-registrujiciho-lekare-vs
 #    - https://ncez.mzcr.cz/fhir/CodeSystem/role-code-supplement
 #    - https://ncez.mzcr.cz/fhir/CodeSystem/contact-role-supplement
@@ -306,7 +306,37 @@ menu:
 # is specified by id or name, SUSHI will replace it with the correct
 # URL when generating the IG JSON.
 #
-#groups:
+groups:
+  ATNA:
+    name: ATNA Profiles
+    description: Profiles related to RESTful ATNA
+    resources:
+      - StructureDefinition/cz-auditEvent
+      - StructureDefinition/cz-documentAuditEvent
+      - StructureDefinition/cz-hpdAuditEvent
+      - StructureDefinition/cz-policyAuditEvent
+      - StructureDefinition/cz-uniqueIDIdentifier
+      - StructureDefinition/cz-auditEventIti65Source
+      - StructureDefinition/cz-auditEventIti65Recipient
+      - StructureDefinition/cz-auditEventIti66Consumer
+      - StructureDefinition/cz-auditEventIti66Responder
+      - StructureDefinition/cz-auditEventIti67Consumer
+      - StructureDefinition/cz-auditEventIti67Responder
+      - StructureDefinition/cz-auditEventIti68Consumer
+      - StructureDefinition/cz-auditEventIti68Responder
+
+  MHD:
+    name: MHD Profiles
+    description: Profiles related to Mobile Access to Health Documents (MHD)
+    resources:
+      - StructureDefinition/cz-mhd-documentreference-comprehensive
+      - StructureDefinition/cz-mhd-finddocumentreference-comprehensive-bundle
+      - StructureDefinition/cz-mhd-finddocumentlists-comprehensive-bundle
+      - StructureDefinition/cz-mhd-folder-comprehensive
+      - StructureDefinition/cz-mhd-providedocumentbundle-comprehensive
+      - StructureDefinition/cz-mhd-providedocumentbundle-comprehensive-response
+      - StructureDefinition/cz-mhd-submissionset-comprehensive
+
 #   GroupA:
 #     name: Group A
 #     description: The Alpha Group

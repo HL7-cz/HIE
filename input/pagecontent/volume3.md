@@ -41,7 +41,7 @@ The following Audit Trail Consumption Event Types are defined and shall be suppo
 | ATC_LOG_READ | Accessing Patient Audit Record Repository | [Access Audit Trail Content Profile](#access-audit-trail-content-profile) | R |
 | ATC_HPD_GROUP_ENTRY_NOTIFY | Entry of healthcare professionals into a group | [HPD Group Entry Audit Event Content Profile](#hpd-group-entry-audit-event-content-profile) | R, (NP: if not reference community) |
 
-_Table 4: Audit Trail Consumption Event Types_
+_Table 1: Audit Trail Consumption Event Types_
 
 
 ### Document Audit Event Content Profile
@@ -151,7 +151,7 @@ This content profile describes Audit Event related to Document Management. The f
 		</tr>
 		<tr>
 			<td rowspan="2">
-				<p>Responsible<sup><a href="#_ftn5.1">[5.1]</a></sup></p>
+				<p>Responsible<sup><a href="#_ftn2.1" name="_ftnref2.1">[2.1]</a></sup></p>
 			</td>
 			<td>
 				<p>Patient</p>
@@ -203,7 +203,7 @@ This content profile describes Audit Event related to Document Management. The f
 		</tr>
 		<tr>
 			<td rowspan="3">
-				<p>Document<sup><a href="#_ftn5.2">[5.2]</a></sup></p>
+				<p>Document<sup><a href="#_ftn2.2" name="_ftnref2.2">[2.2]</a></sup></p>
 			</td>
 			<td>
 				<p>type of document</p>
@@ -234,10 +234,10 @@ This content profile describes Audit Event related to Document Management. The f
 		</tr>
 	</tbody>
 </table>
-<p><sup><a href="#_ftnref5.1" name="_ftn5.1">[5.1]</a></sup> <small>If different from Initiator (Representative of patient acting on behalf of a patient then patient is responsible).</small></p>
-<p><sup><a href="#_ftnref5.2" name="_ftn5.2">[5.2]</a></sup> <small>Required for Document upload, Document retrieval, Document or Document Metadata update and Document removal but not for Document search.</small></p>
+<p><sup><a href="#_ftnref2.1" name="_ftn2.1">[2.1]</a></sup> <small>If different from Initiator (Representative of patient acting on behalf of a patient then patient is responsible).</small></p>
+<p><sup><a href="#_ftnref2.2" name="_ftn2.2">[2.2]</a></sup> <small>Required for Document upload, Document retrieval, Document or Document Metadata update and Document removal but not for Document search.</small></p>
 
-_Table 5: Document Audit Event Data Elements_
+_Table 2: Document Audit Event Data Elements_
 
 This profile defines the content of the document audit events which a community has to provide for a patient's audit trail. This profile builds on AuditEvent ([http://hl7.org/fhir/R4/auditevent.html](http://hl7.org/fhir/R4/auditevent.html)).   
 
@@ -345,7 +345,7 @@ This content profile describes Audit Events related to Policy Management. The fo
 		</tr>
 		<tr>
 			<td>
-				<p>Authorized Healthcare Professional<sup><a href="#_ftn8.1" name="_ftnref8.1">[8.1]</a></sup></p>
+				<p>Authorized Healthcare Professional<sup><a href="#_ftn3.1" name="_ftnref3.1">[3.1]</a></sup></p>
 			</td>
 			<td>
 				<p>Name<br />KRPZ</p>
@@ -434,7 +434,7 @@ This content profile describes Audit Events related to Policy Management. The fo
 		</tr>
 		<tr>
 			<td>
-				<p>AccessLevel<sup><a href="#_ftn8.2" name="_ftnref8.2">[8.2]</a></sup></p>
+				<p>AccessLevel<sup><a href="#_ftn3.2" name="_ftnref3.2">[3.2]</a></sup></p>
 			</td>
 			<td>
 				<p>one of urn:e-health-suisse:2015:policies:access-level:<br />normal, restricted, delegation-and-restricted, delegation-and-normal, full</p>
@@ -442,7 +442,7 @@ This content profile describes Audit Events related to Policy Management. The fo
 		</tr>
 		<tr>
 			<td>
-				<p>AccessLimitedToDate<sup><a href="#_ftn8.2" name="_ftnref8.2">[8.2]</a></sup></p>
+				<p>AccessLimitedToDate<sup><a href="#_ftn3.2" name="_ftnref3.2">[3.2]</a></sup></p>
 			</td>
 			<td>
 				<p>Date</p>
@@ -450,7 +450,7 @@ This content profile describes Audit Events related to Policy Management. The fo
 		</tr>
 		<tr>
 			<td>
-				<p>ProvideLevel<sup><a href="#_ftn8.3" name="_ftnref8.3">[8.3]</a></sup></p>
+				<p>ProvideLevel<sup><a href="#_ftn3.3" name="_ftnref3.3">[3.3]</a></sup></p>
 			</td>
 			<td>
 				<p>one of urn:e-health-suisse:2015:policies:provide-level:<br />normal, restricted, secret</p>
@@ -458,11 +458,11 @@ This content profile describes Audit Events related to Policy Management. The fo
 		</tr>
 	</tbody>
 </table>
-<p><sup><a href="#_ftnref8.1" name="_ftn8.1">[8.1]</a></sup> <small>Healthcare Professional or Assistant of Healthcare Professional can only be a participant for the first Event Type (Authorize participants to access level).</small></p>
-<p><sup><a href="#_ftnref8.2" name="_ftn8.2">[8.2]</a></sup> <small>Access Level and the date if the access is limited (AccessLimitedToDate) are required for the first two Event Types (Authorize, update Authorization participants to access level/date), for the other Event Types these parameters do not need to be specified.</small></p>
-<p><sup><a href="#_ftnref8.3" name="_ftn8.3">[8.3]</a></sup> <small>Provide Level is only relevant for the Event Type Default Confidentiality Level for new Documents.</small></p>
+<p><sup><a href="#_ftnref3.1" name="_ftn3.1">[3.1]</a></sup> <small>Healthcare Professional or Assistant of Healthcare Professional can only be a participant for the first Event Type (Authorize participants to access level).</small></p>
+<p><sup><a href="#_ftnref3.2" name="_ftn3.2">[3.2]</a></sup> <small>Access Level and the date if the access is limited (AccessLimitedToDate) are required for the first two Event Types (Authorize, update Authorization participants to access level/date), for the other Event Types these parameters do not need to be specified.</small></p>
+<p><sup><a href="#_ftnref3.3" name="_ftn3.3">[3.3]</a></sup> <small>Provide Level is only relevant for the Event Type Default Confidentiality Level for new Documents.</small></p>
 
-_Table 8: Policy Audit Event Data Elements_
+_Table 3: Policy Audit Event Data Elements_
 
 This content profile defines the document audit events which a community has to provide for a patients audit trail. This profile builds on AuditEvent ([http://hl7.org/fhir/R4/auditevent.html](http://hl7.org/fhir/R4/auditevent.html)).   
 

@@ -1,4 +1,4 @@
-Profile:        CZFindListsComprehensiveResponse
+Profile:        CZ_FindListsComprehensiveResponse
 Parent:         Bundle
 Id:             cz-mhd-finddocumentlists-comprehensive-bundle
 Title:          "CZ MHD Find Document Lists Comprehensive Response Message"
@@ -15,7 +15,7 @@ Description:    "A profile on the Find Document Lists Comprehensive Response mes
 * entry[SubmissionSet].fullUrl 1..
 * entry[SubmissionSet].resource 1..
 * entry[SubmissionSet].resource ^type.code = "List"
-* entry[SubmissionSet].resource ^type.profile = Canonical(CZMhdSubmissionSetComprehensive)
+* entry[SubmissionSet].resource ^type.profile = Canonical(CZ_MhdSubmissionSetComprehensive)
 * entry[Folder] ^short = "Folders"
 * entry[Folder].fullUrl 1..
 * entry[Folder].resource 1..

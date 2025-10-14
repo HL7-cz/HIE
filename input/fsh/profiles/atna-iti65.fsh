@@ -1,6 +1,7 @@
 // Audit events [ITI-65]
-Profile:     CzAuditEventIti65Source
+Profile:     CZ_AuditEventIti65Source
 Parent:      AuditProvideBundleSource
+Id: cz-auditEventIti65Source
 Title:       "CZ Audit Event for [ITI-65] Document Source"
 Description: "This profile is used to define the CZ Audit Event for the [ITI-65] transaction and the actor 'Document
 Source'."
@@ -44,8 +45,9 @@ Source'."
   * system = "urn:ietf:rfc:3986"
 
 
-Profile:     CzAuditEventIti65Recipient
+Profile:     CZ_AuditEventIti65Recipient
 Parent:      AuditProvideBundleRecipient
+Id: cz-auditEventIti65Recipient
 Title:       "CZ Audit Event for [ITI-65] Document Recipient"
 Description: "This profile is used to define the CZ Audit Event for the [ITI-65] transaction and the actor 'Document
 Recipient'."
@@ -89,29 +91,29 @@ Recipient'."
   * system = "urn:ietf:rfc:3986"
 
 
-Instance:   CzAuditEventIti65SourceExample
-InstanceOf: CzAuditEventIti65Source
-Description: "Example of AuditEvent profile CzAuditEventIti65Source"
+Instance:   CZ-AuditEventIti65SourceExample
+InstanceOf: CZ_AuditEventIti65Source
+Description: "Example of AuditEvent profile CZAuditEventIti65Source"
 Usage:      #example
-* insert CzAuditEventIti65ExampleRules
+* insert CZ_AuditEventIti65ExampleRules
 * source 
   * site = "2.16.756.1.2.3"
   * observer.display = "Nemocnice XYZ" // TODO je to spravne?
 * type = DCM#110106 "Export"
 
 
-Instance:   CzAuditEventIti65RecipientExample
-InstanceOf: CzAuditEventIti65Recipient
-Description: "Example of AuditEvent profile CzAuditEventIti65Recipient"
+Instance:   CZ-AuditEventIti65RecipientExample
+InstanceOf: CZ_AuditEventIti65Recipient
+Description: "Example of AuditEvent profile CZAuditEventIti65Recipient"
 Usage:      #example
-* insert CzAuditEventIti65ExampleRules
+* insert CZ_AuditEventIti65ExampleRules
 * source   
   * site = "2.16.756.4.5.6"
   * observer.display = "Affinitní doména A" // TODO je to spravne?
 * type = DCM#110107 "Import"
 
 
-RuleSet: CzAuditEventIti65ExampleRules
+RuleSet: CZ_AuditEventIti65ExampleRules
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
 * agent[documentSource]

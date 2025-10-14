@@ -25,23 +25,23 @@ Následující Typy Událostí Konzumace Auditní Stopy (Audit Trail Consumption
 {:class="table table-bordered"}
 | Typ | Popis | Odkaz na profil| Komunitní požadavek (Opt Community) |
 | --- | --- | --- | --- |
-| ATC_DOC_CREATE | Nahrání dokumentu | [Profil Obsahu Auditních Událostí Dokumentů](#document-audit-event-content-profile) | R (Vyžadováno) |
-| ATC_DOC_READ | Získání dokumentu | [Profil Obsahu Auditních Událostí Dokumentů](#document-audit-event-content-profile) | R (Vyžadováno) |
-| ATC_DOC_UPDATE | Aktualizace dokumentu nebo metadat dokumentu | [Profil Obsahu Auditních Událostí Dokumentů](#document-audit-event-content-profile) | R (Vyžadováno) |
-| ATC_DOC_DELETE | Odstranění dokumentu | [Profil Obsahu Auditních Událostí Dokumentů](#document-audit-event-content-profile) | R (Vyžadováno) |
-| ATC_DOC_SEARCH | Vyhledávání dokumentů | [Profil Obsahu Auditních Událostí Dokumentů](#document-audit-event-content-profile) | R (Vyžadováno) |
-| ATC_POL_CREATE_AUT_PART_AL | ATC_POL_CREATE_AUT_PART_AL	Autorizovat účastníky pro úroveň/datum přístupu | [Profil Obsahu Auditních Událostí Politik](#policy-audit-event-content-profile) | R, (NP, pokud se nejedná o referenční komunitu) |
-| ATC_POL_UPDATE_AUT_PART_AL | Aktualizovat úroveň/datum přístupu autorizovaných účastníků | [Profil Obsahu Auditních Událostí Politik](#policy-audit-event-content-profile) | R, (NP, pokud se nejedná o referenční komunitu) |
-| ATC_POL_REMOVE_AUT_PART_AL | Odebrat autorizaci pro účastníky | [Profil Obsahu Auditních Událostí Politik](#policy-audit-event-content-profile) | R, (NP, pokud se nejedná o referenční komunitu) |
-| ATC_POL_DEF_CONFLEVEL | Nastavit nebo aktualizovat výchozí Úroveň Důvěrnosti | [Profil Obsahu Auditních Událostí Politik](#policy-audit-event-content-profile) | R, (NP, pokud se nejedná o referenční komunitu) |
-| ATC_POL_DIS_EMER_USE | Zakázání Nouzového Přístupu | [Profil Obsahu Auditních Událostí Politik](#policy-audit-event-content-profile) | R, (NP, pokud se nejedná o referenční komunitu) |
-| ATC_POL_ENA_EMER_USE | Povolení Nouzového Přístupu | [Profil Obsahu Auditních Událostí Politik](#policy-audit-event-content-profile) | R, (NP, pokud se nejedná o referenční komunitu) |
-| ATC_POL_INCL_BLACKLIST | Přiřadit Zdravotnického Pracovníka na Černou Listinu | [Profil Obsahu Auditních Událostí Politik](#policy-audit-event-content-profile) | R, (NP, pokud se nejedná o referenční komunitu) |
-| ATC_POL_EXL_BLACKLIST | Vyloučit Zdravotnického Pracovníka z Černé Listiny | [Profil Obsahu Auditních Událostí Politik](#policy-audit-event-content-profile) | R, (NP, pokud se nejedná o referenční komunitu) |
-| ATC_LOG_READ | Přístup k Repozitáři Auditních Záznamů Pacienta | [Access Audit Trail Content Profile](#access-audit-trail-content-profile) | R |
-| ATC_HPD_GROUP_ENTRY_NOTIFY | Vstup zdravotnických pracovníků do skupiny | [HPD Group Entry Audit Event Content Profile](#hpd-group-entry-audit-event-content-profile) | R, (NP, pokud se nejedná o referenční komunituy) |
+| ATC_DOC_CREATE | Nahrání dokumentu | [Profil Obsahu Auditních Událostí Dokumentů](#profil-obsahu-auditních-událostí-dokumentů) | R (Vyžadováno) |
+| ATC_DOC_READ | Získání dokumentu | [Profil Obsahu Auditních Událostí Dokumentů](#profil-obsahu-auditních-událostí-dokumentů) | R (Vyžadováno) |
+| ATC_DOC_UPDATE | Aktualizace dokumentu nebo metadat dokumentu | [Profil Obsahu Auditních Událostí Dokumentů](#profil-obsahu-auditních-událostí-dokumentů) | R (Vyžadováno) |
+| ATC_DOC_DELETE | Odstranění dokumentu | [Profil Obsahu Auditních Událostí Dokumentů](#profil-obsahu-auditních-událostí-dokumentů) | R (Vyžadováno) |
+| ATC_DOC_SEARCH | Vyhledávání dokumentů | [Profil Obsahu Auditních Událostí Dokumentů](#profil-obsahu-auditních-událostí-dokumentů) | R (Vyžadováno) |
+| ATC_POL_CREATE_AUT_PART_AL | ATC_POL_CREATE_AUT_PART_AL	Autorizovat účastníky pro úroveň/datum přístupu | [Profil Obsahu Auditních Událostí Politik](#profil-obsahu-auditních-událostí-politik) | R, (NP, pokud se nejedná o referenční komunitu) |
+| ATC_POL_UPDATE_AUT_PART_AL | Aktualizovat úroveň/datum přístupu autorizovaných účastníků | [Profil Obsahu Auditních Událostí Politik](#profil-obsahu-auditních-událostí-politik) | R, (NP, pokud se nejedná o referenční komunitu) |
+| ATC_POL_REMOVE_AUT_PART_AL | Odebrat autorizaci pro účastníky | [Profil Obsahu Auditních Událostí Politik](#profil-obsahu-auditních-událostí-politik) | R, (NP, pokud se nejedná o referenční komunitu) |
+| ATC_POL_DEF_CONFLEVEL | Nastavit nebo aktualizovat výchozí Úroveň Důvěrnosti | [Profil Obsahu Auditních Událostí Politik](#profil-obsahu-auditních-událostí-politik) | R, (NP, pokud se nejedná o referenční komunitu) |
+| ATC_POL_DIS_EMER_USE | Zakázání Nouzového Přístupu | [Profil Obsahu Auditních Událostí Politik](#profil-obsahu-auditních-událostí-politik) | R, (NP, pokud se nejedná o referenční komunitu) |
+| ATC_POL_ENA_EMER_USE | Povolení Nouzového Přístupu | [Profil Obsahu Auditních Událostí Politik](#profil-obsahu-auditních-událostí-politik) | R, (NP, pokud se nejedná o referenční komunitu) |
+| ATC_POL_INCL_BLACKLIST | Přiřadit Zdravotnického Pracovníka na Černou Listinu | [Profil Obsahu Auditních Událostí Politik](#profil-obsahu-auditních-událostí-politik) | R, (NP, pokud se nejedná o referenční komunitu) |
+| ATC_POL_EXL_BLACKLIST | Vyloučit Zdravotnického Pracovníka z Černé Listiny | [Profil Obsahu Auditních Událostí Politik](#profil-obsahu-auditních-událostí-politik) | R, (NP, pokud se nejedná o referenční komunitu) |
+| ATC_LOG_READ | Přístup k Repozitáři Auditních Záznamů Pacienta | [Access Audit Trail Content Profile](#profil-obsahu-auditních-událostí-politik) | R |
+| ATC_HPD_GROUP_ENTRY_NOTIFY | Vstup zdravotnických pracovníků do skupiny | [HPD Group Entry Audit Event Content Profile](#profil-obsahu-přístupu-k-auditní-stopě) | R, (NP, pokud se nejedná o referenční komunituy) |
 
-_Tabulka 4: Typy Událostí Konzumace Auditní Stopy
+_Tabulka 1: Typy Událostí Konzumace Auditní Stopy
 
 
 ### Profil Obsahu Auditních Událostí Dokumentů
@@ -147,7 +147,7 @@ Tento profil obsahu popisuje Auditní Události související se Správou Dokume
         </tr>
         <tr>
             <td rowspan="2">
-                <p>Odpovědná osoba<sup><a href="#_ftn5.1">[5.1]</a></sup></p>
+                <p>Odpovědná osoba<sup><a href="#_ftn2.1" name="_ftnref2.1">[2.1]</a></sup></p>
             </td>
             <td>
                 <p>Pacient</p>
@@ -199,7 +199,7 @@ Tento profil obsahu popisuje Auditní Události související se Správou Dokume
         </tr>
         <tr>
             <td rowspan="3">
-                <p>Dokument<sup><a href="#_ftn5.2">[5.2]</a></sup></p>
+                <p>Dokument<sup><a href="#_ftn2.2" name="_ftnref2.2">[2.2]</a></sup></p>
             </td>
             <td>
                 <p>Typ dokumentu</p>
@@ -230,10 +230,10 @@ Tento profil obsahu popisuje Auditní Události související se Správou Dokume
         </tr>
     </tbody>
 </table>
-<p><sup><a href="#_ftnref5.1" name="_ftn5.1">[5.1]</a></sup> <small>Pokud se liší od Iniciátora (např. Zástupce pacienta jedná jménem pacienta, pak je pacient Odpovědnou stranou).</small></p>
-<p><sup><a href="#_ftnref5.2" name="_ftn5.2">[5.2]</a></sup> <small>Vyžadováno pro nahrání dokumentu, získání dokumentu, aktualizaci dokumentu nebo metadat dokumentu a odstranění dokumentu, ale ne pro vyhledávání dokumentů.</small></p>
+<p><sup><a href="#_ftnref2.1" name="_ftn2.1">[2.1]</a></sup> <small>Pokud se liší od Iniciátora (např. Zástupce pacienta jedná jménem pacienta, pak je pacient Odpovědnou stranou).</small></p>
+<p><sup><a href="#_ftnref2.2" name="_ftn2.2">[2.2]</a></sup> <small>Vyžadováno pro nahrání dokumentu, získání dokumentu, aktualizaci dokumentu nebo metadat dokumentu a odstranění dokumentu, ale ne pro vyhledávání dokumentů.</small></p>
 
-_Tabulka 5: Datové Prvky Auditní Události Dokumentů_
+_Tabulka 2: Datové Prvky Auditní Události Dokumentů_
 
 Tento profil definuje obsah auditních událostí dokumentů, které musí komunita poskytovat pro auditní stopu pacienta. Vychází ze zdrojového objektu AuditEvent. ([http://hl7.org/fhir/R4/auditevent.html](http://hl7.org/fhir/R4/auditevent.html)).   
 
@@ -341,7 +341,7 @@ Tento profil obsahu popisuje Auditní Události související se Správou Politi
         </tr>
         <tr>
             <td>
-                <p>Autorizovaný Zdravotnický Pracovník<sup><a href="#_ftn8.1" name="_ftnref8.1">[8.1]</a></sup></p>
+                <p>Autorizovaný Zdravotnický Pracovník<sup><a href="#_ftn3.1" name="_ftnref3.1">[3.1]</a></sup></p>
             </td>
             <td>
                 <p>Jméno<br />KRZP</p>
@@ -430,7 +430,7 @@ Tento profil obsahu popisuje Auditní Události související se Správou Politi
         </tr>
         <tr>
             <td>
-                <p>Úroveň přístupu<sup><a href="#_ftn8.2" name="_ftnref8.2">[8.2]</a></sup></p>
+                <p>Úroveň přístupu<sup><a href="#_ftn3.2" name="_ftnref3.2">[3.2]</a></sup></p>
             </td>
             <td>
                 <p>jedna z hodnot úrovně přístupu:<br />normal, restricted, delegation-and-restricted, delegation-and-normal, full</p>
@@ -438,7 +438,7 @@ Tento profil obsahu popisuje Auditní Události související se Správou Politi
         </tr>
         <tr>
             <td>
-                <p>Přístup omezen do data <sup><a href="#_ftn8.2" name="_ftnref8.2">[8.2]</a></sup></p>
+                <p>Přístup omezen do data <sup><a href="#_ftn3.2" name="_ftnref3.2">[3.2]</a></sup></p>
             </td>
             <td>
                 <p>Datum</p>
@@ -446,7 +446,7 @@ Tento profil obsahu popisuje Auditní Události související se Správou Politi
         </tr>
         <tr>
             <td>
-                <p>Úroveň poskytnutí<sup><a href="#_ftn8.3" name="_ftnref8.3">[8.3]</a></sup></p>
+                <p>Úroveň poskytnutí<sup><a href="#_ftn3.3" name="_ftnref3.3">[3.3]</a></sup></p>
             </td>
             <td>
                 <p>Jedna z hodnot:<br />normal, restricted, secret</p>
@@ -454,11 +454,11 @@ Tento profil obsahu popisuje Auditní Události související se Správou Politi
         </tr>
     </tbody>
 </table>
-<p><sup><a href="#_ftnref8.1" name="_ftn8.1">[8.1]</a></sup> <small>Zdravotnický Pracovník nebo Asistent Zdravotnického Pracovníka může být účastníkem pouze pro první Typ Události (Autorizovat účastníky pro úroveň přístupu).</small></p>
-<p><sup><a href="#_ftnref8.2" name="_ftn8.2">[8.2]</a></sup> <small>Úroveň Přístupu a datum, pokud je přístup omezen (AccessLimitedToDate), jsou vyžadovány pro první dva Typy Událostí (Autorizovat, aktualizovat Autorizaci účastníků pro úroveň/datum přístupu); pro ostatní Typy Událostí tyto parametry nemusí být specifikovány.</small></p>
-<p><sup><a href="#_ftnref8.3" name="_ftn8.3">[8.3]</a></sup> <small>Úroveň Poskytnutí je relevantní pouze pro Typ Události Výchozí Úroveň Důvěrnosti pro nové Dokumenty.</small></p>
+<p><sup><a href="#_ftnref3.1" name="_ftn3.1">[3.1]</a></sup> <small>Zdravotnický Pracovník nebo Asistent Zdravotnického Pracovníka může být účastníkem pouze pro první Typ Události (Autorizovat účastníky pro úroveň přístupu).</small></p>
+<p><sup><a href="#_ftnref3.2" name="_ftn3.2">[3.2]</a></sup> <small>Úroveň Přístupu a datum, pokud je přístup omezen (AccessLimitedToDate), jsou vyžadovány pro první dva Typy Událostí (Autorizovat, aktualizovat Autorizaci účastníků pro úroveň/datum přístupu); pro ostatní Typy Událostí tyto parametry nemusí být specifikovány.</small></p>
+<p><sup><a href="#_ftnref3.3" name="_ftn3.3">[3.3]</a></sup> <small>Úroveň Poskytnutí je relevantní pouze pro Typ Události Výchozí Úroveň Důvěrnosti pro nové Dokumenty.</small></p>
 
-_Tabulka 8: Datové Prvky Auditní Události Politik_
+_Tabulka 3: Datové Prvky Auditní Události Politik_
 
 Tento profil definuje obsah auditních událostí politik, které musí komunita poskytovat pro auditní stopu pacienta. Vychází ze zdrojového objektu AuditEvent ([http://hl7.org/fhir/R4/auditevent.html](http://hl7.org/fhir/R4/auditevent.html)).   
 
@@ -561,7 +561,7 @@ Tento profil obsahu popisuje Auditní Událost související s Přístupem k Aud
     </tbody>
 </table>
 
-_Table 11: Datové Prvky Přístupu k Auditní Stopě_
+_Table 4: Datové Prvky Přístupu k Auditní Stopě_
 
 Tento profil definuje událost přístupu k auditní stopě, kterou musí komunita poskytovat pro auditní stopu pacienta. Vychází ze zdrojového objektu AuditEvent. ([http://hl7.org/fhir/R4/auditevent.html](http://hl7.org/fhir/R4/auditevent.html)).   
 
@@ -654,7 +654,7 @@ Tento profil obsahu popisuje Auditní Událost související se vstupem zdravotn
     </tbody>
 </table>
 
-_Table 13: Prvky Auditní Události Vstupu do Skupiny HPD_
+_Table 5: Prvky Auditní Události Vstupu do Skupiny HPD_
 
 Tento profil definuje obsah auditní události vstupu do skupiny HPD. Vychází ze zdrojového objektu AuditEvent ([http://hl7.org/fhir/R4/auditevent.html](http://hl7.org/fhir/R4/auditevent.html)).   
 

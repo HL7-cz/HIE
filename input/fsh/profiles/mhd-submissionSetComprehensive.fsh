@@ -1,4 +1,4 @@
-Profile: CZMhdSubmissionSetComprehensive
+Profile: CZ_MhdSubmissionSetComprehensive
 Parent: $IHE.MHD.UnContained.Comprehensive.SubmissionSet
 Id: cz-mhd-submissionset-comprehensive
 Title: "CZ MHD SubmissionSet Comprehensive"

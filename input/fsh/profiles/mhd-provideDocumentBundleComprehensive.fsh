@@ -1,4 +1,4 @@
-Profile: CZMhdProvideDocumentBundleComprehensive
+Profile: CZ_MhdProvideDocumentBundleComprehensive
 Parent: $IHE.MHD.Comprehensive.ProvideBundle
 Id: cz-mhd-providedocumentbundle-comprehensive
 Title: "CZ MHD Provide Document Bundle Comprehensive"
@@ -20,7 +20,7 @@ Description: "IHE MHD profile on Provide Document Bundle (ITI-65) transaction wi
 * entry[DocumentRefs] ^sliceName = "DocumentRefs"
 * entry[DocumentRefs] ^mustSupport = true
 * entry[DocumentRefs].resource 1.. MS
-* entry[DocumentRefs].resource ^type.profile = Canonical(CZMhdDocumentReferenceComprehensive)
+* entry[DocumentRefs].resource ^type.profile = Canonical(CZ_MhdDocumentReferenceComprehensive)
 * entry[DocumentRefs].request MS
 * entry[DocumentRefs].request.method = #POST
 * entry[DocumentRefs].request.method MS

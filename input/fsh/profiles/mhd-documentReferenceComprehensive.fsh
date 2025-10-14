@@ -1,4 +1,4 @@
-Profile: CZMhdDocumentReferenceComprehensive
+Profile: CZ_MhdDocumentReferenceComprehensive
 Parent: DocumentReference
 Id: cz-mhd-documentreference-comprehensive
 Title: "CZ MHD DocumentReference Comprehensive"

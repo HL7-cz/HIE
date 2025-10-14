@@ -44,13 +44,13 @@ Platí stejné sémantiky zpráv a očekávané akce, jak jsou popsány v transa
 
 #### Zdroje CapabilityStatement
 
-CapabilityStatement pro Audit Creator: [ATNA Audit Creator](CapabilityStatement-CH.ATNA.AuditCreator.html).
-CapabilityStatement pro Audit Record Repository: [ATNA Audit Record Repository](CapabilityStatement-CH.ATNA.AuditRecordRepository.html).
+CapabilityStatement pro Audit Creator: [ATNA Audit Creator](CapabilityStatement-CZ-ATNA-AuditCreator.html).
+CapabilityStatement pro Audit Record Repository: [ATNA Audit Record Repository](CapabilityStatement-CZ-ATNA-AuditRecordRepository.html).
 
 ###  Bezpečnostní aspekty
 
 Transakce MUSÍ být zabezpečena šifrováním Transport Layer Security (TLS) a autentizací serveru prostřednictvím serverových certifikátů.
 
 Transakce MUSÍ používat autentizaci klienta a autorizaci jednou z následujících strategií:
-1. Použití základního přístupového tokenu podle IUA, předávaného dle transakce „I[Incorporate Access Token [ITI-72]](https://profiles.ihe.net/ITI/IUA/index.html#372-incorporate-access-token-iti-72)“.
+1. Použití základního přístupového tokenu podle IUA, předávaného dle transakce „[Incorporate Access Token [ITI-72]](https://profiles.ihe.net/ITI/IUA/index.html#372-incorporate-access-token-iti-72)“.
 2. Nebo vzájemná autentizace (mTLS) na transportní vrstvě.

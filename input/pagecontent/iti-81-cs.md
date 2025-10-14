@@ -12,16 +12,12 @@ Zpráva Retrieve ATNA Audit Event musí být provedena jako HTTP GET žádost sm
 
 kde:
 
-• <scheme> musí být https.
-• <query> musí obsahovat parametr entity.identifier podle Additional ATNA Search Parameters a může obsahovat další parametry ATNA. Pokud entity.identifier není obsažen, server odpoví HTTP kódem 400 Bad Request.
-
-
 <ol type="a">
   <li>
     <code>&lt;scheme&gt;</code> musí být https.
   </li>
   <li>
-    <code>&lt;query&gt;</code> musí obsahovat parametr entity.identifier podle <a href="#additional-atna-search-parameters">Additional ATNA Search Parameters</a> a může obsahovat další parametry ATNA. Pokud entity.identifier není obsažen, server odpoví HTTP kódem 400 Bad Request.
+    <code>&lt;query&gt;</code> musí obsahovat parametr entity.identifier podle <a href="#další-atna-parametry-dotazu">Additional ATNA Search Parameters</a> a může obsahovat další parametry ATNA. Pokud entity.identifier není obsažen, server odpoví HTTP kódem 400 Bad Request.
   </li>
 </ol>
 
@@ -42,7 +38,7 @@ Pro profil CZ:ATC musí být hodnota entity.identifier rovna EPR‑SPID, tedy:
 
 #### Sémantika odpovědi zprávy
 
-Zdroje AuditEvent vrácené v Bundle musí být v souladu s profilem CH:ATC AuditEvent, popsané v [Volume 3 - CH:ATC Audit Event Content Profiles](volume3.html).
+Zdroje AuditEvent vrácené v Bundle musí být v souladu s profilem CH:ATC AuditEvent, popsané v [Volume 3 - CZ:ATC Audit Event Content Profiles](volume3.html).
 
 
 #### Bezpečnostní aspekty

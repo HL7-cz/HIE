@@ -32,7 +32,7 @@ Repository.
 
 ##### Message Semantics
 
-The base profiles for the Swiss AuditEvents in the EPR are:
+The base profiles for the Czech AuditEvents in the EPR are:
 
 - CZ Audit Event with a Basic Auth Token when a transaction is secured with a Basic IUA Token.
 - CZ Audit Event with an Extended Token when a transaction is secured with an Extended IUA Token.
@@ -46,10 +46,10 @@ Same message semantics and expected actions apply as described in the ITI-20 tra
 #### CapabilityStatement Resource
 
 The CapabilityStatement resource for the **Audit Creator** is
-[ATNA Audit Creator](CapabilityStatement-CH.ATNA.AuditCreator.html).
+[ATNA Audit Creator](CapabilityStatement-CZ-ATNA-AuditCreator.html).
 
 The CapabilityStatement resource for the **Audit Record Repository** is
-[ATNA Audit Record Repository](CapabilityStatement-CH.ATNA.AuditRecordRepository.html).
+[ATNA Audit Record Repository](CapabilityStatement-CZ-ATNA-AuditRecordRepository.html).
 
 ### Security Consideration
 
@@ -57,5 +57,5 @@ The transaction SHALL be secured by Transport Layer Security (TLS) encryption an
 server certificates.
 
 The transaction SHALL use client authentication and authorization using one of the following strategies:
-1. Use a basic access token defined in [IUA](iti-71.html) conveyed as defined in the [Incorporate Access Token [ITI-72]](https://profiles.ihe.net/ITI/IUA/index.html#372-incorporate-access-token-iti-72) transaction.
+1. Use a basic access token defined in IUA conveyed as defined in the [Incorporate Access Token [ITI-72]](https://profiles.ihe.net/ITI/IUA/index.html#372-incorporate-access-token-iti-72) transaction.
 2. or, use mutual authentication (mTLS) on the transport layer.

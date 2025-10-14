@@ -1,4 +1,4 @@
-Profile: CZFindDocumentReferencesComprehensiveResponse
+Profile: CZ_FindDocumentReferencesComprehensiveResponse
 Parent: Bundle
 Id: cz-mhd-finddocumentreference-comprehensive-bundle
 Title: "CZ MHD Find Document References Comprehensive Response message"
@@ -16,7 +16,7 @@ Description: "A profile on the Find Document References Comprehensive Response m
     OperationOutcome 0..1
 * entry[DocumentReference] ^short = "DocumentReference"
 * entry[DocumentReference].resource 1.. 
-* entry[DocumentReference].resource only CZMhdDocumentReferenceComprehensive
+* entry[DocumentReference].resource only CZ_MhdDocumentReferenceComprehensive
 
 * entry[OperationOutcome] ^short = "OperationOutcome"
 * entry[OperationOutcome].resource 1..

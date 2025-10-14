@@ -1,5 +1,6 @@
-Profile:     CzAuditEventIti67Consumer
+Profile:     CZ_AuditEventIti67Consumer
 Parent:      AuditFindDocumentReferencesConsumer
+Id: cz-auditEventIti67Consumer
 Title:       "CZ Audit Event for [ITI-67] Document Consumer"
 Description: "This profile is used to define the CZ Audit Event for the [ITI-67] transaction and the actor 'Document
 Consumer'."
@@ -39,8 +40,9 @@ Consumer'."
 * agent[server] ^short = "The 'Document Responder' actor (Server API)"
 
 
-Profile:     CzAuditEventIti67Responder
+Profile:     CZ_AuditEventIti67Responder
 Parent:      AuditFindDocumentReferencesResponder
+Id: cz-auditEventIti67Responder
 Title:       "CZ Audit Event for [ITI-67] Document Responder"
 Description: "This profile is used to define the CZ Audit Event for the [ITI-67] transaction and the actor 'Document
 Responder'."
@@ -80,9 +82,9 @@ Responder'."
 * agent[server] ^short = "The 'Document Responder' actor (Server API)"
 
 
-Instance:   CzAuditEventIti67ConsumerExample
-InstanceOf: CzAuditEventIti67Consumer
-Description: "Example of AuditEvent profile CzAuditEventIti67Consumer"
+Instance:   CZ-AuditEventIti67ConsumerExample
+InstanceOf: CZ_AuditEventIti67Consumer
+Description: "Example of AuditEvent profile CZ_AuditEventIti67Consumer"
 Usage:      #example
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
@@ -126,9 +128,9 @@ Usage:      #example
   * site = "2.16.756.4.5.6"
   * observer.display = "Affinitní doména A" // TODO je to spravne?
 
-Instance:   CzAuditEventIti67ResponderExample
-InstanceOf: CzAuditEventIti67Responder
-Description: "Example of AuditEvent profile CzAuditEventIti67Responder"
+Instance:   CZ-AuditEventIti67ResponderExample
+InstanceOf: CZ_AuditEventIti67Responder
+Description: "Example of AuditEvent profile CZ_AuditEventIti67Responder"
 Usage:      #example
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0

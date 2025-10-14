@@ -1,4 +1,4 @@
-Profile: CZMhdProvideDocumentBundleComprehensiveResponse
+Profile: CZ_MhdProvideDocumentBundleComprehensiveResponse
 Parent: Bundle
 Id: cz-mhd-providedocumentbundle-comprehensive-response
 Title: "CZ MHD Provide Document Bundle Comprehensive Response"
