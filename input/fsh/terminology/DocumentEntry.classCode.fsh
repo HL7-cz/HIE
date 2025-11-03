@@ -1,23 +1,37 @@
+CodeSystem: CZ_DocumentEntryClassCodeCs
+Id: cz-documentEntry-classCode-cs
+Title: "CZ DocumentEntry ClassCode CodeSystem"
+Description: "Document classification codes."
+
+* ^language = #cs-CZ
+* ^identifier.system = "urn:ietf:rfc:3986"
+//* ^identifier.value = "urn:oid:1.2.203.24341.11.2.10.2.1"
+* ^version = "1.0"
+* ^status = #active
+* ^date = "2025-01-17"
+* ^experimental = false
+* ^publisher = "UZIS"
+* ^jurisdiction = urn:iso:std:iso:3166#CZ "Czechia"
+* ^caseSensitive = true
+* ^content = #complete
+* #01 "Propouštěcí zpráva z nemocnice"
+* #02 "Zpráva z laboratorního vyšetření"
+* #03 "Zpráva z obrazového vyšetření"
+* #04 "Pacientský souhrn"
+* #05 "Žádanka na obrazové vyšetření"
+* #06 "Laboratorní žádanka"
+* #07 "Ambulantní zpráva"
+* #08 "Objednávka laboratorního vyšetření"
+* #09 "Objednávka obrazového vyšetření"
+* #10 "Záznam o výjezdu zdravotnické záchranné služby"
+* #11 "Hlášení výsledků laboratorních vyšetření do NZIS"
+
+//TODO nemělo by se namapovat na LOINC kódy z IG? composition.type
+
 ValueSet: CZ_DocumentEntryClassCodeVs
 Id: cz-documentEntry-classCode-vs
 Title: "CZ DocumentEntry ClassCode ValueSet"
 Description: "Document classification codes."
-* insert SNOMEDCopyrightForVS
+
 * ^experimental = false
-* $sct#371531000 "Encounter report"
-* $sct#721927009 "Referral note"
-* $sct#721963009 "Order"
-* $sct#185349003 "Discharge summary"
-* $sct#422735006 "Summary clinical document"
-* $sct#371525003 "Clinical procedure report"
-* $sct#734163000 "Care Plan"
-* $sct#440545006 "Prescription record"
-* $sct#184216000 "Patient record type"
-* $sct#371537001 "Consent report"
-* $sct#371538006 "Advance directive report"
-* $sct#722160009 "Audit trail report"
-* $sct#722216001 "Emergency medical identification record"
-* $sct#772790007 "Organ donor card"
-* $sct#405624007 "Administrative documentation"
-* $sct#417319006 "Record of health event"
-* $sct#419891008 "Record artifact"
+* include codes from system CZ_DocumentEntryClassCodeCs
