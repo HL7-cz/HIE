@@ -21,9 +21,9 @@ Description: "CZ MHD Profile on DocumentReference"
 * docStatus ..0
 * docStatus ^comment = "These HL7 FHIR elements are not used in XDS, therefore would not be present. Document Consumers should be robust to these elements holding values."
 * type 1.. 
-* type from CZ_DocumentEntryTypeCodeVs (required)
+* type from $hl7-cz-medical-document-type-vs (required)
 * category 1..1 
-* category from CZ_DocumentEntryClassCodeVs (required)
+* category from $hl7-cz-document-category-vs (required)
 * subject 1.. 
 * subject.identifier 1..1
 * subject.identifier only  CZ_RID_Identifier

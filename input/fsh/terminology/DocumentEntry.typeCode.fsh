@@ -1,4 +1,4 @@
-CodeSystem:     CZ_DocumentEntryTypeCodeCs
+/*CodeSystem:     CZ_DocumentEntryTypeCodeCs
 Id:	        cz-documentEntry-typeCode-cs
 Title:	       "CZ DocumentEntry TypeCode CodeSystem"
 Description:   "Codesystem for document type codes."
@@ -33,3 +33,4 @@ Description: "Document type codes."
 
 * ^experimental = false
 * include codes from system CZ_DocumentEntryTypeCodeCs
+*/

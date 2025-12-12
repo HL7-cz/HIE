@@ -1,4 +1,4 @@
-CodeSystem: CZ_DocumentEntryClassCodeCs
+/*CodeSystem: CZ_DocumentEntryClassCodeCs
 Id: cz-documentEntry-classCode-cs
 Title: "CZ DocumentEntry ClassCode CodeSystem"
 Description: "Document classification codes."
@@ -35,3 +35,4 @@ Description: "Document classification codes."
 
 * ^experimental = false
 * include codes from system CZ_DocumentEntryClassCodeCs
+*/
