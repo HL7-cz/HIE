@@ -34,14 +34,14 @@ The FHIR `Bundle.meta.profile` shall have the following value:
 
 `https://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.Comprehensive.ProvideBundle`
 
-The request Bundle SHALL follow the [CH MHD Provide Document Bundle Comprehensive](StructureDefinition-cz-mhd-providedocumentbundle-comprehensive.html).
+The request Bundle SHALL follow the [MHD Provide Document Bundle Comprehensive](StructureDefinition-cz-mhd-providedocumentbundle-comprehensive.html).
 
 The `DocumentReference.content.attachment.url` value SHALL point to a Binary resource included in the Bundle (see
 [Resolving references in Bundles](https://hl7.org/fhir/R4/bundle.html#references) for how to create a valid reference).
 
 #### Provide Document Bundle Response Message
 
-The response Bundle SHALL follow the [CH MHD Provide Document Bundle Comprehensive Response](StructureDefinition-cz-mhd-providedocumentbundle-comprehensive-response.html).
+The response Bundle SHALL follow the [MHD Provide Document Bundle Comprehensive Response](StructureDefinition-cz-mhd-providedocumentbundle-comprehensive-response.html).
 
 #### CapabilityStatement Resource
 

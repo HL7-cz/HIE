@@ -10,6 +10,8 @@ Alias: $eventTypeCode = urn:ihe:event-type-code
 Alias: $restfulInteraction = http://hl7.org/fhir/restful-interaction
 Alias: DCM = http://dicom.nema.org/resources/ontology/DCM
 Alias: $auditEventTypeVS = http://hl7.org/fhir/ValueSet/audit-event-type
+Alias: $hl7-cz-document-category-vs = https://ncez.mzcr.cz/terminology/ValueSet/document-category
+Alias: $hl7-cz-medical-document-type-vs = https://ncez.mzcr.cz/terminology/ValueSet/medical-document-type
 
 Alias: $IHE.MHD.UniqueIdIdentifier = https://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.UniqueIdIdentifier
 Alias: $IHE.MHD.FindDocumentReferencesComprehensiveResponseMessage = https://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.FindDocumentReferencesComprehensiveResponseMessage
