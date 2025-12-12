@@ -1,4 +1,5 @@
 .DS_Store
+gitignore
 Thumbs.db
 fsh-generated
 input-cache
