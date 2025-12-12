@@ -12,6 +12,9 @@ Description: "CZ MHD Profile on DocumentReference"
 * masterIdentifier 1.. 
 * masterIdentifier only $IHE.MHD.UniqueIdIdentifier
 * identifier 
+* extension contains
+     CzMhdHomeCommunityId named hcid 0..1 
+* extension[hcid] ^short = "Home community ID"
 * status 
 * status ^short = "current | superseded"
 * status ^comment = "approved -> status=current, deprecated -> status=superseded"
@@ -92,6 +95,16 @@ Invariant: cz-mhd
 Description: "The DocumentReference needs to conform to IHE.MHD.Comprehensive.DocumentReference"
 * severity = #error
 * expression = "conformsTo('https://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.Comprehensive.DocumentReference')"
+
+Extension: CzMhdHomeCommunityId
+Id: cz-mhd-home-community-id
+Title: "Z MHD Extension to provide the homeCommunityId"
+Description: "This CZ MHD extension enables to provide homeCommunityId in dokument reference"
+Context: DocumentReference
+
+* value[x] 1..
+* value[x] only Identifier
+* valueIdentifier ^short = "Value of the homeCommunityId"
 
 // Extension: CZExtDeletionStatus
 // Id: cz-ext-deletionstatus
