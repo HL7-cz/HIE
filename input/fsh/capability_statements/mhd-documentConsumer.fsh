@@ -33,7 +33,7 @@ Usage: #definition
 * rest.resource[=].searchParam[+].name = "hcid"
 * rest.resource[=].searchParam[=].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension.valueCode = #MAY
-* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/DocumentReference-hcid"
+* rest.resource[=].searchParam[=].definition = Canonical(DocumentReference-hcid)
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Home community id which authored the document"
 * rest.resource[=].searchParam[+].name = "category"
