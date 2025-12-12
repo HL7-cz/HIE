@@ -34,14 +34,14 @@ FHIR `Bundle.meta.profile` musí mít následující hodnotu:
 
 `https://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.Comprehensive.ProvideBundle`
 
-Žádost o balíček MUSÍ odpovídat [CH MHD Poskytnutí komplexního balíčku dokumentů](StructureDefinition-cz-mhd-providedocumentbundle-comprehensive.html).
+Žádost o balíček MUSÍ odpovídat [MHD Poskytnutí komplexního balíčku dokumentů](StructureDefinition-cz-mhd-providedocumentbundle-comprehensive.html).
 
 Hodnota DocumentReference.content.attachment.url MUSÍ odkazovat na binární zdroj obsažený v balíčku (viz
 [Vyřešení odkazů v balíčcích](https://hl7.org/fhir/R4/bundle.html#references) pro informace o tom, jak vytvořit platný odkaz).
 
 #### Odpověď na balíček dokumentů
 
-Balíček odpovědi MUSÍ odpovídat [CH MHD Poskytnout komplexní odpověď na balíček dokumentů](StructureDefinition-cz-mhd-providedocumentbundle-comprehensive-response.html).
+Balíček odpovědi MUSÍ odpovídat [MHD Poskytnout komplexní odpověď na balíček dokumentů](StructureDefinition-cz-mhd-providedocumentbundle-comprehensive-response.html).
 
 #### Zdroj CapabilityStatement
 

@@ -1,4 +1,4 @@
-### Constraints on Retrieve ATNA Audit Event [ITI-81] for CH:ATC
+### Constraints on Retrieve ATNA Audit Event [ITI-81] for CZ:ATC
 
 Transakce Retrieve ATNA Audit Event [ITI‑81] je definována v [IHE ITI TF-2](https://profiles.ihe.net/ITI/TF/Volume2/index.html) a v dodatku [IHE ITI Supplement Add RESTful Query to ATNA](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_RESTful-ATNA.pdf). Pro profil CZ:ATC platí následující pravidla:
 
@@ -38,7 +38,7 @@ Pro profil CZ:ATC musí být hodnota entity.identifier rovna EPR‑SPID, tedy:
 
 #### Sémantika odpovědi zprávy
 
-Zdroje AuditEvent vrácené v Bundle musí být v souladu s profilem CH:ATC AuditEvent, popsané v [Volume 3 - CZ:ATC Audit Event Content Profiles](volume3.html).
+Zdroje AuditEvent vrácené v Bundle musí být v souladu s profilem CZ:ATC AuditEvent, popsané v [Volume 3 - CZ:ATC Audit Event Content Profiles](volume3-cs.html).
 
 
 #### Bezpečnostní aspekty
@@ -55,4 +55,4 @@ Aktory musí podporovat zpracování hlavičky traceparent, jak je definováno v
 
 #### Auditní bezpečnostní úvahy
 
-Auditivní událost podle profilu [Access Audit Trail Content Profile](volume3.html#access-audit-trail-content-profile) musí být vrácena v odpovědi na dotaz ze strany Patient Audit Consumer, poté co Patient Audit Record Repository byl již dotázán.
+Auditivní událost podle profilu [Access Audit Trail Content Profile](volume3-cs.html#access-audit-trail-content-profile) musí být vrácena v odpovědi na dotaz ze strany Patient Audit Consumer, poté co Patient Audit Record Repository byl již dotázán.
