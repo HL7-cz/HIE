@@ -1,6 +1,6 @@
 ### Úvod 
 
-Tato implementační specifikace se zaměřuje na národní implementaci profilu MHD (Mobile access to Health Documents) v prostředí akreditovaných afinitních domén (AAfD) a centrálních služeb elektronického zdravotnictví (EZ) vycházející z národního [Standard Akreditovaných afinitních domén](https://ncez.mzcr.cz/sites/default/files/media-documents/Standard%20Do%C4%8Dasn%C3%A9%20ulo%C5%BEi%C5%A1t%C4%9B%20v%200.10.pdf) 
+Tato implementační specifikace se zaměřuje na národní implementaci profilu MHD (Mobile access to Health Documents) v prostředí akreditovaných afinitních domén (AAfD) a centrálních služeb elektronického zdravotnictví (EZ) vycházející z národního [Standard Akreditovaných afinitních domén](https://ncez.mzcr.cz/cs/node/5558) 
 
 Následující schéma ilustruje základní architekturu řešení a vzájemné vztahy mezi systémy: 
 
