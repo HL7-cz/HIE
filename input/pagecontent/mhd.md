@@ -5,7 +5,7 @@ This implementation specification focuses on the national implementation of the 
 The following diagram illustrates the core architecture of the solution and the interactions between systems: 
 
 <div>
-<img src="schema.png" class="figure-img img-responsive img-rounded center-block" width="40%">
+<img src="schema.png" class="figure-img img-responsive img-rounded center-block" width="68%">
 <p><strong>Figure 1: Diagram of the core architecture</strong></p>
 <p> </p>
 </div>

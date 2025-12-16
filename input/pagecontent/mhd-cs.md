@@ -5,7 +5,7 @@ Tato implementační specifikace se zaměřuje na národní implementaci profilu
 Následující schéma ilustruje základní architekturu řešení a vzájemné vztahy mezi systémy: 
 
 <div>
-<img src="schema.png" class="figure-img img-responsive img-rounded center-block" width="40%">
+<img src="schema.png" class="figure-img img-responsive img-rounded center-block" width="68%">
 <p><strong>Obr. 1: Schéma základní infrastruktury</strong></p>
 <p> </p>
 </div>
