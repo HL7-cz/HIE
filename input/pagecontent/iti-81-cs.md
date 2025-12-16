@@ -55,4 +55,4 @@ Aktory musí podporovat zpracování hlavičky traceparent, jak je definováno v
 
 #### Auditní bezpečnostní úvahy
 
-Auditivní událost podle profilu [Access Audit Trail Content Profile](volume3-cs.html#access-audit-trail-content-profile) musí být vrácena v odpovědi na dotaz ze strany Patient Audit Consumer, poté co Patient Audit Record Repository byl již dotázán.
+Auditivní událost podle profilu [Access Audit Trail Content Profile](volume3-cs.html#profil-obsahu-auditních-událostí-politik) musí být vrácena v odpovědi na dotaz ze strany Patient Audit Consumer, poté co Patient Audit Record Repository byl již dotázán.
