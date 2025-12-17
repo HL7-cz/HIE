@@ -87,6 +87,10 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-type"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Kind of document (LOINC if possible)"
+* rest.resource[=].searchParam[+].name = "hcid"
+* rest.resource[=].searchParam[=].definition = Canonical(DocumentReference-hcid)
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Home community id which authored the document"
 * rest.resource[+].type = #Binary
 * rest.resource[=].interaction.code = #read
 * rest.interaction.code = #search-system
