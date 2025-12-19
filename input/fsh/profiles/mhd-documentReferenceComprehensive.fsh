@@ -25,6 +25,7 @@ Description: "CZ MHD Profile on DocumentReference"
 * category 1..1 
 * category from $hl7-cz-document-category-vs (required)
 * subject 1.. 
+* subject only Reference (CZ_PatientCore or CZ_PractitionerCore or CZ_MedicalDevice or Group)
 * subject.identifier 1..1
 * subject.identifier only  CZ_RID_Identifier
 * subject ^comment = "Not a contained resource. The identifier points to an existing patient in the XDS Affinity Domain."
@@ -32,7 +33,7 @@ Description: "CZ MHD Profile on DocumentReference"
 * author 
 * author ^comment = "Contained resource."
 * author ^type.aggregation = #contained
-* authenticator only Reference
+* authenticator only Reference (CZ_PractitionerRoleCore or CZ_PractitionerCore or CZ_OrganizationCore)
 * authenticator ^type.aggregation = #contained
 * custodian ..0
 * language 1..
@@ -103,7 +104,7 @@ Description: "This CZ MHD extension enables to provide homeCommunityId in dokume
 Context: DocumentReference
 
 * value[x] 1..
-* value[x] only Identifier
+* value[x] only OidIdentifier
 * valueIdentifier ^short = "Value of the homeCommunityId"
 
 // Extension: CZExtDeletionStatus
