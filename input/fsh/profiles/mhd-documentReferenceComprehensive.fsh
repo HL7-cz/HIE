@@ -24,10 +24,11 @@ Description: "CZ MHD Profile on DocumentReference"
 * type from $hl7-cz-medical-document-type-vs (required)
 * category 1..1 
 * category from $hl7-cz-document-category-vs (required)
-* subject 1.. 
-* subject only Reference (CZ_PatientCore or CZ_PractitionerCore or CZ_MedicalDevice or Group)
+* subject 1..1
+* subject only Reference (CZ_PatientCore)
 * subject.identifier 1..1
-* subject.identifier only  CZ_RID_Identifier
+* subject.identifier only CZ_RID_Identifier
+* subject.identifier ^short = "RID identifier - mandatory patient identifier"
 * subject ^comment = "Not a contained resource. The identifier points to an existing patient in the XDS Affinity Domain."
 * author only Reference (CZ_PractitionerRoleCore)
 * author 
@@ -88,7 +89,7 @@ be the the one to use in ITI-68 transactions to retrieve the document content."
 * context.related ^comment = "May be filled with URL pointers to Resources or Identifiers found in referenceIdList"
 * context.related contains
     StudyInstanceUID 0..1 
-//* context.related[StudyInstanceUID].identifier 
+* context.related[StudyInstanceUID] only Reference (ImagingStudy) 
 //* context.related[StudyInstanceUID].identifier only DicomStudyInstanceUidIdentifier
 //* context.related[StudyInstanceUID].identifier ^short = "Requirements on XDS-I.b: When a Imaging Document Source provides a document to the Document Repository, it must provide the StudyInstanceUID, found in the to be registered KOS object, in the referenceIdList (urn:ihe:iti:xds:2013:referenceIdList) attribute of the documentEntry metadata."
 

@@ -89,14 +89,14 @@ Usage:      #example
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
 * agent[client]
-  * type = DCM#110153 "Source Role ID"
+  * type = $dcm#110153 "Source Role ID"
   * who.display = "Affinitní doména A" // TODO je to spravne?
   * requestor = false
   * network
     * address = "192.168.1.1"
     * type = #2
 * agent[server]
-  * type = DCM#110152 "Destination Role ID"
+  * type = $dcm#110152 "Destination Role ID"
   * who.display = "Nemocnice XYZ" // TODO je to spravne? Nemělo by být DÚ?
   * requestor = false
   * network.type = #5 // The address needs to be define in each example (transaction specific)
@@ -135,14 +135,14 @@ Usage:      #example
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
 * agent[client]
-  * type = DCM#110153 "Source Role ID"
+  * type = $dcm#110153 "Source Role ID"
   * who.display = "Affinitní doména A" // TODO je to spravne?
   * requestor = false
   * network
     * address = "192.168.1.1"
     * type = #2
 * agent[server]
-  * type = DCM#110152 "Destination Role ID"
+  * type = $dcm#110152 "Destination Role ID"
   * who.display = "Nemocnice XYZ" // TODO je to spravne? Nemělo by být DÚ?
   * requestor = false
   * network.type = #5 // The address needs to be define in each example (transaction specific)

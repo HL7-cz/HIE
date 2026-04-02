@@ -102,14 +102,14 @@ Usage:      #example
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
 * agent[server]
-  * type = DCM#110153 "Source Role ID"
+  * type = $dcm#110153 "Source Role ID"
   * who.display = "Affinitní doména A"
   * requestor = false
   * network
     * address = "https://example.org/blah/blah.pdf"
     * type = #5
 * agent[client]
-  * type = DCM#110152 "Destination Role ID"
+  * type = $dcm#110152 "Destination Role ID"
   * who.display = "Portal"
   * requestor = false
   * network
@@ -152,14 +152,14 @@ Usage:      #example
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
 * agent[server]
-  * type = DCM#110153 "Source Role ID"
+  * type = $dcm#110153 "Source Role ID"
   * who.display = "Affinitní doména A"
   * requestor = false
   * network
     * address = "https://example.org/blah/blah.pdf"
     * type = #5
 * agent[client]
-  * type = DCM#110152 "Destination Role ID"
+  * type = $dcm#110152 "Destination Role ID"
   * who.display = "Portal"
   * requestor = false
   * network

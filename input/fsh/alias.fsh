@@ -8,10 +8,12 @@ Alias: $auditEntityType = http://terminology.hl7.org/CodeSystem/audit-entity-typ
 Alias: $objectRole = http://terminology.hl7.org/CodeSystem/object-role
 Alias: $eventTypeCode = urn:ihe:event-type-code
 Alias: $restfulInteraction = http://hl7.org/fhir/restful-interaction
-Alias: DCM = http://dicom.nema.org/resources/ontology/DCM
+Alias: $dcm = http://dicom.nema.org/resources/ontology/DCM
 Alias: $auditEventTypeVS = http://hl7.org/fhir/ValueSet/audit-event-type
 Alias: $hl7-cz-document-category-vs = https://ncez.mzcr.cz/terminology/ValueSet/document-category
 Alias: $hl7-cz-medical-document-type-vs = https://ncez.mzcr.cz/terminology/ValueSet/search-document-types //https://ncez.mzcr.cz/terminology/ValueSet/medical-document-type
+Alias: $loinc = http://loinc.org
+Alias: $drzar = https://ncez.mzcr.cz/fhir/CodeSystem/drzar
 
 Alias: $IHE.MHD.UniqueIdIdentifier = https://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.UniqueIdIdentifier
 Alias: $IHE.MHD.FindDocumentReferencesComprehensiveResponseMessage = https://profiles.ihe.net/ITI/MHD/StructureDefinition/IHE.MHD.FindDocumentReferencesComprehensiveResponseMessage

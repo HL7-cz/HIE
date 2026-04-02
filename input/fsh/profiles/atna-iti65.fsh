@@ -99,7 +99,7 @@ Usage:      #example
 * source 
   * site = "2.16.756.1.2.3"
   * observer.display = "Nemocnice XYZ" // TODO je to spravne?
-* type = DCM#110106 "Export"
+* type = $dcm#110106 "Export"
 
 
 Instance:   CZ-AuditEventIti65RecipientExample
@@ -110,21 +110,21 @@ Usage:      #example
 * source   
   * site = "2.16.756.4.5.6"
   * observer.display = "Affinitní doména A" // TODO je to spravne?
-* type = DCM#110107 "Import"
+* type = $dcm#110107 "Import"
 
 
 RuleSet: CZ_AuditEventIti65ExampleRules
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
 * agent[documentSource]
-  * type = DCM#110153 "Source Role ID"
+  * type = $dcm#110153 "Source Role ID"
   * who.display = "Nemocnice XYZ" // TODO je to spravne?
   * requestor = false
   * network
     * address = "192.168.1.1"
     * type = #2
 * agent[documentRecipient]
-  * type = DCM#110152 "Destination Role ID"
+  * type = $dcm#110152 "Destination Role ID"
   * who.display = "Affinitní doména A" // TODO je to spravne?
   * requestor = false
   * network.type = #5 // The address needs to be define in each example (transaction specific)
