@@ -36,7 +36,7 @@ Národní specifikace MHD pro Českou republiku vyžaduje podporu transakcí ITI
 
 #### Mezidoménové vyhledání a stažení 
 
-PZS v AAfD-B zadá dotaz (ITI-66/67) na dokument pacienta, domácí AAfD na základě HCID rozešle požadavek do sousedních AAfD (včetně AAfD-A) a agreguje výsledky. Z obdržených metadat si PZS vybere konkrétní záznam a přes ITI-68 je směrován požadavek na repozitář v AAfD-A, odkud je dokument bezpečně stažen. Všechny kroky jsou autentizovány pomocí IUA a auditovány přes RESTful ATNA 
+PZS v AAfD-B zadá dotaz (ITI-66/67) na dokument pacienta, domácí AAfD na základě HCID rozešle požadavek do sousedních AAfD (včetně AAfD-A) a agreguje výsledky. Z obdržených metadat si PZS vybere konkrétní záznam a přes ITI-68 je směrován požadavek na repozitář v AAfD-A, odkud je dokument bezpečně stažen. Všechny kroky jsou autentizovány pomocí IUA a auditovány přes RESTful ATNA. 
 
 #### Notifikace nových dokumentů 
 
