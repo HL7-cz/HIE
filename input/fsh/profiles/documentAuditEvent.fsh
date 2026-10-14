@@ -50,7 +50,6 @@ Description: "CZ FHIR profile on AuditEvent for document."
   * ^short = "Document"
 * entity[Document].what.identifier 1..1
   * ^short = "XDSDocumentEntry.uniqueId"
-* entity[Document].what.identifier only CZ_UniqueIDIdentifier
 
 * entity[Document].detail 3..
 * entity[Document].detail ^slicing.discriminator.type = #value

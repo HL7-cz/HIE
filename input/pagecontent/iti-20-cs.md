@@ -1,6 +1,6 @@
 ### Rozsah
 
-Tato kapitola popisuje švýcarské národní rozšíření pro transakci „Send Audit Resource Request Message – RESTful interaction [ITI-20](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_RESTful-ATNA.pdf)“, definovanou v profilu RESTful ATNA (doplňek „Add RESTful ATNA (Query and Feed)“ v režimu IHE Trial Implementation). Úložiště auditních záznamů (Audit Record Repository) MUSÍ podporovat volbu ATX: FHIR Feed Option.
+Tato kapitola popisuje české národní rozšíření pro transakci „Send Audit Resource Request Message – RESTful interaction [ITI-20](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_RESTful-ATNA.pdf)“, definovanou v profilu RESTful ATNA (doplňek „Add RESTful ATNA (Query and Feed)“ v režimu IHE Trial Implementation). Úložiště auditních záznamů (Audit Record Repository) MUSÍ podporovat volbu ATX: FHIR Feed Option.
 
 ### Role aktorů
 

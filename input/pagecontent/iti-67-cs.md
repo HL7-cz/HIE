@@ -35,7 +35,7 @@ Vyhledávací parametry typu [token](https://hl7.org/fhir/R4/search.html#token) 
 
 Příklad **požadavku** na vyhledání odkazu na dokument:
 ```http
-GET [base]/DocumentReference?patient.identifier=urn:oid:2.16.756.5.30.1.127.3.10.3|761337610411353650&status=current HTTP/1.1
+GET [base]/DocumentReference?patient.identifier=https://ncez.mzcr.cz/fhir/sid/rid|761337610411353650&status=current HTTP/1.1
 Accept: application/fhir+json
 traceparent: 00-0af7651916cd43dd8448eb211c80319c-b7ad6b7169203331-00
 ```

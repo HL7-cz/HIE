@@ -27,13 +27,12 @@ kde:
 Spotřebitel auditu (Patient Audit Consumer) nesmí používat v parametrech dotazu následující parametry: address, patient.identifier, source, type, outcome. Smí používat ostatní parametry uvedené v profilu Retrieve Audit Event [ITI‑81]. Parametr **entity.identifier** je typu token a určuje jedinečný identifikátor objektu.
 
 Příklad: 
-``` http
-http://example.com/ARRservice/AuditEvent?date=ge2020-03-22&date=le2025-03-22&entity.identifier=urn:oid:2.16.756.5.30.1.127.3.10.3|5678
+``` http://example.com/ARRservice/AuditEvent?date=ge2020-03-22&date=le2025-03-22&entity.identifier=https://ncez.mzcr.cz/fhir/sid/rid|5678
 ```
 Úložiště auditních záznamů (Audit Record Repository) musí tento parametr porovnávat s polem AuditEvent.entity.what.identifier (typ identifier), které odpovídá ParticipantObjectID v DICOM schématu.
 
 Pro profil CZ:ATC musí být hodnota entity.identifier rovna EPR‑SPID, tedy:
-`entity.identifier = urn:oid:2.16.756.5.30.1.127.3.10.3|<<<hodnota EPR‑SPID>>>`
+`entity.identifier=https://ncez.mzcr.cz/fhir/sid/rid|2066425387`
 
 
 #### Sémantika odpovědi zprávy

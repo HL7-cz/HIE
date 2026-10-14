@@ -315,7 +315,6 @@ groups:
       - StructureDefinition/cz-documentAuditEvent
       - StructureDefinition/cz-hpdAuditEvent
       - StructureDefinition/cz-policyAuditEvent
-      - StructureDefinition/cz-uniqueIDIdentifier
       - StructureDefinition/cz-auditEventIti65Source
       - StructureDefinition/cz-auditEventIti65Recipient
       - StructureDefinition/cz-auditEventIti66Consumer

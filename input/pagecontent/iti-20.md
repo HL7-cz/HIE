@@ -1,7 +1,7 @@
 ### Scope
 
-This section describes the national extension for the Czech EPR of the [Send Audit Resource Request Message – 
-RESTful interaction [ITI-20]](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_RESTful-ATNA.pdf) transaction defined in the RESTful ATNA profile which is currently prepared as IHE 
+This section describes the Czech national extension of the Send Audit Resource Request Message – 
+RESTful interaction [ITI-20](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_RESTful-ATNA.pdf) transaction defined in the RESTful ATNA profile which is currently prepared as IHE 
 Trial Implementation with the working title ”Add RESTful ATNA (Query and Feed)”. The Audit Record Repository SHALL support the ATX: FHIR Feed Option.
 
 ### Actor Roles
