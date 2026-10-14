@@ -100,10 +100,10 @@ InstanceOf: CZ_AuditEventIti65Source
 Description: "Example of AuditEvent profile CZAuditEventIti65Source"
 Usage:      #example
 * insert CZ_AuditPzsExample
+* insert CZ_ExamplePzsNode(documentSource)
+* insert CZ_ExampleAAfDNode(documentRecipient)
+* insert CZ_ExamplePzsObserver
 * insert CZ_AuditEventIti65ExampleRules
-* source 
-  * site = "2.999.1.1" // ilustrativní OID (oblouk 2.999 je vyhrazen pro příklady)
-  * observer.display = "Nemocnice XYZ" // TODO je to spravne?
 * type = $dcm#110106 "Export"
 
 
@@ -112,10 +112,10 @@ InstanceOf: CZ_AuditEventIti65Recipient
 Description: "Example of AuditEvent profile CZAuditEventIti65Recipient"
 Usage:      #example
 * insert CZ_AuditPzsExample
+* insert CZ_ExamplePzsNode(documentSource)
+* insert CZ_ExampleAAfDNode(documentRecipient)
+* insert CZ_ExampleAAfDObserver
 * insert CZ_AuditEventIti65ExampleRules
-* source   
-  * site = "2.999.2.1" // ilustrativní OID AAfD (oblouk 2.999 je vyhrazen pro příklady)
-  * observer.display = "Affinitní doména A" // TODO je to spravne?
 * type = $dcm#110107 "Import"
 
 
@@ -124,14 +124,12 @@ RuleSet: CZ_AuditEventIti65ExampleRules
 * outcome = #0
 * agent[documentSource]
   * type = $dcm#110153 "Source Role ID"
-  * who.display = "Nemocnice XYZ" // TODO je to spravne?
   * requestor = false
   * network
     * address = "192.168.1.1"
     * type = #2
 * agent[documentRecipient]
   * type = $dcm#110152 "Destination Role ID"
-  * who.display = "Affinitní doména A" // TODO je to spravne?
   * requestor = false
   * network.type = #5 // The address needs to be define in each example (transaction specific)
 * entity[traceparent]
@@ -141,7 +139,7 @@ RuleSet: CZ_AuditEventIti65ExampleRules
 * agent[mainUser]
   * role = CZ_DocumentEntryAuthorRoleCs#HCP
   * altId = "2000000090092"
-  * name = "Mracena Mrakomorová"
+  * name = "Mračena Mrakomorová"
   * requestor = true
   * purposeOfUse = CZ_HIEPurposeOfUseCs#NORM "Normální přístup"
 * entity[patient]

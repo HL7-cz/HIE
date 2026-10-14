@@ -38,3 +38,29 @@ RuleSet: CZ_AuditPzsExample
   * who.display = "Nemocnice XYZ"
   * requestor = false
   * policy = "urn:ietf:params:oauth:jti:9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+
+// Ilustrativní identity uzlů pro příklady (identita z certifikátu mTLS).
+// Agent, který auditní událost zaznamenává, MUSÍ být shodný se source.observer
+// (invariant val-audit-source z IHE MHD), proto se observer plní stejnými hodnotami.
+
+RuleSet: CZ_ExamplePzsNode(slice)
+* agent[{slice}].who.identifier.system = "https://ncez.mzcr.cz/fhir/sid/ico"
+* agent[{slice}].who.identifier.value = "12345678"
+* agent[{slice}].who.display = "Nemocnice XYZ"
+
+RuleSet: CZ_ExampleAAfDNode(slice)
+* agent[{slice}].who.identifier.system = "urn:ietf:rfc:3986"
+* agent[{slice}].who.identifier.value = "urn:oid:2.999.2.1"
+* agent[{slice}].who.display = "Affinitní doména A"
+
+RuleSet: CZ_ExamplePzsObserver
+* source.site = "2.999.1.1" // ilustrativní OID (oblouk 2.999 je vyhrazen pro příklady)
+* source.observer.identifier.system = "https://ncez.mzcr.cz/fhir/sid/ico"
+* source.observer.identifier.value = "12345678"
+* source.observer.display = "Nemocnice XYZ"
+
+RuleSet: CZ_ExampleAAfDObserver
+* source.site = "2.999.2.1" // ilustrativní HCID AAfD (oblouk 2.999 je vyhrazen pro příklady)
+* source.observer.identifier.system = "urn:ietf:rfc:3986"
+* source.observer.identifier.value = "urn:oid:2.999.2.1"
+* source.observer.display = "Affinitní doména A"

@@ -104,18 +104,19 @@ InstanceOf: CZ_AuditEventIti68Consumer
 Description: "Example of AuditEvent profile CZ_AuditEventIti68Consumer"
 Usage:      #example
 * insert CZ_AuditPzsExample
+* insert CZ_ExamplePzsNode(client)
+* insert CZ_ExampleAAfDNode(server)
+* insert CZ_ExamplePzsObserver
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
 * agent[server]
   * type = $dcm#110153 "Source Role ID"
-  * who.display = "Affinitní doména A"
   * requestor = false
   * network
     * address = "https://example.org/blah/blah.pdf"
     * type = #5
 * agent[client]
   * type = $dcm#110152 "Destination Role ID"
-  * who.display = "Portal"
   * requestor = false
   * network
     * address = "192.168.1.1"
@@ -129,7 +130,7 @@ Usage:      #example
 * agent[mainUser]
   * role = CZ_DocumentEntryAuthorRoleCs#HCP
   * altId = "2000000090092"
-  * name = "Mracena Mrakomorová"
+  * name = "Mračena Mrakomorová"
   * requestor = true
   * purposeOfUse = CZ_HIEPurposeOfUseCs#NORM "Normální přístup"
 * entity[patient]
@@ -145,9 +146,6 @@ Usage:      #example
   * what.reference = "https://example.org/blah/blah.pdf"
   * type = $auditEntityType#2 "System Object"
   * role = $objectRole#3 "Report"
-* source
-  * site = "2.999.1.1" // ilustrativní OID (oblouk 2.999 je vyhrazen pro příklady)
-  * observer.display = "Portal" // TODO je to spravne?
 
 
 Instance:   CZ-AuditEventIti68ResponderExample
@@ -155,18 +153,19 @@ InstanceOf: CZ_AuditEventIti68Responder
 Description: "Example of AuditEvent profile CZ_AuditEventIti68Responder"
 Usage:      #example
 * insert CZ_AuditPzsExample
+* insert CZ_ExamplePzsNode(client)
+* insert CZ_ExampleAAfDNode(server)
+* insert CZ_ExampleAAfDObserver
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
 * agent[server]
   * type = $dcm#110153 "Source Role ID"
-  * who.display = "Affinitní doména A"
   * requestor = false
   * network
     * address = "https://example.org/blah/blah.pdf"
     * type = #5
 * agent[client]
   * type = $dcm#110152 "Destination Role ID"
-  * who.display = "Portal"
   * requestor = false
   * network
     * address = "192.168.1.1"
@@ -180,7 +179,7 @@ Usage:      #example
 * agent[mainUser]
   * role = CZ_DocumentEntryAuthorRoleCs#HCP
   * altId = "2000000090092"
-  * name = "Mracena Mrakomorová"
+  * name = "Mračena Mrakomorová"
   * requestor = true
   * purposeOfUse = CZ_HIEPurposeOfUseCs#NORM "Normální přístup"
 * entity[patient]
@@ -196,6 +195,3 @@ Usage:      #example
   * what.reference = "https://example.org/blah/blah.pdf"
   * type = $auditEntityType#2 "System Object"
   * role = $objectRole#3 "Report"
-* source
-  * site = "2.999.2.1" // ilustrativní OID AAfD (oblouk 2.999 je vyhrazen pro příklady)
-  * observer.display = "Affinitní doména A" // TODO je to spravne?

@@ -91,18 +91,19 @@ InstanceOf: CZ_AuditEventIti66Consumer
 Description: "Example of AuditEvent profile CZ_AuditEventIti66Consumer"
 Usage:      #example
 * insert CZ_AuditPzsExample
+* insert CZ_ExamplePzsNode(client)
+* insert CZ_ExampleAAfDNode(server)
+* insert CZ_ExamplePzsObserver
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
 * agent[client]
   * type = $dcm#110153 "Source Role ID"
-  * who.display = "Affinitní doména A" // TODO je to spravne?
   * requestor = false
   * network
     * address = "192.168.1.1"
     * type = #2
 * agent[server]
   * type = $dcm#110152 "Destination Role ID"
-  * who.display = "Nemocnice XYZ" // TODO je to spravne? Nemělo by být DÚ?
   * requestor = false
   * network.type = #5 // The address needs to be define in each example (transaction specific)
 * entity[traceparent]
@@ -129,27 +130,25 @@ Usage:      #example
   * type = $auditEntityType#2 "System Object"
   * role = $objectRole#24 "Query"
   * query = "aHR0cHM6Ly9leGFtcGxlLmNvbS9maGlyL0xpc3Q/Y29kZT1zdWJtaXNzaW9uc2V0JnBhdGllbnQuaWRlbnRpZmllcj1odHRwczovL25jZXoubXpjci5jei9maGlyL3NpZC9yaWR8NDU2Nzg5MTIzNSZzdGF0dXM9Y3VycmVudA=="
-* source
-  * site = "2.999.2.1" // ilustrativní OID AAfD (oblouk 2.999 je vyhrazen pro příklady)
-  * observer.display = "Affinitní doména A" // TODO je to spravne?
 
 Instance:   CZ-AuditEventIti66ResponderExample
 InstanceOf: CZ_AuditEventIti66Responder
 Description: "Example of AuditEvent profile CZ_AuditEventIti66Responder"
 Usage:      #example
 * insert CZ_AuditPzsExample
+* insert CZ_ExamplePzsNode(client)
+* insert CZ_ExampleAAfDNode(server)
+* insert CZ_ExampleAAfDObserver
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
 * agent[client]
   * type = $dcm#110153 "Source Role ID"
-  * who.display = "Affinitní doména A" // TODO je to spravne?
   * requestor = false
   * network
     * address = "192.168.1.1"
     * type = #2
 * agent[server]
   * type = $dcm#110152 "Destination Role ID"
-  * who.display = "Nemocnice XYZ" // TODO je to spravne? Nemělo by být DÚ?
   * requestor = false
   * network.type = #5 // The address needs to be define in each example (transaction specific)
 * entity[traceparent]
@@ -176,6 +175,3 @@ Usage:      #example
   * type = $auditEntityType#2 "System Object"
   * role = $objectRole#24 "Query"
   * query = "aHR0cHM6Ly9leGFtcGxlLmNvbS9maGlyL0xpc3Q/Y29kZT1zdWJtaXNzaW9uc2V0JnBhdGllbnQuaWRlbnRpZmllcj1odHRwczovL25jZXoubXpjci5jei9maGlyL3NpZC9yaWR8NDU2Nzg5MTIzNSZzdGF0dXM9Y3VycmVudA=="
-* source
-  * site = "2.999.1.1" // ilustrativní OID (oblouk 2.999 je vyhrazen pro příklady)
-  * observer.display = "Nemocnice XYZ" // TODO je to spravne?
