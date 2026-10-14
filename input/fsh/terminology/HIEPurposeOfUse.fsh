@@ -14,9 +14,9 @@ Description:   "Codesystem for purpose of use codes."
 * ^jurisdiction = urn:iso:std:iso:3166#CZ "Czechia"
 * ^caseSensitive = true
 * ^content = #complete
-* #EMER "Emergentní přístup"
-* #NORM "Normální přístup"
-* #AUTO "Automatizované nahrávání"
+* #EMER "Emergentní přístup" "Přístup v nouzové (emergentní) situaci."
+* #NORM "Normální přístup" "Běžný přístup v rámci poskytování zdravotní péče."
+* #AUTO "Automatizované nahrávání" "Automatizované nahrávání dokumentů systémem bez přímé účasti uživatele."
 
 ValueSet: CZ_HIEPurposeOfUseVs
 Id: cz-purposeOfUse-vs

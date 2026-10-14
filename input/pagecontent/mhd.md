@@ -58,7 +58,7 @@ If a healthcare professional needs to correct or invalidate a document, the prim
 | Notification Recipient                            | Receives notifications of newly published documents   | DSUBm / ITI-112    |
 
 
-<figcaption ID="1">Table 1: Actors and transactions .</figcaption>
+<figcaption ID="mhd-tab1">Table 1: Actors and transactions .</figcaption>
 <p> </p>
 
 ### Required Actor Groupings 
@@ -73,7 +73,7 @@ If a healthcare professional needs to correct or invalidate a document, the prim
 | Notification Recipient                            | IUA Resource Server, ATNA Secure Node / Secure Application, ATNA Audit Creator | Receives notifications about newly published documents     |
 
 
-<figcaption ID="1">Table 2: Required Actor Groupings.</figcaption>
+<figcaption ID="mhd-tab2">Table 2: Required Actor Groupings.</figcaption>
 <p> </p>
 
 All AAfD actors must also interoperate with central eHealth services: the Core Patient Registry (RID patient identifier), Authorization Registry, Terminology Server, and Time Authority. 

@@ -234,8 +234,8 @@ This content profile describes Audit Event related to Document Management. The f
 		</tr>
 	</tbody>
 </table>
-<p><sup><a href="#_ftnref2.1" name="_ftn2.1">[2.1]</a></sup> <small>If different from Initiator (Representative of patient acting on behalf of a patient then patient is responsible).</small></p>
-<p><sup><a href="#_ftnref2.2" name="_ftn2.2">[2.2]</a></sup> <small>Required for Document upload, Document retrieval, Document or Document Metadata update and Document removal but not for Document search.</small></p>
+<p><sup><a href="#_ftnref2.1" name="_ftn2.1">[2.1]</a></sup> <span style="font-size: smaller">If different from Initiator (Representative of patient acting on behalf of a patient then patient is responsible).</span></p>
+<p><sup><a href="#_ftnref2.2" name="_ftn2.2">[2.2]</a></sup> <span style="font-size: smaller">Required for Document upload, Document retrieval, Document or Document Metadata update and Document removal but not for Document search.</span></p>
 
 _Table 2: Document Audit Event Data Elements_
 
@@ -442,7 +442,7 @@ This content profile describes Audit Events related to Policy Management. The fo
 		</tr>
 		<tr>
 			<td>
-				<p>AccessLimitedToDate<sup><a href="#_ftn3.2" name="_ftnref3.2">[3.2]</a></sup></p>
+				<p>AccessLimitedToDate<sup><a href="#_ftn3.2" name="_ftnref3.2b">[3.2]</a></sup></p>
 			</td>
 			<td>
 				<p>Date</p>
@@ -458,9 +458,9 @@ This content profile describes Audit Events related to Policy Management. The fo
 		</tr>
 	</tbody>
 </table>
-<p><sup><a href="#_ftnref3.1" name="_ftn3.1">[3.1]</a></sup> <small>Healthcare Professional or Assistant of Healthcare Professional can only be a participant for the first Event Type (Authorize participants to access level).</small></p>
-<p><sup><a href="#_ftnref3.2" name="_ftn3.2">[3.2]</a></sup> <small>Access Level and the date if the access is limited (AccessLimitedToDate) are required for the first two Event Types (Authorize, update Authorization participants to access level/date), for the other Event Types these parameters do not need to be specified.</small></p>
-<p><sup><a href="#_ftnref3.3" name="_ftn3.3">[3.3]</a></sup> <small>Provide Level is only relevant for the Event Type Default Confidentiality Level for new Documents.</small></p>
+<p><sup><a href="#_ftnref3.1" name="_ftn3.1">[3.1]</a></sup> <span style="font-size: smaller">Healthcare Professional or Assistant of Healthcare Professional can only be a participant for the first Event Type (Authorize participants to access level).</span></p>
+<p><sup><a href="#_ftnref3.2" name="_ftn3.2">[3.2]</a></sup> <span style="font-size: smaller">Access Level and the date if the access is limited (AccessLimitedToDate) are required for the first two Event Types (Authorize, update Authorization participants to access level/date), for the other Event Types these parameters do not need to be specified.</span></p>
+<p><sup><a href="#_ftnref3.3" name="_ftn3.3">[3.3]</a></sup> <span style="font-size: smaller">Provide Level is only relevant for the Event Type Default Confidentiality Level for new Documents.</span></p>
 
 _Table 3: Policy Audit Event Data Elements_
 

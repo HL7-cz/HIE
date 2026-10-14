@@ -230,8 +230,8 @@ Tento profil obsahu popisuje Auditní Události související se Správou Dokume
         </tr>
     </tbody>
 </table>
-<p><sup><a href="#_ftnref2.1" name="_ftn2.1">[2.1]</a></sup> <small>Pokud se liší od Iniciátora (např. Zástupce pacienta jedná jménem pacienta, pak je pacient Odpovědnou stranou).</small></p>
-<p><sup><a href="#_ftnref2.2" name="_ftn2.2">[2.2]</a></sup> <small>Vyžadováno pro nahrání dokumentu, získání dokumentu, aktualizaci dokumentu nebo metadat dokumentu a odstranění dokumentu, ale ne pro vyhledávání dokumentů.</small></p>
+<p><sup><a href="#_ftnref2.1" name="_ftn2.1">[2.1]</a></sup> <span style="font-size: smaller">Pokud se liší od Iniciátora (např. Zástupce pacienta jedná jménem pacienta, pak je pacient Odpovědnou stranou).</span></p>
+<p><sup><a href="#_ftnref2.2" name="_ftn2.2">[2.2]</a></sup> <span style="font-size: smaller">Vyžadováno pro nahrání dokumentu, získání dokumentu, aktualizaci dokumentu nebo metadat dokumentu a odstranění dokumentu, ale ne pro vyhledávání dokumentů.</span></p>
 
 _Tabulka 2: Datové Prvky Auditní Události Dokumentů_
 
@@ -438,7 +438,7 @@ Tento profil obsahu popisuje Auditní Události související se Správou Politi
         </tr>
         <tr>
             <td>
-                <p>Přístup omezen do data <sup><a href="#_ftn3.2" name="_ftnref3.2">[3.2]</a></sup></p>
+                <p>Přístup omezen do data <sup><a href="#_ftn3.2" name="_ftnref3.2b">[3.2]</a></sup></p>
             </td>
             <td>
                 <p>Datum</p>
@@ -454,9 +454,9 @@ Tento profil obsahu popisuje Auditní Události související se Správou Politi
         </tr>
     </tbody>
 </table>
-<p><sup><a href="#_ftnref3.1" name="_ftn3.1">[3.1]</a></sup> <small>Zdravotnický Pracovník nebo Asistent Zdravotnického Pracovníka může být účastníkem pouze pro první Typ Události (Autorizovat účastníky pro úroveň přístupu).</small></p>
-<p><sup><a href="#_ftnref3.2" name="_ftn3.2">[3.2]</a></sup> <small>Úroveň Přístupu a datum, pokud je přístup omezen (AccessLimitedToDate), jsou vyžadovány pro první dva Typy Událostí (Autorizovat, aktualizovat Autorizaci účastníků pro úroveň/datum přístupu); pro ostatní Typy Událostí tyto parametry nemusí být specifikovány.</small></p>
-<p><sup><a href="#_ftnref3.3" name="_ftn3.3">[3.3]</a></sup> <small>Úroveň Poskytnutí je relevantní pouze pro Typ Události Výchozí Úroveň Důvěrnosti pro nové Dokumenty.</small></p>
+<p><sup><a href="#_ftnref3.1" name="_ftn3.1">[3.1]</a></sup> <span style="font-size: smaller">Zdravotnický Pracovník nebo Asistent Zdravotnického Pracovníka může být účastníkem pouze pro první Typ Události (Autorizovat účastníky pro úroveň přístupu).</span></p>
+<p><sup><a href="#_ftnref3.2" name="_ftn3.2">[3.2]</a></sup> <span style="font-size: smaller">Úroveň Přístupu a datum, pokud je přístup omezen (AccessLimitedToDate), jsou vyžadovány pro první dva Typy Událostí (Autorizovat, aktualizovat Autorizaci účastníků pro úroveň/datum přístupu); pro ostatní Typy Událostí tyto parametry nemusí být specifikovány.</span></p>
+<p><sup><a href="#_ftnref3.3" name="_ftn3.3">[3.3]</a></sup> <span style="font-size: smaller">Úroveň Poskytnutí je relevantní pouze pro Typ Události Výchozí Úroveň Důvěrnosti pro nové Dokumenty.</span></p>
 
 _Tabulka 3: Datové Prvky Auditní Události Politik_
 

@@ -27,6 +27,6 @@ Toto národní rozšíření vynucuje autentizaci a autorizaci pro řízení př
 | AAfD                                                     | ATNA Audit Record Forwarder | R (povinné)       | Předává auditní události do centrální komponenty ATNA EZ |
 {:class="table table-bordered"}
 
-<figcaption ID="1">Tabulka 1: Seskupování aktorů v kontextu národního rozšíření. </figcaption>
+<figcaption ID="atna-tab1">Tabulka 1: Seskupování aktorů v kontextu národního rozšíření. </figcaption>
 
 Poznámka: „R“ znamená povinné (Required).

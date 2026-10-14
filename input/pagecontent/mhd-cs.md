@@ -58,7 +58,7 @@ Pokud zdravotnický pracovník potřebuje opravit nebo zneplatnit dokument, jeho
 | Notification Recipient                            | Přijímá notifikace o nových dokumentech   | DSUBm / ITI-112    |
 
 
-<figcaption ID="1">Tabulka 1: Aktéři a transakce.</figcaption>
+<figcaption ID="mhd-tab1">Tabulka 1: Aktéři a transakce.</figcaption>
 <p> </p>
 
 ### Požadované seskupení aktérů 
@@ -73,7 +73,7 @@ Pokud zdravotnický pracovník potřebuje opravit nebo zneplatnit dokument, jeho
 | Notification Recipient                            | IUA Resource Server, ATNA Secure Node / Secure Application, ATNA Audit Creator | Příjem notifikací o nových dokumentech    |
 
 
-<figcaption ID="1">Tabulka 2: Požadované seskupení aktérů.</figcaption>
+<figcaption ID="mhd-tab2">Tabulka 2: Požadované seskupení aktérů.</figcaption>
 <p> </p>
 
 Všichni aktéři AAfD musí také využívat centrální služby EZ: Kmenové registry (identifikátor pacienta RID), Registr oprávnění, Terminologický server, Časová autorita. 

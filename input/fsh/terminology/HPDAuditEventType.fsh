@@ -14,7 +14,7 @@ Description:   "Codesystem for HPD audit event type."
 * ^jurisdiction = urn:iso:std:iso:3166#CZ "Czechia"
 * ^caseSensitive = true
 * ^content = #complete
-* #ATC_HPD_GROUP_ENTRY_NOTIFY "Vstoupení zdravotnického pracovníka do skupiny"
+* #ATC_HPD_GROUP_ENTRY_NOTIFY "Vstoupení zdravotnického pracovníka do skupiny" "Notifikace pacienta o vstupu zdravotnických pracovníků do skupiny."
 
 ValueSet: CZ_HPDAuditEventTypeVs
 Id: cz-HPDAuditEvent-type-vs  

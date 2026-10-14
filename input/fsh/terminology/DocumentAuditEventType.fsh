@@ -14,11 +14,11 @@ Description:   "Codesystem for document audit event type."
 * ^jurisdiction = urn:iso:std:iso:3166#CZ "Czechia"
 * ^caseSensitive = true
 * ^content = #complete
-* #ATC_DOC_CREATE "Vytvoření dokumentu"
-* #ATC_DOC_READ "Čtení dokumentu"
-* #ATC_DOC_UPDATE "Aktualizace dokumentu"
-* #ATC_DOC_DELETE "Smazání dokumentu"
-* #ATC_DOC_SEARCH "Vyhledání dokumentu"
+* #ATC_DOC_CREATE "Vytvoření dokumentu" "Nahrání dokumentu pacienta do úložiště."
+* #ATC_DOC_READ "Čtení dokumentu" "Získání (stažení) dokumentu pacienta."
+* #ATC_DOC_UPDATE "Aktualizace dokumentu" "Aktualizace dokumentu nebo metadat dokumentu."
+* #ATC_DOC_DELETE "Smazání dokumentu" "Odstranění dokumentu."
+* #ATC_DOC_SEARCH "Vyhledání dokumentu" "Vyhledání dokumentů nebo metadat dokumentů pacienta."
 
 ValueSet: CZ_DocumentAuditEventTypeVs
 Id: cz-documentAuditEvent-type-vs  

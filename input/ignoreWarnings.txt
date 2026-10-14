@@ -1,1 +1,14 @@
 == Suppressed Messages ==
+
+# Identifikátorové systémy NCEZ (RID/DRID, IČO) zatím nemají publikovaný NamingSystem
+No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/rid'
+No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/ico'
+
+# Identifikátor přístupového tokenu IUA (claim jti) ve tvaru URN dle IHE BALP – není to odkaz na definici
+No definition could be found for URL value 'urn:ietf:params:oauth:jti:%'
+
+# Kódový systém IHE event-type-code není publikován jako FHIR CodeSystem
+A definition for CodeSystem 'urn:ihe:event-type-code' could not be found, so the code cannot be validated
+
+# Mapování 'XDS' pochází z rodičovského profilu IHE MHD
+No definition could be found for URL value 'XDS'

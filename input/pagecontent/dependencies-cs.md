@@ -2,6 +2,6 @@
 {% include dependency-table.xhtml %}
 
 
-#### Globalní profily
+### Globalní profily
 
 {% include globals-table.xhtml %}

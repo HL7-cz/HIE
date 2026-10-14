@@ -2,6 +2,6 @@
 {% include dependency-table.xhtml %}
 
 
-#### Global Profiles
+### Global Profiles
 
 {% include globals-table.xhtml %}

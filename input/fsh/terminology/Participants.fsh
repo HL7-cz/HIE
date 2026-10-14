@@ -14,9 +14,9 @@ Description:   "Codesystem for participant code."
 * ^jurisdiction = urn:iso:std:iso:3166#CZ "Czechia"
 * ^caseSensitive = true
 * ^content = #complete
-* #PAT "Pacient"
-* #HCP "Zdravotnický pracovník"
-* #GRP "Zdravotnická skupina"
+* #PAT "Pacient" "Pacient."
+* #HCP "Zdravotnický pracovník" "Zdravotnický pracovník."
+* #GRP "Zdravotnická skupina" "Skupina zdravotnických pracovníků."
 
 ValueSet: CZ_ParticipantsVs
 Id: cz-participants-vs

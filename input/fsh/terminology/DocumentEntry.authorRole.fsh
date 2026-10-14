@@ -14,9 +14,9 @@ Description:   "Codesystem for author role codes."
 * ^jurisdiction = urn:iso:std:iso:3166#CZ "Czechia"
 * ^caseSensitive = true
 * ^content = #complete
-* #PAT "Patient"
-* #HCP "Healthcare professional"
-* #ORG "Organization"
+* #PAT "Patient" "Autorem je pacient."
+* #HCP "Healthcare professional" "Autorem je zdravotnický pracovník."
+* #ORG "Organization" "Autorem je organizace (např. poskytovatel zdravotních služeb)."
 // TODO Doplnit role
 
 ValueSet: CZ_DocumentEntryAuthorRoleVs

@@ -29,4 +29,4 @@ This national extension enforces authentication and authorization for access con
 | AAfD                                                      | ATNA Audit Record Forwarder | R        | Forwards audit events to the central eHealth ATNA component |
 {:class="table table-bordered"}
 
-<figcaption ID="1">Table 1: Grouping of actors required by this national extension. </figcaption>
+<figcaption ID="atna-tab1">Table 1: Grouping of actors required by this national extension. </figcaption>
