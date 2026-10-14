@@ -24,3 +24,4 @@ Alias: $cz-core-patient = https://hl7.cz/fhir/cz-core/StructureDefinition/cz-cor
 Alias: $cz-mhd-submissionset-comprehensive = https://hl7.cz/fhir/hie/StructureDefinition/cz-mhd-submissionset-comprehensive
 Alias: $cz-mhd-documentreference-comprehensive = https://hl7.cz/fhir/hie/StructureDefinition/cz-mhd-documentreference-comprehensive
 Alias: $cz-mhd-documentreference-comprehensive = https://hl7.cz/fhir/hie/StructureDefinition/cz-mhd-documentreference-comprehensive
+Alias: $v3RoleClass = http://terminology.hl7.org/CodeSystem/v3-RoleClass

@@ -5,6 +5,8 @@ Title:       "CZ Audit Event for [ITI-68] Document Consumer"
 Description: "This profile is used to define the CZ Audit Event for the [ITI-68] transaction and the actor 'Document
 Consumer'."
 * agent contains mainUser 1..1 and delegatedUser 0..1
+* insert CZ_AuditSecurityAgents
+* insert CZ_AuditNodeIdentity(client, server)
 * agent[mainUser]
   * ^short = "The main user (patient, representative, healthcare professional, or administrator)"
   * type = $v3ParticipationType#RESP "responsible party"
@@ -53,6 +55,8 @@ Title:       "CZ Audit Event for [ITI-68] Document Responder"
 Description: "This profile is used to define the CZ Audit Event for the [ITI-68] transaction and the actor 'Document
 Responder'."
 * agent contains mainUser 1..1 and delegatedUser 0..1
+* insert CZ_AuditSecurityAgents
+* insert CZ_AuditNodeIdentity(client, server)
 * agent[mainUser]
   * ^short = "The main user (patient, representative, healthcare professional, or administrator)"
   * type = $v3ParticipationType#RESP "responsible party"
@@ -99,6 +103,7 @@ Instance:   CZ-AuditEventIti68ConsumerExample
 InstanceOf: CZ_AuditEventIti68Consumer
 Description: "Example of AuditEvent profile CZ_AuditEventIti68Consumer"
 Usage:      #example
+* insert CZ_AuditPzsExample
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
 * agent[server]
@@ -141,7 +146,7 @@ Usage:      #example
   * type = $auditEntityType#2 "System Object"
   * role = $objectRole#3 "Report"
 * source
-  * site = "2.16.756.1.2.3"
+  * site = "2.999.1.1" // ilustrativní OID (oblouk 2.999 je vyhrazen pro příklady)
   * observer.display = "Portal" // TODO je to spravne?
 
 
@@ -149,6 +154,7 @@ Instance:   CZ-AuditEventIti68ResponderExample
 InstanceOf: CZ_AuditEventIti68Responder
 Description: "Example of AuditEvent profile CZ_AuditEventIti68Responder"
 Usage:      #example
+* insert CZ_AuditPzsExample
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
 * agent[server]
@@ -191,5 +197,5 @@ Usage:      #example
   * type = $auditEntityType#2 "System Object"
   * role = $objectRole#3 "Report"
 * source
-  * site = "2.16.756.4.5.6"
+  * site = "2.999.2.1" // ilustrativní OID AAfD (oblouk 2.999 je vyhrazen pro příklady)
   * observer.display = "Affinitní doména A" // TODO je to spravne?

@@ -1,7 +1,7 @@
 Tato kapitola specifikuje česká národní rozšíření pro doplněk Add RESTful ATNA (Query and Feed), publikovaný v rámci profilu [IHE ITI Trial Implementation](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_RESTful-ATNA.pdf).
 
 ###	Rozsah  
-Aplikace elektronické zdravotní dokumentace (HIE App) musí odesílat auditní záznamy v souladu s profily IHE ITI. Doplňkový profil Add RESTful ATNA (Query and Feed) umožňuje aplikaci EPR přidávat auditní události prostřednictvím RESTful feedu do Úložiště auditních záznamů (Audit Record Repository).
+Aplikace elektronické zdravotní dokumentace (HIE App) musí odesílat auditní záznamy v souladu s profily IHE ITI. Doplňkový profil Add RESTful ATNA (Query and Feed) umožňuje aplikaci HIE přidávat auditní události prostřednictvím RESTful feedu do Úložiště auditních záznamů (Audit Record Repository).
 
 ###	Případy použití  
 V národním českém rozšíření nejsou definována žádná další omezení ani přídavky k případům použití původního profilu.
@@ -22,8 +22,9 @@ Toto národní rozšíření vynucuje autentizaci a autorizaci pro řízení př
 
 | Aktor                                                     | Požadované seskupení                                                | Volitelnost | Poznámka |
 |-----------------------------------------------------------|------------------------------------------------------------------|-------------|--------|
-| Audit Record Repository                                  |  IUA Resource Server       | R (povinné)           | -      |
-| Jakýkoli aktor seskupený se Secure Node nebo Secure Application  |IUA Authorization Client  | R (povinné)          | -      |
+| Audit Record Repository                                  |  IUA Resource Server, ATNA Secure Node       | R (povinné)           | Komunikace je zabezpečena mTLS [ITI-19] a přístupovým tokenem IUA [ITI-72] |
+| Jakýkoli aktor seskupený se Secure Node nebo Secure Application  |IUA Authorization Client  | R (povinné)          | Přístupový token získává od centrálního autorizačního serveru EZ [ITI-71] |
+| AAfD                                                     | ATNA Audit Record Forwarder | R (povinné)       | Předává auditní události do centrální komponenty ATNA EZ |
 {:class="table table-bordered"}
 
 <figcaption ID="1">Tabulka 1: Seskupování aktorů v kontextu národního rozšíření. </figcaption>

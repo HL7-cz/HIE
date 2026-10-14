@@ -5,6 +5,8 @@ Title:       "CZ Audit Event for [ITI-66] Document List Consumer"
 Description: "This profile is used to define the CZ Audit Event for the [ITI-66] transaction and the actor 'Document list
 Consumer'."
 * agent contains mainUser 1..1 and delegatedUser 0..1
+* insert CZ_AuditSecurityAgents
+* insert CZ_AuditNodeIdentity(client, server)
 * agent[mainUser]
   * ^short = "The main user (patient, representative, healthcare professional, or administrator)"
   * type = $v3ParticipationType#RESP "responsible party"
@@ -47,6 +49,8 @@ Title:       "CZ Audit Event for [ITI-66] Document List"
 Description: "This profile is used to define the CZ Audit Event for the [ITI-66] transaction and the actor 'Document
 List Responder'."
 * agent contains mainUser 1..1 and delegatedUser 0..1
+* insert CZ_AuditSecurityAgents
+* insert CZ_AuditNodeIdentity(client, server)
 * agent[mainUser]
   * ^short = "The main user (patient, representative, healthcare professional, or administrator)"
   * type = $v3ParticipationType#RESP "responsible party"
@@ -86,6 +90,7 @@ Instance:   CZ-AuditEventIti66ConsumerExample
 InstanceOf: CZ_AuditEventIti66Consumer
 Description: "Example of AuditEvent profile CZ_AuditEventIti66Consumer"
 Usage:      #example
+* insert CZ_AuditPzsExample
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
 * agent[client]
@@ -123,15 +128,16 @@ Usage:      #example
 * entity[query]
   * type = $auditEntityType#2 "System Object"
   * role = $objectRole#24 "Query"
-  * query = "aHR0cDovL2V4YW1wbGUuY29tL2ZoaXIvRG9jdW1lbnRSZWZlcmVuY2U/cGF0aWVudC5pZGVudGlmaWVyPXVybjpvaWQ6Mi4xNi43NTYuNS4zMC4xLjEyNy4zLjEwLjN8NzYxMzM3NjEwNDExMzUzNjUwJnN0YXR1cz1jdXJyZW50"
+  * query = "aHR0cHM6Ly9leGFtcGxlLmNvbS9maGlyL0xpc3Q/Y29kZT1zdWJtaXNzaW9uc2V0JnBhdGllbnQuaWRlbnRpZmllcj1odHRwczovL25jZXoubXpjci5jei9maGlyL3NpZC9yaWR8NDU2Nzg5MTIzNSZzdGF0dXM9Y3VycmVudA=="
 * source
-  * site = "2.16.756.4.5.6"
+  * site = "2.999.2.1" // ilustrativní OID AAfD (oblouk 2.999 je vyhrazen pro příklady)
   * observer.display = "Affinitní doména A" // TODO je to spravne?
 
 Instance:   CZ-AuditEventIti66ResponderExample
 InstanceOf: CZ_AuditEventIti66Responder
 Description: "Example of AuditEvent profile CZ_AuditEventIti66Responder"
 Usage:      #example
+* insert CZ_AuditPzsExample
 * recorded = "2024-10-28T09:43:56Z"
 * outcome = #0
 * agent[client]
@@ -169,7 +175,7 @@ Usage:      #example
 * entity[query]
   * type = $auditEntityType#2 "System Object"
   * role = $objectRole#24 "Query"
-  * query = "aHR0cDovL2V4YW1wbGUuY29tL2ZoaXIvRG9jdW1lbnRSZWZlcmVuY2U/cGF0aWVudC5pZGVudGlmaWVyPXVybjpvaWQ6Mi4xNi43NTYuNS4zMC4xLjEyNy4zLjEwLjN8NzYxMzM3NjEwNDExMzUzNjUwJnN0YXR1cz1jdXJyZW50"
+  * query = "aHR0cHM6Ly9leGFtcGxlLmNvbS9maGlyL0xpc3Q/Y29kZT1zdWJtaXNzaW9uc2V0JnBhdGllbnQuaWRlbnRpZmllcj1odHRwczovL25jZXoubXpjci5jei9maGlyL3NpZC9yaWR8NDU2Nzg5MTIzNSZzdGF0dXM9Y3VycmVudA=="
 * source
-  * site = "2.16.756.1.2.3"
+  * site = "2.999.1.1" // ilustrativní OID (oblouk 2.999 je vyhrazen pro příklady)
   * observer.display = "Nemocnice XYZ" // TODO je to spravne?

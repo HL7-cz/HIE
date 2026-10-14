@@ -13,6 +13,6 @@ Description: "CZ FHIR profile on AuditEvent."
 * entity contains patient 0..1
 * entity[patient].what only Reference(CZ_PatientCore)
 * entity[patient].what.identifier 1..1
-  * ^short = "Patient Id (RID)"
+  * ^short = "Identifikátor pacienta (RID nebo DRID)"
+  * ^comment = "RID, případně dočasný RID (DRID) přidělený Kmenovým registrem pacientů."
 * entity[patient].what.identifier.system 1..1
-* entity[patient].what.identifier.system = "https://ncez.mzcr.cz/fhir/sid/rid"

@@ -66,11 +66,11 @@ Pokud zdravotnický pracovník potřebuje opravit nebo zneplatnit dokument, jeho
 {:class="table table-bordered"}
 | Aktér                                         | Povinné seskupen                 | Poznámka   |
 |-----------------------------------------------|---------------------------|-------------|
-| Document Source                               | IUA klient, ATNA audit repository    | Publikace dokumentů vyžaduje autorizaci a audit       |
-| Document Consumer                             | IUA klient, ATNA audit repository            | Vyhledávání a stahování vyžaduje autorizaci a audit    |
-| Document Responder (Registry)                 | IUA Authorization Server, ATNA audit repository  | Odpovědi na dotazy vyžadují validaci tokenu a audit |
-| Document Recipient (Repository)               | Document Registry, ATNA audit repository   | Ukládání dokumentů v AAfD, evidence metadat   |
-| Notification Recipient                            | IUA klient, ATNA audit repository    | Příjem notifikací o nových dokumentech    |
+| Document Source                               | IUA Authorization Client, ATNA Secure Node / Secure Application, ATNA Audit Creator | Publikace dokumentů vyžaduje mTLS, přístupový token a audit |
+| Document Consumer                             | IUA Authorization Client, ATNA Secure Node / Secure Application, ATNA Audit Creator | Vyhledávání a stahování vyžaduje mTLS, přístupový token a audit |
+| Document Responder (Registry)                 | IUA Resource Server, ATNA Secure Node, ATNA Audit Creator | Odpovědi na dotazy vyžadují validaci tokenu a audit. Přístupové tokeny vydává centrální autorizační server EZ; AAfD vydává tokeny pouze při výměně tokenu pro komunikaci mezi AAfD (RFC 8693). |
+| Document Recipient (Repository)               | Document Registry, IUA Resource Server, ATNA Secure Node, ATNA Audit Creator | Ukládání dokumentů v AAfD, evidence metadat, validace tokenu a audit |
+| Notification Recipient                            | IUA Resource Server, ATNA Secure Node / Secure Application, ATNA Audit Creator | Příjem notifikací o nových dokumentech    |
 
 
 <figcaption ID="1">Tabulka 2: Požadované seskupení aktérů.</figcaption>
@@ -84,7 +84,7 @@ Domácí akreditovaná afinitní doména (AAfD) přijme vyhledávací dotaz ITI-
 
 ### Bezpečnost 
 
-Procesy autentizace a autorizace jsou realizovány dle profilu IUA (OAuth 2.0 / JWT). Veškerá komunikace probíhá zabezpečeným protokolem TLS 1.2+ a každá transakce je auditována prostřednictvím profilu RESTful ATNA (ITI-20). Identita pacienta a oprávnění zdravotnického pracovníka se ověřují proti Kmenovému registru pacientů (KRPZS/KRP)a Registru práv a mandátů (RO). 
+Veškerá komunikace probíhá protokolem TLS 1.3 (minimálně TLS 1.2 se silnými šifrovacími sadami) se vzájemnou autentizací uzlů (mTLS) dle ATNA [ITI-19] s certifikáty vydanými certifikační autoritou MZČR. Současně se v každém požadavku předává přístupový token dle profilu IUA (OAuth 2.0 / JWT) vydaný centrálním autorizačním serverem EZ ([ITI-71], [ITI-72]); mezi AAfD se token získává výměnou dle RFC 8693. Každá transakce je auditována prostřednictvím profilu RESTful ATNA (ITI-20) včetně identity uzlů a údajů z přístupového tokenu. Podrobnosti uvádějí bezpečnostní kapitoly jednotlivých transakcí (např. [ITI-65](iti-65-cs.html#bezpečnostní-hlediska)) a [ITI-20](iti-20-cs.html#zaznamenání-zabezpečení-komunikace). Identita pacienta a oprávnění zdravotnického pracovníka se ověřují proti Kmenovému registru pacientů (KRPZS/KRP)a Registru práv a mandátů (RO). 
 
 ### Terminologie 
 

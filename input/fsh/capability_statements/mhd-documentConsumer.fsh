@@ -13,7 +13,9 @@ Usage: #definition
 * rest.mode = #client
 * rest.documentation = "MHD client requests a list of DocumentReference Resources, matching the supplied set of criteria, from the Document Responder [ITI-67]. MHD client requests a document from the Document Responder [ITI-68]."
 * rest.security.cors = false
-* rest.security.description = "TLS SHALL be used together with IUA extended access token"
+* rest.security.description = "mTLS (TLS 1.3, min. TLS 1.2) with mutual node authentication according to ATNA [ITI-19] using certificates issued by the MZCR certification authority SHALL be used together with an IUA access token (JWT) issued by the central eHealth authorization server [ITI-71] and conveyed according to [ITI-72]."
+* rest.security.service[+] = http://terminology.hl7.org/CodeSystem/restful-security-service#OAuth "OAuth"
+* rest.security.service[+] = http://terminology.hl7.org/CodeSystem/restful-security-service#Certificates "Certificates"
 * rest.resource[0].type = #DocumentReference
 * rest.resource[=].profile = "https://hl7.cz/fhir/hie/StructureDefinition/cz-mhd-documentreference-comprehensive"
 * rest.resource[=].interaction[0].code = #read

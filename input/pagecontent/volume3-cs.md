@@ -194,7 +194,7 @@ Tento profil obsahu popisuje Auditní Události související se Správou Dokume
                 <p>Dotčený pacient</p>
             </td>
             <td>
-                <p>RID</p>
+                <p>RID nebo DRID</p>
             </td>
         </tr>
         <tr>
@@ -390,7 +390,7 @@ Tento profil obsahu popisuje Auditní Události související se Správou Politi
                 <p>Dotčený pacient</p>
             </td>
             <td>
-                <p>RID</p>
+                <p>RID nebo DRID</p>
             </td>
         </tr>
         <tr>
@@ -555,7 +555,7 @@ Tento profil obsahu popisuje Auditní Událost související s Přístupem k Aud
                 <p>Dotčený pacient</p>
             </td>
             <td>
-                <p>EPR-SPID</p>
+                <p>RID nebo DRID</p>
             </td>
         </tr>
     </tbody>
@@ -626,7 +626,7 @@ Tento profil obsahu popisuje Auditní Událost související se vstupem zdravotn
                 <p>Notifikovaný pacient</p>
             </td>
             <td>
-                <p>RID</p>
+                <p>RID nebo DRID</p>
             </td>
         </tr>
         <tr>

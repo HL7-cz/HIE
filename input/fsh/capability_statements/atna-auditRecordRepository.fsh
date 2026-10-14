@@ -6,6 +6,10 @@ Usage: #definition
 * title = "ATNA Audit Record Repository (server)"
 * description = "CapabilityStatement for Server Actor in the IHE IT Infrastructure Technical Framework Supplement Add RESTful ATNA."
 * rest.mode = #server
+* rest.security.cors = false
+* rest.security.service[+] = http://terminology.hl7.org/CodeSystem/restful-security-service#OAuth "OAuth"
+* rest.security.service[+] = http://terminology.hl7.org/CodeSystem/restful-security-service#Certificates "Certificates"
+* rest.security.description = "mTLS (TLS 1.3, min. TLS 1.2) with mutual node authentication according to ATNA [ITI-19] using certificates issued by the MZCR certification authority SHALL be used together with an IUA access token (JWT) issued by the central eHealth authorization server [ITI-71] and conveyed according to [ITI-72]."
 * status = #active
 * experimental = false
 * date = "2024-01-08"

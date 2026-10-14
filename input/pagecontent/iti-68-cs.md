@@ -88,19 +88,35 @@ Odpovídající dokumenty implementující tuto transakci musí poskytnout zdroj
 - Požadavky CapabilityStatement pro [Spotřebitele dokumentů](CapabilityStatement-CZ-MHD-DocumentConsumer.html)
 - Požadavky CapabilityStatement pro [Odpovídajícího na dokumenty](CapabilityStatement-CZ-MHD-DocumentResponder.html)
 
-### Bezpečnostní aspekty
+### Bezpečnostní hlediska
 
-Tato transakce by neměla vracet informace, ke kterým nemá spotřebitel dokumentů oprávnění. 
+Zabezpečení transakce vychází ze Standardu akreditovaných afinitních domén (AAfD). Transportní vrstva (mTLS) a aplikační vrstva (přístupový token IUA) se používají **vždy současně**, nejde o alternativy.
 
-#### Bezpečnostní audit
+#### Transportní vrstva – autentizace uzlů (mTLS)
 
-Kritéria bezpečnostního auditu jsou podobná jako u transakce Retrieve Document Set-b [ITI-43].
+Transakce MUSÍ být zabezpečena protokolem TLS 1.3 (minimálně TLS 1.2 se silnými šifrovacími sadami) se vzájemnou autentizací uzlů (mTLS) dle transakce ATNA [Authenticate Node [ITI-19]](https://profiles.ihe.net/ITI/TF/Volume2/ITI-19.html). Klient i server se prokazují certifikátem X.509 vydaným certifikační autoritou MZČR a každá strana ověřuje platnost certifikátu protistrany. mTLS se používá pro veškerou komunikaci: mezi IS PZS a AAfD, mezi AAfD navzájem i mezi AAfD a centrálními službami elektronického zdravotnictví.
 
-Specifikace bude dodána později (ATNA).
+#### Aplikační vrstva – autorizace (IUA)
 
-##### Document Consumer Audit
+Klient MUSÍ v každém požadavku předat přístupový token dle profilu IHE IUA ve formátu JSON Web Token (JWT):
 
+1. IS PZS získá metadata centrálního autorizačního serveru elektronického zdravotnictví transakcí [Get Authorization Server Metadata [ITI-103]](https://profiles.ihe.net/ITI/IUA/index.html#3103-get-authorization-server-metadata-iti-103) a přístupový token transakcí [Get Access Token [ITI-71]](https://profiles.ihe.net/ITI/IUA/index.html#371-get-access-token-iti-71). Vůči autorizačnímu serveru se prokazuje JWT assertion podepsanou privátním klíčem svého systémového certifikátu. Token obsahuje identifikaci PZS. Token se obnovuje před uplynutím jeho platnosti.
+2. Token je předán v hlavičce `Authorization: Bearer` dle transakce [Incorporate Access Token [ITI-72]](https://profiles.ihe.net/ITI/IUA/index.html#372-incorporate-access-token-iti-72).
+3. Server (IUA Resource Server) MUSÍ token validovat (podpis, vydavatel, platnost, cílová služba) a ověřit, že PZS identifikovaný v tokenu je platný v Kmenovém registru poskytovatelů zdravotních služeb, je připojen k dané AAfD a má oprávnění k požadované operaci. Je-li v kontextu volání uveden zdravotnický pracovník, MUSÍ být evidován v kontextu PZS a platný v Kmenovém registru zdravotnických pracovníků.
 
+#### Komunikace mezi AAfD
 
-##### Document Responder Audit
+Předává-li domovská AAfD požadavek do jiné AAfD, získá pro cílovou AAfD nový přístupový token mechanismem OAuth 2.0 Token Exchange dle [RFC 8693](https://www.rfc-editor.org/rfc/rfc8693): `subject_token` je přístupový token PZS, `actor_token` je systémový token volající AAfD. Cílová AAfD ověří v Katalogu služeb, že volající AAfD je akreditovaná, a vydá token, který obsahuje identitu PZS (`sub`) a identitu zprostředkující AAfD (`act`). Přímé předávání tokenu PZS do jiné AAfD bez validace není dovoleno.
 
+Aktéři MUSÍ podporovat zpracování hlavičky `traceparent` dle [W3C Trace Context](https://www.w3.org/TR/trace-context/).
+
+Tato transakce nesmí vracet informace, ke kterým nemá spotřebitel dokumentů oprávnění.
+
+### Bezpečnostní audit
+
+Aktéři MUSÍ zaznamenat auditní událost a odeslat ji transakcí [Record Audit Event [ITI-20]](iti-20-cs.html):
+
+- **Spotřebitel dokumentů (Document Consumer)** dle profilu [CZ Audit Event for [ITI-68] Document Consumer](StructureDefinition-cz-auditEventIti68Consumer.html),
+- **Respondent (Document Responder)** dle profilu [CZ Audit Event for [ITI-68] Document Responder](StructureDefinition-cz-auditEventIti68Responder.html).
+
+Auditní událost MUSÍ zachytit identitu uzlů z mTLS a údaje z přístupového tokenu IUA podle pravidel v kapitole [Zaznamenání zabezpečení komunikace](iti-20-cs.html#zaznamenání-zabezpečení-komunikace). AAfD zaznamená poskytnutí dokumentu (PZS, ZP, RID nebo DRID, URI dokumentu). Předává-li AAfD dokument získaný z jiné AAfD, zaznamená tuto skutečnost, přestože dokument neukládá.

@@ -198,7 +198,7 @@ This content profile describes Audit Event related to Document Management. The f
 				<p>Involved patient</p>
 			</td>
 			<td>
-				<p>RID</p>
+				<p>RID or DRID</p>
 			</td>
 		</tr>
 		<tr>
@@ -394,7 +394,7 @@ This content profile describes Audit Events related to Policy Management. The fo
 				<p>Involved patient</p>
 			</td>
 			<td>
-				<p>RID</p>
+				<p>RID or DRID</p>
 			</td>
 		</tr>
 		<tr>
@@ -561,7 +561,7 @@ This content profile describes Audit Event related to Accessing the Audit Trail 
 				<p>Involved patient</p>
 			</td>
 			<td>
-				<p>RID</p>
+				<p>RID or DRID</p>
 			</td>
 		</tr>
 	</tbody>
@@ -633,7 +633,7 @@ This content profile describe the Audit Event related to the entry of a healthca
 				<p>Notified patient</p>
 			</td>
 			<td>
-				<p>RID</p>
+				<p>RID or DRID</p>
 			</td>
 		</tr>
 		<tr>

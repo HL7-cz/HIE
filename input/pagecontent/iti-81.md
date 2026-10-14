@@ -17,24 +17,33 @@ where:
     <code>&lt;scheme&gt;</code> shall be https.
   </li>
   <li>
-    <code>&lt;query&gt;</code> shall include the entity.identifier as defined in <a href="#additional-atna-search-parameters">Additional ATNA Search Parameters</a> and may include additional ATNA Search parameters. If entity.identifier is not included an HTTP response code 400 - Bad Request shall be returned.
+    <code>&lt;query&gt;</code> shall include at least one parameter identifying the data subject as defined in <a href="#additional-atna-search-parameters">Additional ATNA Search Parameters</a> and may include additional ATNA Search parameters. If no parameter identifying the data subject is included, an HTTP response code 400 - Bad Request shall be returned.
   </li>
 </ol>
 
 
 #### Additional ATNA Search Parameters
 
-The Patient Audit Consumer shall not use the following parameters in a query parameters: address, patient.identifier, source, type, outcome. The Patient Audit Consumer may use other parameters as listed in Retrieve Audit Event [ITI-81].
+The Activity Journal (Žurnál činností) retrieves audit records for a data subject – a patient, a healthcare professional or a healthcare provider. The subject is identified by one of these parameters:
 
-**entity.identifier** is a parameter of token type. This parameter specifies unique identifier for the object. The parameter value should be identified in accordance to the entity type;   
-For example:   
-``` http://example.com/ARRservice/AuditEvent?date=ge2020-03-22&date=le2025-03-22&entity.identifier=https://ncez.mzcr.cz/fhir/sid/rid|5678
+| Subject | Parameter | Matched against | Example value |
+|---------|-----------|-----------------|---------------|
+| Patient | `entity.identifier` | `AuditEvent.entity.what.identifier` (ParticipantObjectID in DICOM) | `https://ncez.mzcr.cz/fhir/sid/rid\|2066425387` (RID, or DRID) |
+| Healthcare professional | `altid` | `AuditEvent.agent.altId` (KRZP identifier) | `2000000090092` |
+| Healthcare provider | `agent:identifier` | `AuditEvent.agent.who.identifier` (provider company ID from the access token) | `https://ncez.mzcr.cz/fhir/sid/ico\|12345678` |
+{:class="table table-bordered"}
+
+Token parameters SHALL contain both the system and the value. The Patient Audit Consumer may use other parameters as listed in Retrieve Audit Event [ITI-81].
+
+Example query for the audit records of a patient:
+``` http
+https://example.com/ARRservice/AuditEvent?date=ge2020-03-22&date=le2025-03-22&entity.identifier=https://ncez.mzcr.cz/fhir/sid/rid|2066425387
 ```
 
-The Audit Record Repository shall match this parameter with the AuditEvent.entity.what.identifier field that is of type identifier (ParticipantObjectID in DICOM schema).
-
-For the CZ:ATC profile the entity.identifier has to be the EPR-SPID:   
-`entity.identifier=https://ncez.mzcr.cz/fhir/sid/rid|2066425387`
+Example query for the audit records of a healthcare professional:
+``` http
+https://example.com/ARRservice/AuditEvent?date=ge2025-01-01&date=le2025-03-31&altid=2000000090092
+```
 
 
 #### Message Semantics for Response
@@ -44,16 +53,28 @@ The returned AuditEvent FHIR resources in the Bundle shall conform the CZ:ATC Au
 
 #### Security Considerations
 
-The transaction SHALL be secured by Transport Layer Security (TLS) encryption and server authentication with
-server certificates.
+Security of the transaction is based on the Czech Standard for Accredited Affinity Domains (AAfD). The transport layer (mTLS) and the application layer (IUA access token) are **always used together**; they are not alternatives.
 
-The transaction SHALL use client authentication and authorization using one of the following strategies:
-1. Use an extended access token defined in IUA conveyed as defined in the [Incorporate Access Token [ITI-72]](https://profiles.ihe.net/ITI/IUA/index.html#372-incorporate-access-token-iti-72) transaction.
-2. or, use mutual authentication (mTLS) on the transport layer in combination with a XUA token for authorization from the Get X-User Assertion transaction (Annex 5.1 1.6.4.2). The XUA token SHALL be conveyed as defined in the [Incorporate Access Token [ITI-72]](https://profiles.ihe.net/ITI/IUA/index.html#372-incorporate-access-token-iti-72) transaction.
+##### Transport layer – node authentication (mTLS)
 
-The CZ:ATC Patient Audit Record Repository shall be grouped with CZ:ADR, i.e. the CZ:ATC Patient Audit Record Repository shall use the CZ:ADR Authorization Decision Request transaction to authorize the transaction and enforce the authorization decision retrieved from CZ:ADR Authorization Decision Response.
+The transaction SHALL be secured by TLS 1.3 (at least TLS 1.2 with strong cipher suites) with mutual node authentication (mTLS) as defined in the ATNA [Authenticate Node [ITI-19]](https://profiles.ihe.net/ITI/TF/Volume2/ITI-19.html) transaction. Both client and server authenticate with an X.509 certificate issued by the certification authority of the Czech Ministry of Health (MZČR), and each side validates the certificate of its peer. mTLS is used for all communication: between the healthcare provider's system (IS PZS) and the AAfD, between AAfDs, and between an AAfD and the central eHealth services.
 
-The actors SHALL support the _traceparent_ header handling, as defined in Trace Context.
+##### Application layer – authorization (IUA)
+
+The client SHALL convey an IHE IUA access token in JSON Web Token (JWT) format in every request:
+
+1. The IS PZS retrieves the metadata of the central eHealth authorization server with [Get Authorization Server Metadata [ITI-103]](https://profiles.ihe.net/ITI/IUA/index.html#3103-get-authorization-server-metadata-iti-103) and an access token with [Get Access Token [ITI-71]](https://profiles.ihe.net/ITI/IUA/index.html#371-get-access-token-iti-71). It authenticates to the authorization server with a JWT assertion signed with the private key of its system certificate. The token contains the identification of the healthcare provider (PZS). The token is renewed before it expires.
+2. The token is conveyed in the `Authorization: Bearer` header as defined in [Incorporate Access Token [ITI-72]](https://profiles.ihe.net/ITI/IUA/index.html#372-incorporate-access-token-iti-72).
+3. The server (IUA Resource Server) SHALL validate the token (signature, issuer, validity, audience) and verify that the healthcare provider identified in the token is valid in the national registry of healthcare providers, is connected to the AAfD and is authorized for the requested operation. If a healthcare professional is given in the request context, the professional SHALL be registered with the healthcare provider and valid in the national registry of healthcare professionals.
+
+##### Communication between AAfDs
+
+When the home AAfD forwards a request to another AAfD, it obtains a new access token for the target AAfD using OAuth 2.0 Token Exchange as defined in [RFC 8693](https://www.rfc-editor.org/rfc/rfc8693): the `subject_token` is the access token of the healthcare provider and the `actor_token` is the system token of the calling AAfD. The target AAfD verifies in the eHealth Service Catalogue that the calling AAfD is accredited and issues a token containing the identity of the healthcare provider (`sub`) and of the intermediary AAfD (`act`). Forwarding the healthcare provider's token to another AAfD without validation is not allowed.
+
+Actors SHALL support the `traceparent` header as defined in [W3C Trace Context](https://www.w3.org/TR/trace-context/).
+
+The Patient Audit Consumer is the central eHealth component Activity Journal (Žurnál činností). It authenticates with its certificate in mTLS and with its system access token. The Audit Record Repository SHALL verify that the caller is authorized to read audit records and SHALL return only records related to the queried subject.
 
 #### Security Audit Considerations
-An audit event as specified in [Access Audit Trail Content Profile](volume3.html#access-audit-trail-content-profile) shall be returned by a query to Patient Audit Record Repository after the Patient Audit Record Repository has been queried by a Patient Audit Consumer.
+
+The Audit Record Repository SHALL record every query for audit records as an audit event according to the [Access Audit Trail Content Profile](volume3.html#access-audit-trail-content-profile), including the identity of the caller from mTLS and from the access token (see [Recording the communication security](iti-20.html#recording-the-communication-security)).

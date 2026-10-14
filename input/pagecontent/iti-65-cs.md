@@ -51,19 +51,31 @@ Zdroj CapabilityStatement pro **příjemce dokumentu** je [MHD Document Recipien
 
 ### Bezpečnostní hlediska
 
-Transakce MUSÍ být zabezpečena šifrováním Transport Layer Security (TLS) a ověřením serveru pomocí 
-serverových certifikátů. 
+Zabezpečení transakce vychází ze Standardu akreditovaných afinitních domén (AAfD). Transportní vrstva (mTLS) a aplikační vrstva (přístupový token IUA) se používají **vždy současně**, nejde o alternativy.
 
-Transakce MUSÍ používat ověřování a autorizaci klienta pomocí jedné z následujících strategií:
-1. Použít rozšířený přístupový token definovaný v IUA předávaný podle definice v transakci [Incorporate Access Token [ITI-72]](https://profiles.ihe.net/ITI/IUA/index.html#372-incorporate-access-token-iti-72).
-2. nebo použít vzájemné ověření (mTLS) na transportní vrstvě v kombinaci s tokenem XUA pro autorizaci z transakce Get X-User Assertion (příloha 5.1 1.6.4.2). Token XUA MUSÍ být předán tak, jak je definováno v transakci [Začlenění přístupového tokenu [ITI-72]](https://profiles.ihe.net/ITI/IUA/index.html#372-incorporate-access-token-iti-72).
+#### Transportní vrstva – autentizace uzlů (mTLS)
 
-#### Úvahy týkající se bezpečnostního auditu
+Transakce MUSÍ být zabezpečena protokolem TLS 1.3 (minimálně TLS 1.2 se silnými šifrovacími sadami) se vzájemnou autentizací uzlů (mTLS) dle transakce ATNA [Authenticate Node [ITI-19]](https://profiles.ihe.net/ITI/TF/Volume2/ITI-19.html). Klient i server se prokazují certifikátem X.509 vydaným certifikační autoritou MZČR a každá strana ověřuje platnost certifikátu protistrany. mTLS se používá pro veškerou komunikaci: mezi IS PZS a AAfD, mezi AAfD navzájem i mezi AAfD a centrálními službami elektronického zdravotnictví.
 
-##### Audit zdroje dokumentu
+#### Aplikační vrstva – autorizace (IUA)
 
-Bude dodáno v budoucnu (ATNA).
+Klient MUSÍ v každém požadavku předat přístupový token dle profilu IHE IUA ve formátu JSON Web Token (JWT):
 
-**Zdroj dokumentu** musí zaznamenat
+1. IS PZS získá metadata centrálního autorizačního serveru elektronického zdravotnictví transakcí [Get Authorization Server Metadata [ITI-103]](https://profiles.ihe.net/ITI/IUA/index.html#3103-get-authorization-server-metadata-iti-103) a přístupový token transakcí [Get Access Token [ITI-71]](https://profiles.ihe.net/ITI/IUA/index.html#371-get-access-token-iti-71). Vůči autorizačnímu serveru se prokazuje JWT assertion podepsanou privátním klíčem svého systémového certifikátu. Token obsahuje identifikaci PZS. Token se obnovuje před uplynutím jeho platnosti.
+2. Token je předán v hlavičce `Authorization: Bearer` dle transakce [Incorporate Access Token [ITI-72]](https://profiles.ihe.net/ITI/IUA/index.html#372-incorporate-access-token-iti-72).
+3. Server (IUA Resource Server) MUSÍ token validovat (podpis, vydavatel, platnost, cílová služba) a ověřit, že PZS identifikovaný v tokenu je platný v Kmenovém registru poskytovatelů zdravotních služeb, je připojen k dané AAfD a má oprávnění k požadované operaci. Je-li v kontextu volání uveden zdravotnický pracovník, MUSÍ být evidován v kontextu PZS a platný v Kmenovém registru zdravotnických pracovníků.
 
-##### Audit příjemce dokumentu
+#### Komunikace mezi AAfD
+
+Předává-li domovská AAfD požadavek do jiné AAfD, získá pro cílovou AAfD nový přístupový token mechanismem OAuth 2.0 Token Exchange dle [RFC 8693](https://www.rfc-editor.org/rfc/rfc8693): `subject_token` je přístupový token PZS, `actor_token` je systémový token volající AAfD. Cílová AAfD ověří v Katalogu služeb, že volající AAfD je akreditovaná, a vydá token, který obsahuje identitu PZS (`sub`) a identitu zprostředkující AAfD (`act`). Přímé předávání tokenu PZS do jiné AAfD bez validace není dovoleno.
+
+Aktéři MUSÍ podporovat zpracování hlavičky `traceparent` dle [W3C Trace Context](https://www.w3.org/TR/trace-context/).
+
+### Bezpečnostní audit
+
+Aktéři MUSÍ zaznamenat auditní událost a odeslat ji transakcí [Record Audit Event [ITI-20]](iti-20-cs.html):
+
+- **Zdroj dokumentu (Document Source)** dle profilu [CZ Audit Event for [ITI-65] Document Source](StructureDefinition-cz-auditEventIti65Source.html),
+- **Příjemce dokumentu (Document Recipient)** dle profilu [CZ Audit Event for [ITI-65] Document Recipient](StructureDefinition-cz-auditEventIti65Recipient.html).
+
+Auditní událost MUSÍ zachytit identitu uzlů z mTLS a údaje z přístupového tokenu IUA podle pravidel v kapitole [Zaznamenání zabezpečení komunikace](iti-20-cs.html#zaznamenání-zabezpečení-komunikace). AAfD zaznamená přijetí dokumentu (PZS, ZP, RID nebo DRID, identifikátor SubmissionSet) včetně neúspěšných pokusů, např. odmítnutí kvůli nesouladu PZS v tokenu a v metadatech dokumentu.

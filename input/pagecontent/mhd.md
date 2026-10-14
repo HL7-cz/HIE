@@ -36,7 +36,7 @@ The national MHD specification for the Czech Republic requires support for the t
 
 #### Cross-domain search and retrieval 
 
-A healthcare provider in AAfD-B issues a query (ITI-66/67) for a patient’s documents. The home AAfD uses the HCID to forward the request to neighboring AAfDs (including AAfD-A) and aggregates the returned results. From the retrieved metadata, the provider selects a specific record, and an ITI-68 request is then directed to the repository in AAfD-A, from which the document is securely retrieved. All steps are authenticated through IUA and audited via RESTful ATNA. 
+A healthcare provider in AAfD-B issues a query (ITI-66/67) for a patient’s documents. The home AAfD uses the HCID to forward the request to neighboring AAfDs (including AAfD-A) and aggregates the returned results. From the retrieved metadata, the provider selects a specific record, and an ITI-68 request is then directed to the repository in AAfD-A, from which the document is securely retrieved. All steps are secured with mTLS and IUA access tokens and audited via RESTful ATNA. 
 
 #### Notification of new documents
 
@@ -66,11 +66,11 @@ If a healthcare professional needs to correct or invalidate a document, the prim
 {:class="table table-bordered"}
 | Actor                                         | Required grouping                  | Note   |
 |-----------------------------------------------|---------------------------|-------------|
-| Document Source                               | IUA klient, ATNA audit repository    | Publishing documents requires authorization and audit logging      |
-| Document Consumer                             | IUA klient, ATNA audit repository            | Searching and retrieving documents requires authorization and audit logging     |
-| Document Responder (Registry)                 | IUA Authorization Server, ATNA audit repository  | Query responses require token validation and audit logging |
-| Document Recipient (Repository)               | Document Registry, ATNA audit repository   | Responsible for storing documents and maintaining metadata in the AAfD   |
-| Notification Recipient                            | IUA klient, ATNA audit repository    | Receives notifications about newly published documents     |
+| Document Source                               | IUA Authorization Client, ATNA Secure Node / Secure Application, ATNA Audit Creator | Publishing documents requires mTLS, an access token and audit logging |
+| Document Consumer                             | IUA Authorization Client, ATNA Secure Node / Secure Application, ATNA Audit Creator | Searching and retrieving documents requires mTLS, an access token and audit logging |
+| Document Responder (Registry)                 | IUA Resource Server, ATNA Secure Node, ATNA Audit Creator | Query responses require token validation and audit logging. Access tokens are issued by the central eHealth authorization server; an AAfD issues tokens only in token exchange for communication between AAfDs (RFC 8693). |
+| Document Recipient (Repository)               | Document Registry, IUA Resource Server, ATNA Secure Node, ATNA Audit Creator | Responsible for storing documents and maintaining metadata in the AAfD, token validation and audit logging |
+| Notification Recipient                            | IUA Resource Server, ATNA Secure Node / Secure Application, ATNA Audit Creator | Receives notifications about newly published documents     |
 
 
 <figcaption ID="1">Table 2: Required Actor Groupings.</figcaption>
@@ -84,7 +84,7 @@ The home Accredited Affinity Domain (AAfD) receives an ITI-66 query containing t
 
 ### Security 
 
-Authentication and authorization are carried out in accordance with the IUA profile (OAuth 2.0 / JWT). All communication is secured with TLS 1.2+, and each transaction is logged using RESTful ATNA (ITI-20). Patient identity and healthcare professional permissions are validated against the Core Patient Registry (KRPZS/KRP) and the Authorization and Mandates Registry (RO). 
+All communication uses TLS 1.3 (at least TLS 1.2 with strong cipher suites) with mutual node authentication (mTLS) as defined in ATNA [ITI-19], with certificates issued by the certification authority of the Czech Ministry of Health. In addition, every request carries an IUA access token (OAuth 2.0 / JWT) issued by the central eHealth authorization server ([ITI-71], [ITI-72]); between AAfDs the token is obtained by RFC 8693 token exchange. Each transaction is logged using RESTful ATNA (ITI-20), including the node identities and the access token details. See the security sections of the individual transactions (e.g. [ITI-65](iti-65.html#security-considerations)) and [ITI-20](iti-20.html#recording-the-communication-security). Patient identity and healthcare professional permissions are validated against the Core Patient Registry (KRPZS/KRP) and the Authorization and Mandates Registry (RO). 
 
 ### Terminology 
 

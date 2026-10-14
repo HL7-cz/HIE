@@ -6,6 +6,8 @@ Title:       "CZ Audit Event for [ITI-65] Document Source"
 Description: "This profile is used to define the CZ Audit Event for the [ITI-65] transaction and the actor 'Document
 Source'."
 * agent contains mainUser 1..1 and delegatedUser 0..1
+* insert CZ_AuditSecurityAgents
+* insert CZ_AuditNodeIdentity(documentSource, documentRecipient)
 * agent[mainUser]
   * ^short = "The main user (patient, representative, healthcare professional, or administrator)"
   * type = $v3ParticipationType#RESP "responsible party"
@@ -52,6 +54,8 @@ Title:       "CZ Audit Event for [ITI-65] Document Recipient"
 Description: "This profile is used to define the CZ Audit Event for the [ITI-65] transaction and the actor 'Document
 Recipient'."
 * agent contains mainUser 1..1 and delegatedUser 0..1
+* insert CZ_AuditSecurityAgents
+* insert CZ_AuditNodeIdentity(documentSource, documentRecipient)
 * agent[mainUser]
   * ^short = "The main user (patient, representative, healthcare professional, or administrator)"
   * type = $v3ParticipationType#RESP "responsible party"
@@ -95,9 +99,10 @@ Instance:   CZ-AuditEventIti65SourceExample
 InstanceOf: CZ_AuditEventIti65Source
 Description: "Example of AuditEvent profile CZAuditEventIti65Source"
 Usage:      #example
+* insert CZ_AuditPzsExample
 * insert CZ_AuditEventIti65ExampleRules
 * source 
-  * site = "2.16.756.1.2.3"
+  * site = "2.999.1.1" // ilustrativní OID (oblouk 2.999 je vyhrazen pro příklady)
   * observer.display = "Nemocnice XYZ" // TODO je to spravne?
 * type = $dcm#110106 "Export"
 
@@ -106,9 +111,10 @@ Instance:   CZ-AuditEventIti65RecipientExample
 InstanceOf: CZ_AuditEventIti65Recipient
 Description: "Example of AuditEvent profile CZAuditEventIti65Recipient"
 Usage:      #example
+* insert CZ_AuditPzsExample
 * insert CZ_AuditEventIti65ExampleRules
 * source   
-  * site = "2.16.756.4.5.6"
+  * site = "2.999.2.1" // ilustrativní OID AAfD (oblouk 2.999 je vyhrazen pro příklady)
   * observer.display = "Affinitní doména A" // TODO je to spravne?
 * type = $dcm#110107 "Import"
 
