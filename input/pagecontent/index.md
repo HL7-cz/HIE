@@ -1,5 +1,5 @@
 ### Introduction 
-This implementation specification focuses on the national implementation of the MHD (Mobile access to Health Documents) profile and Restful ATNA within the environment of Accredited Affinity Domains (AAfD) and the central eHealth services (EZ), based on the national [Standard of Accredited Affinity Domains](https://ncez.mzcr.cz/sites/default/files/media-documents/Standard%20Do%C4%8Dasn%C3%A9%20ulo%C5%BEi%C5%A1t%C4%9B%20v%200.10.pdf). 
+This implementation specification focuses on the national implementation of the MHD (Mobile access to Health Documents) profile and Restful ATNA within the environment of Accredited Affinity Domains (AAfD) and the central eHealth services (EZ), based on the national [Standard of Accredited Affinity Domains](https://mzcr.atlassian.net/wiki/x/A4AaGQ). 
 
 ### Scope
 

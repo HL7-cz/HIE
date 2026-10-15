@@ -3,6 +3,7 @@
 # Identifikátorové systémy NCEZ (RID/DRID, IČO) zatím nemají publikovaný NamingSystem
 No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/rid'
 No definition could be found for URL value 'https://ncez.mzcr.cz/fhir/sid/ico'
+No definition could be found for URL value 'urn:ietf:params:oauth:jti:9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 
 # Identifikátor přístupového tokenu IUA (claim jti) ve tvaru URN dle IHE BALP – není to odkaz na definici
 No definition could be found for URL value 'urn:ietf:params:oauth:jti:%'
