@@ -66,6 +66,9 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who/what is the subject of the document"
+* rest.resource[=].searchParam[+].name = "patient.identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Identifikátor pacienta (RID nebo DRID v systému https://ncez.mzcr.cz/fhir/sid/rid). Povinný parametr transakcí ITI-66 a ITI-67."
 * rest.resource[=].searchParam[+].name = "period"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/DocumentReference-period"
 * rest.resource[=].searchParam[=].type = #date
@@ -118,6 +121,13 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "This parameter, of type token, specifies an identifier for this List. The search results represent the results of a search on List.masterIdentifier and List.identifier. See ITI TF-2: Appendix Z.2 for additional constraints on the use of the token search parameter type."
+* rest.resource[=].searchParam[+].name = "patient.identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Identifikátor pacienta (RID nebo DRID v systému https://ncez.mzcr.cz/fhir/sid/rid). Povinný parametr transakcí ITI-66 a ITI-67."
+* rest.resource[=].searchParam[+].name = "status"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/List-status"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "current | retired | entered-in-error"
 * rest.resource[=].searchParam[+].name = "subject"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference

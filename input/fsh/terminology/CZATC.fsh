@@ -1,7 +1,7 @@
 CodeSystem:     CZ_ATCCs
 Id:	        cz-atc-cs
-Title:	       "CZ Audit Trail Consumption Event Types CodeSystem"
-Description:   "Codesystem for Audit Trail Consumption Event Types codes."
+Title:	       "CZ Audit Trail Event Types CodeSystem"
+Description:   "Typy auditních událostí, které AAfD zaznamenává a zpřístupňuje Žurnálu činností pro dohledání činností podle subjektu (pacient, zdravotnický pracovník, poskytovatel zdravotních služeb)."
 
 * ^language = #cs-CZ
 * ^identifier.system = "urn:ietf:rfc:3986"
@@ -20,13 +20,5 @@ Description:   "Codesystem for Audit Trail Consumption Event Types codes."
 * #ATC_DOC_UPDATE	"Document or Document Metadata update" "Aktualizace dokumentu nebo metadat dokumentu."
 * #ATC_DOC_DELETE	"Document removal" "Odstranění dokumentu."
 * #ATC_DOC_SEARCH	"Document search" "Vyhledání dokumentů nebo metadat dokumentů pacienta."
-* #ATC_POL_CREATE_AUT_PART_AL	"Authorize participants to access level/date" "Udělení oprávnění účastníkům (zdravotnickým pracovníkům, skupinám nebo zástupcům pacienta) pro úroveň přístupu, případně s omezením do data."
-* #ATC_POL_UPDATE_AUT_PART_AL	"Update access level/date of authorized participants" "Změna úrovně přístupu nebo data omezení přístupu u již oprávněných účastníků."
-* #ATC_POL_REMOVE_AUT_PART_AL	"Remove authorization for participants to access level/date" "Odebrání oprávnění účastníkům."
-* #ATC_POL_DEF_CONFLEVEL	"Set or update the default Confidentiality Level for new documents" "Nastavení nebo změna výchozí úrovně důvěrnosti pro nové dokumenty."
-* #ATC_POL_DIS_EMER_USE	"Disabling Emergency Access" "Zakázání nouzového přístupu k dokumentaci pacienta."
-* #ATC_POL_ENA_EMER_USE	"Enabling Emergency Access" "Povolení nouzového přístupu k dokumentaci pacienta."
-* #ATC_POL_INCL_BLACKLIST	"Assign a Healthcare Professional to Blacklist" "Vyloučení zdravotnického pracovníka z přístupu k dokumentaci pacienta (zařazení na černou listinu)."
-* #ATC_POL_EXL_BLACKLIST	"Exclude a Healthcare Professional from Blacklist" "Zrušení vyloučení zdravotnického pracovníka z přístupu k dokumentaci pacienta (vyřazení z černé listiny)."
-* #ATC_LOG_READ	"Accessing the Patient Audit Record Repository" "Přístup pacienta nebo jeho zástupce k auditní stopě v úložišti auditních záznamů pacienta."
-* #ATC_HPD_GROUP_ENTRY_NOTIFY	"Entry of healthcare professionals into a group" "Notifikace pacienta o vstupu zdravotnických pracovníků do skupiny."
+* #ATC_POL_ACCESS_CHECK "Access check in the Consent Registry" "AAfD ověřila v centrálním Registru oprávnění, zda pacient udělil nebo omezil oprávnění k přístupu k jeho zdravotnické dokumentaci (MZ REST nebo plánovaná transakce ITI-108)."
+* #ATC_LOG_READ	"Accessing the audit trail" "Přístup k auditním záznamům – dotaz Žurnálu činností na úložiště auditních záznamů (ITI-81)."

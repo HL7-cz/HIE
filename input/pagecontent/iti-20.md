@@ -46,7 +46,7 @@ Audit events of the MHD transactions SHALL conform to these profiles:
 | Retrieve Document [ITI-68] | Document Responder | [CZ Audit Event for [ITI-68] Document Responder](StructureDefinition-cz-auditEventIti68Responder.html) |
 {:class="table table-bordered"}
 
-The content of audit events for the patient audit trail is described in [Volume 3](volume3.html).
+The content of the audit events that an AAfD makes available to the Activity Journal is described in [Volume 3](volume3.html).
 
 ##### Recording the communication security
 

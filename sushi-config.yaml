@@ -80,9 +80,9 @@ pages:
   atna-cs.md:
     title: RESTful ATNA (ATNA)
   volume3.md:
-    title: CZ:ATC Audit Event Content Profiles (ATNA)
+    title: Audit Event Content Profiles (ATNA)
   volume3-cs.md:
-    title: CZ:ATC Audit Event Content Profiles (ATNA)
+    title: Profily obsahu auditních událostí (ATNA)
   iti-20.md:
     title: Record Audit Event [ITI-20]
   iti-20-cs.md:
@@ -221,8 +221,8 @@ menu:
     Retrieve ATNA Audit Event [ITI-81]: iti-81.html
     Retrieve ATNA Audit Event [ITI-81] (CS): iti-81-cs.html
   Volume 3:
-    CZ:ATC Audit Event Content Profiles (ATNA): volume3.html
-    CZ:ATC Audit Event Content Profiles (ATNA, CS): volume3-cs.html
+    Audit Event Content Profiles (ATNA): volume3.html
+    Profily obsahu auditních událostí (ATNA, CS): volume3-cs.html
   Appendix:
     Profiles: profiles.html
   Artifacts: artifacts.html
@@ -313,7 +313,6 @@ groups:
     resources:
       - StructureDefinition/cz-auditEvent
       - StructureDefinition/cz-documentAuditEvent
-      - StructureDefinition/cz-hpdAuditEvent
       - StructureDefinition/cz-policyAuditEvent
       - StructureDefinition/cz-auditEventIti65Source
       - StructureDefinition/cz-auditEventIti65Recipient

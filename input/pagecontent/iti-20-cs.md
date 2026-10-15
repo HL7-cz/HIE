@@ -44,7 +44,7 @@ Auditní události transakcí MHD MUSÍ odpovídat těmto profilům:
 | Retrieve Document [ITI-68] | Document Responder | [CZ Audit Event for [ITI-68] Document Responder](StructureDefinition-cz-auditEventIti68Responder.html) |
 {:class="table table-bordered"}
 
-Obsah auditních událostí pro auditní stopu pacienta popisuje [Volume 3](volume3-cs.html).
+Obsah auditních událostí, které AAfD zpřístupňuje Žurnálu činností, popisuje [Volume 3](volume3-cs.html).
 
 ##### Zaznamenání zabezpečení komunikace
 

@@ -1,10 +1,10 @@
-### Constraints on Retrieve ATNA Audit Event [ITI-81] for CZ:ATC
+### Národní upřesnění transakce Retrieve ATNA Audit Event [ITI-81]
 
-Transakce Retrieve ATNA Audit Event [ITI‑81] je definována v [IHE ITI TF-2](https://profiles.ihe.net/ITI/TF/Volume2/index.html) a v dodatku [IHE ITI Supplement Add RESTful Query to ATNA](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_RESTful-ATNA.pdf). Pro profil CZ:ATC platí následující pravidla:
+Transakce Retrieve ATNA Audit Event [ITI‑81] je definována v [IHE ITI TF-2](https://profiles.ihe.net/ITI/TF/Volume2/index.html) a v dodatku [IHE ITI Supplement Add RESTful Query to ATNA](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_RESTful-ATNA.pdf). V národním rozšíření platí následující pravidla:
 
 #### Sémantika zprávy
 
-Zpráva Retrieve ATNA Audit Event musí být provedena jako HTTP GET žádost směrem k Patient Audit Record Repository. Tato zpráva je FHIR search dotaz (popsáno v [http://hl7.org/fhir/R4/search.html](http://hl7.org/fhir/R4/search.html)) na zdroje typu AuditEvent(popsáno v [http://hl7.org/fhir/R4/auditevent.html](http://hl7.org/fhir/R4/auditevent.html)). Formát URL je následující:
+Zpráva Retrieve ATNA Audit Event musí být provedena jako HTTP GET žádost směrem k úložišti auditních záznamů (Audit Record Repository). Tato zpráva je FHIR search dotaz (popsáno v [http://hl7.org/fhir/R4/search.html](http://hl7.org/fhir/R4/search.html)) na zdroje typu AuditEvent(popsáno v [http://hl7.org/fhir/R4/auditevent.html](http://hl7.org/fhir/R4/auditevent.html)). Formát URL je následující:
 
 ``` http
 <scheme>://<authority>/<path>/AuditEvent?date=ge[start-time]&date=le[stop-time]&<query>
@@ -48,7 +48,7 @@ https://example.com/ARRservice/AuditEvent?date=ge2025-01-01&date=le2025-03-31&al
 
 #### Sémantika odpovědi zprávy
 
-Zdroje AuditEvent vrácené v Bundle musí být v souladu s profilem CZ:ATC AuditEvent, popsané v [Volume 3 - CZ:ATC Audit Event Content Profiles](volume3-cs.html).
+Zdroje AuditEvent vrácené v Bundle musí být v souladu s profily obsahu auditních událostí popsanými ve [Volume 3 – Profily obsahu auditních událostí](volume3-cs.html).
 
 
 #### Bezpečnostní hlediska
@@ -73,7 +73,7 @@ Předává-li domovská AAfD požadavek do jiné AAfD, získá pro cílovou AAfD
 
 Aktéři MUSÍ podporovat zpracování hlavičky `traceparent` dle [W3C Trace Context](https://www.w3.org/TR/trace-context/).
 
-Konzumentem auditních záznamů (Patient Audit Consumer) je centrální komponenta elektronického zdravotnictví Žurnál činností. Prokazuje se certifikátem při mTLS a svým systémovým přístupovým tokenem. Úložiště auditních záznamů MUSÍ ověřit, že volající je oprávněn auditní záznamy číst, a vrátit pouze záznamy týkající se dotazovaného subjektu.
+Konzumentem auditních záznamů (Audit Consumer) je centrální komponenta elektronického zdravotnictví Žurnál činností. Prokazuje se certifikátem při mTLS a svým systémovým přístupovým tokenem. Úložiště auditních záznamů MUSÍ ověřit, že volající je oprávněn auditní záznamy číst, a vrátit pouze záznamy týkající se dotazovaného subjektu.
 
 #### Bezpečnostní audit
 

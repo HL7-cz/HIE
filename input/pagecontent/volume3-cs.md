@@ -1,664 +1,105 @@
-V kontextu HIE existují čtyři různé kategorie Auditních Událostí:
+Tato kapitola popisuje obsah auditních událostí, které AAfD zaznamenává do svého auditního logu a zpřístupňuje je centrální komponentě Žurnál činností transakcí [Retrieve ATNA Audit Event [ITI-81]](iti-81-cs.html). Auditní záznamy se dohledávají podle subjektu údajů – pacienta, zdravotnického pracovníka (ZP) i poskytovatele zdravotních služeb (PZS) – a slouží také k vyhodnocení bezpečnostních událostí.
 
-<ol type="a">
-    <li>
-        Správa dokumentů (např. dokument pacienta byl nahrán nebo byl vyhledán seznam metadat dokumentů).
-    </li>
-    <li>
-        Správa politik (např. pacient udělil zdravotnickému pracovníkovi přístupová práva ke svému záznamu).
-    </li>
-    <li>
-        Přístup k Repozitáři Auditních Záznamů Pacienta pacientem nebo jeho zástupcem (pacient si zobrazil Auditní Stopu Repozitáře Auditních Záznamů).
-    </li>
-    <li>
-        Notifikace pacienta o vstupu zdravotnických pracovníků do skupiny.
-    </li>
-</ol>
+V kontextu HIE se rozlišují tyto kategorie auditních událostí:
 
-Každá kategorie je popsána jako profil obsahu. Tyto profily obsahu vycházejí ze zdrojového objektu AuditEvent (Auditní Událost) [http://hl7.org/fhir/R4/auditevent.html](http://hl7.org/fhir/R4/auditevent.html).
+1. **Správa dokumentů** – např. dokument pacienta byl nahrán do AAfD nebo byl vyhledán seznam metadat dokumentů.
+2. **Ověření oprávnění** – AAfD ověřila v centrálním Registru oprávnění, zda pacient udělil nebo omezil oprávnění k přístupu ke své zdravotnické dokumentaci. AAfD oprávnění v Registru oprávnění pouze čte, nenastavuje je.
+3. **Přístup k auditní stopě** – Žurnál činností si vyžádal auditní záznamy pacienta, zdravotnického pracovníka nebo poskytovatele zdravotních služeb.
+4. **Bezpečnostní události** – např. odmítnutí spojení kvůli neplatnému certifikátu (mTLS) nebo odmítnutí požadavku kvůli neplatnému přístupovému tokenu. Tyto události nemají vlastní kód v tabulce níže, zaznamenávají se s typy DICOM podle kapitoly [Neúspěšná autentizace a autorizace](iti-20-cs.html#neúspěšná-autentizace-a-autorizace).
 
-Zdrojový objekt AuditEvent má [mapovací pravidla na formát DICOM auditní zprávy](http://hl7.org/fhir/R4/auditevent-mappings.html#dicom), což umožňuje mapování na ATNA.
+Každá kategorie je popsána jako profil obsahu. Profily obsahu vycházejí ze zdroje [AuditEvent](http://hl7.org/fhir/R4/auditevent.html), který má [mapovací pravidla na formát auditní zprávy DICOM](http://hl7.org/fhir/R4/auditevent-mappings.html#dicom), a tím umožňuje mapování na ATNA.
 
-### Typy Událostí Konzumace Auditní Stopy
-Následující Typy Událostí Konzumace Auditní Stopy (Audit Trail Consumption Event Types) jsou definovány a musí být podporovány.
+Způsob zaznamenání zabezpečení komunikace (identita uzlů z mTLS, PZS a identifikátor přístupového tokenu IUA) je společný všem kategoriím a popisuje ho kapitola [Zaznamenání zabezpečení komunikace](iti-20-cs.html#zaznamenání-zabezpečení-komunikace).
 
+### Typy auditních událostí
+
+Následující typy událostí jsou definovány v kódovém systému [CZ Audit Trail Event Types](CodeSystem-cz-atc-cs.html) a AAfD je MUSÍ podporovat.
+
+| Typ | Popis | Profil obsahu | Povinnost |
+|-----|-------|---------------|-----------|
+| ATC_DOC_CREATE | Nahrání dokumentu | [Profil obsahu auditních událostí dokumentů](#profil-obsahu-auditních-událostí-dokumentů) | R (povinné) |
+| ATC_DOC_READ | Získání dokumentu | [Profil obsahu auditních událostí dokumentů](#profil-obsahu-auditních-událostí-dokumentů) | R (povinné) |
+| ATC_DOC_UPDATE | Aktualizace dokumentu nebo metadat dokumentu | [Profil obsahu auditních událostí dokumentů](#profil-obsahu-auditních-událostí-dokumentů) | R (povinné) |
+| ATC_DOC_DELETE | Odstranění dokumentu | [Profil obsahu auditních událostí dokumentů](#profil-obsahu-auditních-událostí-dokumentů) | R (povinné) |
+| ATC_DOC_SEARCH | Vyhledání dokumentů | [Profil obsahu auditních událostí dokumentů](#profil-obsahu-auditních-událostí-dokumentů) | R (povinné) |
+| ATC_POL_ACCESS_CHECK | Ověření oprávnění v Registru oprávnění | [Profil obsahu auditní události ověření oprávnění](#profil-obsahu-auditní-události-ověření-oprávnění) | R (povinné) |
+| ATC_LOG_READ | Přístup k auditní stopě | [Profil obsahu přístupu k auditní stopě](#profil-obsahu-přístupu-k-auditní-stopě) | R (povinné) |
 {:class="table table-bordered"}
-| Typ | Popis | Odkaz na profil| Komunitní požadavek (Opt Community) |
-| --- | --- | --- | --- |
-| ATC_DOC_CREATE | Nahrání dokumentu | [Profil Obsahu Auditních Událostí Dokumentů](#profil-obsahu-auditních-událostí-dokumentů) | R (Vyžadováno) |
-| ATC_DOC_READ | Získání dokumentu | [Profil Obsahu Auditních Událostí Dokumentů](#profil-obsahu-auditních-událostí-dokumentů) | R (Vyžadováno) |
-| ATC_DOC_UPDATE | Aktualizace dokumentu nebo metadat dokumentu | [Profil Obsahu Auditních Událostí Dokumentů](#profil-obsahu-auditních-událostí-dokumentů) | R (Vyžadováno) |
-| ATC_DOC_DELETE | Odstranění dokumentu | [Profil Obsahu Auditních Událostí Dokumentů](#profil-obsahu-auditních-událostí-dokumentů) | R (Vyžadováno) |
-| ATC_DOC_SEARCH | Vyhledávání dokumentů | [Profil Obsahu Auditních Událostí Dokumentů](#profil-obsahu-auditních-událostí-dokumentů) | R (Vyžadováno) |
-| ATC_POL_CREATE_AUT_PART_AL | ATC_POL_CREATE_AUT_PART_AL	Autorizovat účastníky pro úroveň/datum přístupu | [Profil Obsahu Auditních Událostí Politik](#profil-obsahu-auditních-událostí-politik) | R, (NP, pokud se nejedná o referenční komunitu) |
-| ATC_POL_UPDATE_AUT_PART_AL | Aktualizovat úroveň/datum přístupu autorizovaných účastníků | [Profil Obsahu Auditních Událostí Politik](#profil-obsahu-auditních-událostí-politik) | R, (NP, pokud se nejedná o referenční komunitu) |
-| ATC_POL_REMOVE_AUT_PART_AL | Odebrat autorizaci pro účastníky | [Profil Obsahu Auditních Událostí Politik](#profil-obsahu-auditních-událostí-politik) | R, (NP, pokud se nejedná o referenční komunitu) |
-| ATC_POL_DEF_CONFLEVEL | Nastavit nebo aktualizovat výchozí Úroveň Důvěrnosti | [Profil Obsahu Auditních Událostí Politik](#profil-obsahu-auditních-událostí-politik) | R, (NP, pokud se nejedná o referenční komunitu) |
-| ATC_POL_DIS_EMER_USE | Zakázání Nouzového Přístupu | [Profil Obsahu Auditních Událostí Politik](#profil-obsahu-auditních-událostí-politik) | R, (NP, pokud se nejedná o referenční komunitu) |
-| ATC_POL_ENA_EMER_USE | Povolení Nouzového Přístupu | [Profil Obsahu Auditních Událostí Politik](#profil-obsahu-auditních-událostí-politik) | R, (NP, pokud se nejedná o referenční komunitu) |
-| ATC_POL_INCL_BLACKLIST | Přiřadit Zdravotnického Pracovníka na Černou Listinu | [Profil Obsahu Auditních Událostí Politik](#profil-obsahu-auditních-událostí-politik) | R, (NP, pokud se nejedná o referenční komunitu) |
-| ATC_POL_EXL_BLACKLIST | Vyloučit Zdravotnického Pracovníka z Černé Listiny | [Profil Obsahu Auditních Událostí Politik](#profil-obsahu-auditních-událostí-politik) | R, (NP, pokud se nejedná o referenční komunitu) |
-| ATC_LOG_READ | Přístup k Repozitáři Auditních Záznamů Pacienta | [Access Audit Trail Content Profile](#profil-obsahu-auditních-událostí-politik) | R |
-| ATC_HPD_GROUP_ENTRY_NOTIFY | Vstup zdravotnických pracovníků do skupiny | [HPD Group Entry Audit Event Content Profile](#profil-obsahu-přístupu-k-auditní-stopě) | R, (NP, pokud se nejedná o referenční komunituy) |
 
-_Tabulka 1: Typy Událostí Konzumace Auditní Stopy
+_Tabulka 1: Typy auditních událostí_
 
+### Profil obsahu auditních událostí dokumentů
 
-### Profil Obsahu Auditních Událostí Dokumentů
+Tento profil obsahu popisuje auditní události související se správou dokumentů. Musí být poskytnuty následující datové prvky:
 
-Tento profil obsahu popisuje Auditní Události související se Správou Dokumentů. Musí být poskytnuty následující datové prvky:
-
+| Datový prvek | Popis | Hodnota |
+|--------------|-------|---------|
+| Typ události | | Nahrání dokumentu, získání dokumentu, aktualizace dokumentu nebo metadat dokumentu, odstranění dokumentu, vyhledání dokumentů |
+| Datum a čas události | | FHIR instant |
+| **Účastníci** | | |
+| Iniciátor | Pacient | Jméno, RID nebo DRID |
+| | Zástupce pacienta | Jméno, RID nebo DRID |
+| | Zdravotnický pracovník | Jméno, identifikátor z KRZP |
+| | Asistent zdravotnického pracovníka | Jméno, identifikátor z KRZP |
+| | Technický uživatel | Jméno, identifikátor |
+| Odpovědná osoba<sup>1</sup> | Pacient | Jméno, RID nebo DRID |
+| | Zdravotnický pracovník | Jméno, identifikátor z KRZP |
+| Poskytovatel zdravotních služeb | PZS identifikovaný v přístupovém tokenu IUA | Název, IČO |
+| Účel použití | | NORM, EMER, AUTO |
+| **Pacient** | Dotčený pacient | RID nebo DRID |
+| **Dokument**<sup>2</sup> | Typ dokumentu | typeCode |
+| | Odkaz na dokument | uniqueId, repositoryUniqueId, homeCommunityId |
+| | Název dokumentu | title |
 {:class="table table-bordered"}
-<table>
-    <tbody>
-        <tr>
-            <td>
-                <p><strong>Datový Prvek</strong></p>
-            </td>
-            <td>
-                <p><strong>Popis</strong></p>
-            </td>
-            <td>
-                <p><strong>Vlastnost/Hodnota</strong></p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Typ události</p>
-            </td>
-            <td colspan="2">
-                <p>
-                    Nahrání dokumentu, Získání dokumentu, Aktualizace dokumentu nebo metadat dokumentu, Odstranění dokumentu, Vyhledávání dokumentů
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Datum a Čas Události</p>
-            </td>
-            <td>
-                <p>&nbsp;</p>
-            </td>
-            <td>
-                <p>FHIR instant</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Účastníci</p>
-            </td>
-            <td>
-                <p>&nbsp;</p>
-            </td>
-            <td>
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td rowspan="6">
-                <p>Iniciátor</p>
-            </td>
-            <td>
-                <p>Pacient</p>
-            </td>
-            <td>
-                <p>Jméno<br />RID</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Zástupce pacienta</p>
-            </td>
-            <td>
-                <p>Jméno<br />RID</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Autorizovaný Zdravotnický Pracovník</p>
-            </td>
-            <td>
-                <p>Jméno<br />KRZP</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Asistent Zdravotnického Pracovníka</p>
-            </td>
-            <td>
-                <p>Jméno<br />KRZP</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Technický Uživatel</p>
-            </td>
-            <td>
-                <p>Jméno<br />Identifikátor</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Administrátor dokumentu</p>
-            </td>
-            <td>
-                <p>Jméno<br />KRZP</p>
-            </td>
-        </tr>
-        <tr>
-            <td rowspan="2">
-                <p>Odpovědná osoba<sup><a href="#_ftn2.1" name="_ftnref2.1">[2.1]</a></sup></p>
-            </td>
-            <td>
-                <p>Pacient</p>
-            </td>
-            <td>
-                <p>Jméno<br />RID</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Zdravotnický Pracovník</p>
-            </td>
-            <td>
-                <p>Jméno<br />KRZP</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Skupiny, kde je Zdravotnický Pracovník členem</p>
-            </td>
-            <td>
-                <p>&nbsp;</p>
-            </td>
-            <td>
-                <p>Jméno skupiny<br />KRPZS</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Účel Použití</p>
-            </td>
-            <td>
-                <p>&nbsp;</p>
-            </td>
-            <td>
-                <p>NORM, EMER, AUTO, DICOM_AUTO</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Pacient</p>
-            </td>
-            <td>
-                <p>Dotčený pacient</p>
-            </td>
-            <td>
-                <p>RID nebo DRID</p>
-            </td>
-        </tr>
-        <tr>
-            <td rowspan="3">
-                <p>Dokument<sup><a href="#_ftn2.2" name="_ftnref2.2">[2.2]</a></sup></p>
-            </td>
-            <td>
-                <p>Typ dokumentu</p>
-            </td>
-            <td>
-                <p>typeCode (SNOMED CT code)</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Odkaz na dokument</p>
-            </td>
-            <td>
-                <p>
-                    uniqueId<br />repositoryUniqueId<br />homeCommunityID
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Název dokumentu</p>
-            </td>
-            <td>
-                <p>
-                    title
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p><sup><a href="#_ftnref2.1" name="_ftn2.1">[2.1]</a></sup> <span style="font-size: smaller">Pokud se liší od Iniciátora (např. Zástupce pacienta jedná jménem pacienta, pak je pacient Odpovědnou stranou).</span></p>
-<p><sup><a href="#_ftnref2.2" name="_ftn2.2">[2.2]</a></sup> <span style="font-size: smaller">Vyžadováno pro nahrání dokumentu, získání dokumentu, aktualizaci dokumentu nebo metadat dokumentu a odstranění dokumentu, ale ne pro vyhledávání dokumentů.</span></p>
 
-_Tabulka 2: Datové Prvky Auditní Události Dokumentů_
+<sup>1</sup> Pokud se liší od iniciátora (např. zástupce pacienta jedná jménem pacienta, odpovědnou osobou je pacient).<br/>
+<sup>2</sup> Vyžadováno pro nahrání, získání, aktualizaci a odstranění dokumentu, nikoli pro vyhledání dokumentů.
 
-Tento profil definuje obsah auditních událostí dokumentů, které musí komunita poskytovat pro auditní stopu pacienta. Vychází ze zdrojového objektu AuditEvent. ([http://hl7.org/fhir/R4/auditevent.html](http://hl7.org/fhir/R4/auditevent.html)).   
+_Tabulka 2: Datové prvky auditní události dokumentů_
 
+Strukturu auditních událostí jednotlivých transakcí MHD definují profily [ITI-65](StructureDefinition-cz-auditEventIti65Source.html), [ITI-66](StructureDefinition-cz-auditEventIti66Consumer.html), [ITI-67](StructureDefinition-cz-auditEventIti67Consumer.html) a [ITI-68](StructureDefinition-cz-auditEventIti68Consumer.html) a obecný profil [CZ Document Audit Event](StructureDefinition-cz-documentAuditEvent.html).
+
+### Profil obsahu auditní události ověření oprávnění
+
+AAfD před zpřístupněním dokumentace ověřuje v centrálním Registru oprávnění, zda osoba v roli pacienta udělila nebo omezila oprávnění třetí osobě (MZ REST nebo plánovaná transakce [ITI-108] Souhlas s přístupem). Každé takové ověření AAfD zaznamená jako auditní událost. Musí být poskytnuty následující datové prvky:
+
+| Datový prvek | Popis | Hodnota |
+|--------------|-------|---------|
+| Typ události | | Ověření oprávnění v Registru oprávnění (ATC_POL_ACCESS_CHECK) |
+| Datum a čas události | | FHIR instant |
+| **Účastníci** | | |
+| AAfD | AAfD, která oprávnění ověřuje | Název, HCID |
+| Registr oprávnění | Centrální služba elektronického zdravotnictví | Název, adresa služby |
+| Poskytovatel zdravotních služeb | PZS identifikovaný v přístupovém tokenu IUA | Název, IČO, identifikátor tokenu (jti) |
+| Zdravotnický pracovník | ZP, pro kterého se oprávnění ověřuje (pokud je v kontextu volání) | Jméno, identifikátor z KRZP |
+| Účel použití | | NORM, EMER, AUTO |
+| **Pacient** | Pacient, k jehož dokumentaci se oprávnění ověřuje | RID nebo DRID |
+| **Výsledek** | Rozhodnutí Registru oprávnění | permit (povoleno), restrict (omezeno), deny (zamítnuto) |
+| Transakce | Hodnota hlavičky traceparent transakce, v jejímž rámci se ověřovalo (ITI-66, ITI-67, ITI-68) | traceparent |
+{:class="table table-bordered"}
+
+_Tabulka 3: Datové prvky auditní události ověření oprávnění_
+
+Strukturu definuje profil [CZ Access Check Audit Event](StructureDefinition-cz-policyAuditEvent.html), viz také [příklad](AuditEvent-CZ-PolicyAuditEventExample.html).
+
+### Profil obsahu přístupu k auditní stopě
+
+Tento profil obsahu popisuje auditní událost, kterou úložiště auditních záznamů zaznamená, když Žurnál činností vyhledá auditní záznamy transakcí [ITI-81](iti-81-cs.html). Musí být poskytnuty následující datové prvky:
+
+| Datový prvek | Popis | Hodnota |
+|--------------|-------|---------|
+| Typ události | | Přístup k auditní stopě (ATC_LOG_READ) |
+| Datum a čas události | | FHIR instant |
+| **Účastníci** | | |
+| Iniciátor | Žurnál činností (centrální služba elektronického zdravotnictví) | Identita z certifikátu mTLS a z přístupového tokenu |
+| Úložiště auditních záznamů | Úložiště, které auditní záznamy vrátilo | Název, HCID AAfD |
+| **Subjekt dotazu** | Pacient | RID nebo DRID |
+| | Zdravotnický pracovník | identifikátor z KRZP |
+| | Poskytovatel zdravotních služeb | IČO |
+{:class="table table-bordered"}
+
+_Tabulka 4: Datové prvky přístupu k auditní stopě_
 
 #### Příklady
 
-Budou dodány
-
-
-### Profil Obsahu Auditních Událostí Politik
-
-Tento profil obsahu popisuje Auditní Události související se Správou Politik (Policy Management). Musí být poskytnuty následující datové prvky:
-
-{:class="table table-bordered"}
-<table>
-    <tbody>
-        <tr>
-            <td>
-                <p><strong>Datový Prvek</strong></p>
-            </td>
-            <td>
-                <p><strong>Popis</strong></p>
-            </td>
-            <td>
-                <p><strong>Vlastnost/Hodnota</strong></p>
-            </td>
-        </tr>
-        <tr>
-            <td rowspan="8">
-                <p>Typ Události</p>
-            </td>
-            <td colspan="2">
-                <p>Autorizovat účastníky pro úroveň/datum přístupu</p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <p>Aktualizovat úroveň/datum přístupu autorizovaných účastníků</p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <p>Odebrat autorizaci pro účastníky pro úroveň/datum přístupu</p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <p>Nastavit nebo aktualizovat výchozí Úroveň Důvěrnosti pro nové dokumenty</p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <p>Zakázání Nouzového Přístupu</p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <p>Povolení Nouzového Přístupu</p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <p>Vyloučit Zdravotnického Pracovníka z přístupu</p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <p>Zrušit vyloučení Zdravotnického Pracovníka z přístupu</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Datum a Čas Události</p>
-            </td>
-            <td>&nbsp;</td>
-            <td>
-                <p>FHIR instant</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Účastníci</p>
-            </td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td rowspan="5">
-                <p>Iniciátor</p>
-            </td>
-            <td>
-                <p>Pacient</p>
-            </td>
-            <td>
-                <p>Jméno/RID</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Zástupce pacienta</p>
-            </td>
-            <td>
-                <p>Jméno<br />RID</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Autorizovaný Zdravotnický Pracovník<sup><a href="#_ftn3.1" name="_ftnref3.1">[3.1]</a></sup></p>
-            </td>
-            <td>
-                <p>Jméno<br />KRZP</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Asistent Zdravotnického Pracovníka</p>
-            </td>
-            <td>
-                <p>Jméno<br />KRZP</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Administrátor Politik</p>
-            </td>
-            <td>
-                <p>Jméno<br />KRZP</p>
-            </td>
-        </tr>
-        <tr>
-            <td rowspan="2">
-                <p>Odpovědná strana</p>
-            </td>
-            <td>
-                <p>Pacient</p>
-            </td>
-            <td>
-                <p>Jméno/RID</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Zdravotnický Pracovník</p>
-            </td>
-            <td>
-                <p>Jméno<br />KRZP</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Pacient</p>
-            </td>
-            <td>
-                <p>Dotčený pacient</p>
-            </td>
-            <td>
-                <p>RID nebo DRID</p>
-            </td>
-        </tr>
-        <tr>
-            <td rowspan="7">
-                <p>Zdroj</p>
-            </td>
-            <td>
-                <p>Role zdroje</p>
-            </td>
-            <td>
-                <p>HCP, GRP or REP</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Zdravotnický pracovník</p>
-            </td>
-            <td>
-                <p>Jméno<br />KRZP</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Skupina Zdravotnických Pracovníků</p>
-            </td>
-            <td>
-                <p>Jméno<br />KRPZS</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Zástupce pacienta</p>
-            </td>
-            <td>
-                <p>Jméno<br />RID</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Úroveň přístupu<sup><a href="#_ftn3.2" name="_ftnref3.2">[3.2]</a></sup></p>
-            </td>
-            <td>
-                <p>jedna z hodnot úrovně přístupu:<br />normal, restricted, delegation-and-restricted, delegation-and-normal, full</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Přístup omezen do data <sup><a href="#_ftn3.2" name="_ftnref3.2b">[3.2]</a></sup></p>
-            </td>
-            <td>
-                <p>Datum</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Úroveň poskytnutí<sup><a href="#_ftn3.3" name="_ftnref3.3">[3.3]</a></sup></p>
-            </td>
-            <td>
-                <p>Jedna z hodnot:<br />normal, restricted, secret</p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p><sup><a href="#_ftnref3.1" name="_ftn3.1">[3.1]</a></sup> <span style="font-size: smaller">Zdravotnický Pracovník nebo Asistent Zdravotnického Pracovníka může být účastníkem pouze pro první Typ Události (Autorizovat účastníky pro úroveň přístupu).</span></p>
-<p><sup><a href="#_ftnref3.2" name="_ftn3.2">[3.2]</a></sup> <span style="font-size: smaller">Úroveň Přístupu a datum, pokud je přístup omezen (AccessLimitedToDate), jsou vyžadovány pro první dva Typy Událostí (Autorizovat, aktualizovat Autorizaci účastníků pro úroveň/datum přístupu); pro ostatní Typy Událostí tyto parametry nemusí být specifikovány.</span></p>
-<p><sup><a href="#_ftnref3.3" name="_ftn3.3">[3.3]</a></sup> <span style="font-size: smaller">Úroveň Poskytnutí je relevantní pouze pro Typ Události Výchozí Úroveň Důvěrnosti pro nové Dokumenty.</span></p>
-
-_Tabulka 3: Datové Prvky Auditní Události Politik_
-
-Tento profil definuje obsah auditních událostí politik, které musí komunita poskytovat pro auditní stopu pacienta. Vychází ze zdrojového objektu AuditEvent ([http://hl7.org/fhir/R4/auditevent.html](http://hl7.org/fhir/R4/auditevent.html)).   
-
-#### Příklady
-
-Budou dodány
-
-### Profil Obsahu Přístupu k Auditní Stopě
-
-Tento profil obsahu popisuje Auditní Událost související s Přístupem k Auditní Stopě Pacienta z Repozitáře Auditních Záznamů Pacienta. Musí být poskytnuty následující datové prvky:
-
-{:class="table table-bordered"}
-<table>
-    <tbody>
-        <tr>
-            <td>
-                <p><strong>Datový Prvek</strong></p>
-            </td>
-            <td>
-                <p><strong>Popis</strong></p>
-            </td>
-            <td>
-                <p><strong>Vlastnost/Hodnota</strong></p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Typ Události</p>
-            </td>
-            <td>
-                <p>&nbsp;</p>
-            </td>
-            <td>
-                <p>Přístup k Auditní Stopě</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Datum a Čas Události</p>
-            </td>
-            <td>
-                <p>&nbsp;</p>
-            </td>
-            <td>
-                <p>FHIR instant</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Účastníci</p>
-            </td>
-            <td>
-                <p>&nbsp;</p>
-            </td>
-            <td>
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td rowspan="2">
-                <p>Iniciátor</p>
-            </td>
-            <td>
-                <p>Pacient</p>
-            </td>
-            <td>
-                <p>Jméno<br />RID</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Zástupce pacienta</p>
-            </td>
-            <td>
-                <p>Jméno<br />RID</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Odpovědná strana</p>
-            </td>
-            <td>
-                <p>Pacient</p>
-            </td>
-            <td>
-                <p>Jméno<br />RID</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Pacient</p>
-            </td>
-            <td>
-                <p>Dotčený pacient</p>
-            </td>
-            <td>
-                <p>RID nebo DRID</p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-_Table 4: Datové Prvky Přístupu k Auditní Stopě_
-
-Tento profil definuje událost přístupu k auditní stopě, kterou musí komunita poskytovat pro auditní stopu pacienta. Vychází ze zdrojového objektu AuditEvent. ([http://hl7.org/fhir/R4/auditevent.html](http://hl7.org/fhir/R4/auditevent.html)).   
-
-#### Příklady 
-
-Budou dodány
-
-
-### Profil Obsahu Auditních Událostí Vstupu do Skupiny HPD
-
-Tento profil obsahu popisuje Auditní Událost související se vstupem zdravotnického pracovníka do skupiny HPD, o čemž je pacient notifikován. Musí být poskytnuty následující datové prvky:
-
-{:class="table table-bordered"}
-<table>
-    <tbody>
-        <tr>
-            <td>
-                <p><strong>Datový prvek</strong></p>
-            </td>
-            <td>
-                <p><strong>Popis</strong></p>
-            </td>
-            <td>
-                <p><strong>Vlastnost/Hodnota</strong></p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Typ Události</p>
-            </td>
-            <td colspan="2">
-                <p>Pacient notifikován o přidání Zdravotnických Pracovníků do skupiny</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Datum a Čas Události</p>
-            </td>
-            <td>
-                <p>&nbsp;</p>
-            </td>
-            <td>
-                <p>FHIR instant</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Notifikační služba</p>
-            </td>
-            <td>
-                <p>&nbsp;</p>
-            </td>
-            <td>
-                <p>Jméno</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Pacient</p>
-            </td>
-            <td>
-                <p>Notifikovaný pacient</p>
-            </td>
-            <td>
-                <p>RID nebo DRID</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Zdravotničtí Pracovníci</p>
-            </td>
-            <td>
-                <p>Zdravotničtí Pracovníci</p>
-            </td>
-            <td>
-                <p>Jméno<br />KRZP</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Skupina</p>
-            </td>
-            <td>
-                <p>Skupina, do které jsou Zdravotničtí Pracovníci přidáni jako členové</p>
-            </td>
-            <td>
-                <p>Jméno<br />KRPZS</p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-_Table 5: Prvky Auditní Události Vstupu do Skupiny HPD_
-
-Tento profil definuje obsah auditní události vstupu do skupiny HPD. Vychází ze zdrojového objektu AuditEvent ([http://hl7.org/fhir/R4/auditevent.html](http://hl7.org/fhir/R4/auditevent.html)).   
-
-#### Příklady
-
-Budou doplněny
-
+Budou doplněny.

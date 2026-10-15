@@ -1,10 +1,10 @@
-### Constraints on Retrieve ATNA Audit Event [ITI-81] for CZ:ATC
+### Czech national constraints on Retrieve ATNA Audit Event [ITI-81]
 
-The Retrieve ATNA Audit Event [ITI-81] transaction is defined in [IHE ITI TF-2](https://profiles.ihe.net/ITI/TF/Volume2/index.html) and the [IHE ITI Supplement Add RESTful Query to ATNA](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_RESTful-ATNA.pdf). The following rules shall be applied for the CZ:ATC profile.
+The Retrieve ATNA Audit Event [ITI-81] transaction is defined in [IHE ITI TF-2](https://profiles.ihe.net/ITI/TF/Volume2/index.html) and the [IHE ITI Supplement Add RESTful Query to ATNA](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_RESTful-ATNA.pdf). The following rules apply in the Czech national extension.
 
 #### Message Semantics
 
-The Retrieve ATNA Audit Event message shall be a HTTP GET request sent to the Patient Audit Record Repository. This message is a FHIR search (see [http://hl7.org/fhir/R4/search.html](http://hl7.org/fhir/R4/search.html)) on AuditEvent Resources (see [http://hl7.org/fhir/R4/auditevent.html](http://hl7.org/fhir/R4/auditevent.html)). This "search" target is formatted as:
+The Retrieve ATNA Audit Event message shall be a HTTP GET request sent to the Audit Record Repository. This message is a FHIR search (see [http://hl7.org/fhir/R4/search.html](http://hl7.org/fhir/R4/search.html)) on AuditEvent Resources (see [http://hl7.org/fhir/R4/auditevent.html](http://hl7.org/fhir/R4/auditevent.html)). This "search" target is formatted as:
 
 ``` http
 <scheme>://<authority>/<path>/AuditEvent?date=ge[start-time]&date=le[stop-time]&<query>
@@ -33,7 +33,7 @@ The Activity Journal (Žurnál činností) retrieves audit records for a data su
 | Healthcare provider | `agent:identifier` | `AuditEvent.agent.who.identifier` (provider company ID from the access token) | `https://ncez.mzcr.cz/fhir/sid/ico\|12345678` |
 {:class="table table-bordered"}
 
-Token parameters SHALL contain both the system and the value. The Patient Audit Consumer may use other parameters as listed in Retrieve Audit Event [ITI-81].
+Token parameters SHALL contain both the system and the value. The Audit Consumer may use other parameters as listed in Retrieve Audit Event [ITI-81].
 
 Example query for the audit records of a patient:
 ``` http
@@ -48,7 +48,7 @@ https://example.com/ARRservice/AuditEvent?date=ge2025-01-01&date=le2025-03-31&al
 
 #### Message Semantics for Response
 
-The returned AuditEvent FHIR resources in the Bundle shall conform the CZ:ATC AuditEvent profile, see [Volume 3 - CZ:ATC Audit Event Content Profiles](volume3.html).
+The returned AuditEvent FHIR resources in the Bundle shall conform to the audit event content profiles, see [Volume 3 – Audit Event Content Profiles](volume3.html).
 
 
 #### Security Considerations
@@ -73,7 +73,7 @@ When the home AAfD forwards a request to another AAfD, it obtains a new access t
 
 Actors SHALL support the `traceparent` header as defined in [W3C Trace Context](https://www.w3.org/TR/trace-context/).
 
-The Patient Audit Consumer is the central eHealth component Activity Journal (Žurnál činností). It authenticates with its certificate in mTLS and with its system access token. The Audit Record Repository SHALL verify that the caller is authorized to read audit records and SHALL return only records related to the queried subject.
+The Audit Consumer is the central eHealth component Activity Journal (Žurnál činností). It authenticates with its certificate in mTLS and with its system access token. The Audit Record Repository SHALL verify that the caller is authorized to read audit records and SHALL return only records related to the queried subject.
 
 #### Security Audit Considerations
 

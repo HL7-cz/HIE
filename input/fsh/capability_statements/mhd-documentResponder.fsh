@@ -65,6 +65,9 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
 * rest.resource[=].searchParam[=].type = #reference
 * rest.resource[=].searchParam[=].documentation = "Who/what is the subject of the document"
+* rest.resource[=].searchParam[+].name = "patient.identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Identifikátor pacienta (RID nebo DRID v systému https://ncez.mzcr.cz/fhir/sid/rid). Povinný parametr transakcí ITI-66 a ITI-67."
 * rest.resource[=].searchParam[+].name = "period"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/DocumentReference-period"
 * rest.resource[=].searchParam[=].type = #date
@@ -93,6 +96,37 @@ Usage: #definition
 * rest.resource[=].searchParam[=].definition = Canonical(DocumentReference-hcid)
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].documentation = "Home community id which authored the document"
+* rest.resource[+].type = #List
+* rest.resource[=].profile = "https://hl7.cz/fhir/hie/StructureDefinition/cz-mhd-submissionset-comprehensive"
+* rest.resource[=].interaction[0].code = #read
+* rest.resource[=].interaction[+].code = #search-type
+* rest.resource[=].searchParam[0].name = "_id"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Logical id of this artifact"
+* rest.resource[=].searchParam[+].name = "code"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-code"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Typ seznamu (SubmissionSet nebo Folder)"
+* rest.resource[=].searchParam[+].name = "date"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-date"
+* rest.resource[=].searchParam[=].type = #date
+* rest.resource[=].searchParam[=].documentation = "Datum vytvoření seznamu"
+* rest.resource[=].searchParam[+].name = "identifier"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Identifikátor seznamu (List.masterIdentifier nebo List.identifier)"
+* rest.resource[=].searchParam[+].name = "patient"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
+* rest.resource[=].searchParam[=].type = #reference
+* rest.resource[=].searchParam[=].documentation = "Pacient, kterého se seznam týká"
+* rest.resource[=].searchParam[+].name = "patient.identifier"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "Identifikátor pacienta (RID nebo DRID v systému https://ncez.mzcr.cz/fhir/sid/rid). Povinný parametr transakcí ITI-66 a ITI-67."
+* rest.resource[=].searchParam[+].name = "status"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/List-status"
+* rest.resource[=].searchParam[=].type = #token
+* rest.resource[=].searchParam[=].documentation = "current | retired | entered-in-error"
 * rest.resource[+].type = #Binary
 * rest.resource[=].interaction.code = #read
-* rest.interaction.code = #search-system
+* rest.interaction.code = #search-system
